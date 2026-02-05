@@ -1,14 +1,19 @@
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import logoImg from "../../public/assets/brand/WG LOGO_WHITE.png";
 
-export const Logo = ({ className = "" }: { className?: string }) => {
+interface LogoProps {
+    className?: string;
+}
+
+export const Logo = ({ className }: LogoProps) => {
     return (
-        <div className={`relative w-24 h-auto ${className}`}>
+        <div className={cn("relative aspect-[2/1]", className)}>
             <Image
-                src="/assets/brand/WG LOGO_WHITE.png"
+                src={logoImg}
                 alt="WG Logo"
-                width={300}
-                height={100}
-                className="object-contain w-full h-auto"
+                fill
+                className="object-contain"
                 priority
             />
         </div>

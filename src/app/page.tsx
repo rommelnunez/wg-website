@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Play, Globe } from "lucide-react";
+import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
 
 export default function Home() {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -23,7 +24,7 @@ export default function Home() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/brand/teaser-preview.jpg"
+          src={teaserPreview}
           alt="Background"
           fill
           className="object-cover opacity-60"

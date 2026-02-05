@@ -48,8 +48,8 @@ export default function Home() {
             className="group relative block w-fit"
           >
             <h1 className="font-display text-[15vw] leading-[0.85] tracking-tighter mb-12 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
-              <span className="absolute -top-[2vw] left-0 text-[3vw] tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
               OUR HERO,<br />BALTHAZAR
+              <span className="text-[3vw] align-top ml-4 relative -top-[4vw] tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
             </h1>
           </Link>
 

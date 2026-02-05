@@ -1,0 +1,17 @@
+fragment FilmParts on Film {
+  __typename
+  title
+  director
+  poster
+  body
+}
+
+fragment GlobalParts on Global {
+  __typename
+  socials {
+    __typename
+    instagram
+    email
+    linkedin
+  }
+}

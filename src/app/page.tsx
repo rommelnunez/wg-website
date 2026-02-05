@@ -42,6 +42,9 @@ export default function Home() {
 
       <main className="flex-1 relative z-10 flex flex-col justify-end p-8 md:p-20 pb-32">
         <div className="max-w-5xl">
+          <div className="font-mono text-xs tracking-[0.2em] mb-4 opacity-60 pl-1">
+            LATEST RELEASE
+          </div>
           <Link
             href="https://rommelnunez.github.io/OHB_Film_Website/v3/"
             target="_blank"

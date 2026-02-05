@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WG Film Distribution Website
+
+Live Site: [https://rommelnunez.github.io/wg-website/](https://rommelnunez.github.io/wg-website/)
+
+A cinematic, interactive experience for WG Film Distribution. Built with Next.js, TailwindCSS v4, and Framer Motion.
 
 ## Getting Started
 

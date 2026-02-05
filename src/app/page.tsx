@@ -47,9 +47,9 @@ export default function Home() {
             target="_blank"
             className="group relative block w-fit"
           >
-            <h1 className="font-display text-[15vw] leading-[0.85] tracking-tighter mb-12 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80">
+            <h1 className="font-display text-[15vw] leading-[0.85] tracking-tighter mb-12 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
+              <span className="absolute -top-[2vw] left-0 text-[3vw] tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
               OUR HERO,<br />BALTHAZAR
-              <sup className="text-[3vw] align-top ml-2 opacity-100 tracking-widest group-hover:text-red-500 transition-colors duration-500">*2026</sup>
             </h1>
           </Link>
 

@@ -1,92 +1,30 @@
 "use client";
 
+import { PrismScene } from "@/components/v5/PrismScene";
 import { Footer } from "@/components/Footer";
-import { Logo } from "@/components/Logo";
-import { Lightbox } from "@/components/Lightbox";
-import { ExpandableButton } from "@/components/ExpandableButton";
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { Play, Globe } from "lucide-react";
-import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
-import { getAssetPath } from "@/lib/assets";
 
 export default function Home() {
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [isHoveringTitle, setIsHoveringTitle] = useState(false);
-
   return (
-    <div className="min-h-screen bg-black text-white relative flex flex-col overflow-hidden">
-      <Lightbox
-        isOpen={isLightboxOpen}
-        onClose={() => setIsLightboxOpen(false)}
-        videoUrl="https://www.youtube.com/watch?v=m1iTy0zJ8dU"
-      />
+    <div className="h-screen w-screen bg-black text-white relative overflow-hidden">
 
-      {/* Backgrounds */}
+      {/* 3D Scene Layer */}
       <div className="absolute inset-0 z-0">
-        {/* Video Background (Default) - Fades out on hover */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={`absolute inset-0 w-full h-full object-contain md:object-cover transition-opacity duration-1000 ${isHoveringTitle ? "opacity-0" : "opacity-60"}`}
-        >
-          <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/quicktime" />
-          <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/mp4" />
-        </video>
-
-        {/* Image Background (Hover) - Fades in on hover */}
-        <div className={`absolute inset-0 transition-opacity duration-1000 ${isHoveringTitle ? "opacity-60" : "opacity-0"}`}>
-          <Image
-            src={teaserPreview}
-            alt="Background"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
-        {/* Gradient Fade */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30"></div>
+        <PrismScene />
       </div>
 
-      <nav className="relative z-10 p-8 flex justify-between items-center pointer-events-none">
-        <div /> {/* Placeholder for alignment if needed, or just empty */}
-        {/* Menu Disabled */}
-      </nav>
+      {/* UI Overlay Layer */}
+      <div className="absolute inset-0 z-10 pointer-events-none p-8 flex flex-col justify-between">
+        {/* Empty Header Spacer */}
+        <div />
 
-      <main className="flex-1 relative z-10 flex flex-col justify-end p-8 md:p-20 pb-32">
-        <div className="max-w-5xl">
-          <div className="font-mono text-xs tracking-[0.2em] mb-4 opacity-60 pl-1">
-            LATEST RELEASE
-          </div>
-          <Link
-            href="https://rommelnunez.github.io/OHB_Film_Website/v3/"
-            target="_blank"
-            className="group relative block w-fit"
-            onMouseEnter={() => setIsHoveringTitle(true)}
-            onMouseLeave={() => setIsHoveringTitle(false)}
-          >
-            <h1 className="font-display text-2xl md:text-4xl leading-[0.85] tracking-tighter mb-8 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
-              OUR HERO,<br />BALTHAZAR
-              <span className="text-xs md:text-base align-top ml-2 relative -top-2 md:-top-3 tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
-            </h1>
-          </Link>
-
-          <div className="flex flex-row gap-6 items-center">
-            <ExpandableButton
-              icon={<Play className="w-6 h-6 fill-current" />}
-              label="Watch Trailer"
-              onClick={() => setIsLightboxOpen(true)}
-            />
-          </div>
+        {/* Center Title - Hidden */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none mix-blend-difference">
+          {/* Title removed/hidden as per previous design direction */}
         </div>
-      </main>
 
-      <div className="relative z-10">
-        <Footer />
+        <div className="pointer-events-auto">
+          <Footer />
+        </div>
       </div>
     </div>
   );

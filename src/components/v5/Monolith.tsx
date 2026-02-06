@@ -34,8 +34,9 @@ export function Monolith() {
     useFrame((state) => {
         if (meshRef.current) {
             // Faster, more noticeable floating rotation
+            // Removed pointer influence suitable for "interactive mode via click/drag only" (OrbitControls handles drag)
             meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.05;
-            meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.1 + (state.pointer.x * 0.1);
+            meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.1;
             meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.1;
         }
     });
@@ -48,15 +49,15 @@ export function Monolith() {
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <meshPhysicalMaterial
                         color="#ffffff"
-                        transmission={0.4} // Solid "white fill" look
+                        transmission={0.4}
                         opacity={1}
                         metalness={0}
-                        roughness={0.2}
+                        roughness={0.8} // High roughness for "Matte" look
                         ior={1.5}
-                        thickness={10} // Volume thickness for attenuation
+                        thickness={10}
                         attenuationColor="#ffffff"
                         attenuationDistance={0.5}
-                        clearcoat={1}
+                        clearcoat={0} // Removed shiny clearcoat
                         side={2} // DoubleSide
                     />
                 </mesh>

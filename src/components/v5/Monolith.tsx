@@ -23,10 +23,11 @@ export function Monolith() {
     // Create Extrude settings
     const extrudeSettings = useMemo(() => ({
         depth: 120,
+        steps: 1, // Only 1 step for depth to save vertices
         bevelEnabled: true,
         bevelThickness: 1,
         bevelSize: 1,
-        bevelSegments: 2 // Reduced from 4 for mobile performance
+        bevelSegments: 0 // Hard edges for max performance (and style)
     }), []);
 
     useFrame((state) => {

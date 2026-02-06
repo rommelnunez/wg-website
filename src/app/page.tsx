@@ -9,9 +9,11 @@ import Image from "next/image";
 import { useState } from "react";
 import { Play, Globe } from "lucide-react";
 import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
+import { getAssetPath } from "@/lib/assets";
 
 export default function Home() {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [isHoveringTitle, setIsHoveringTitle] = useState(false);
 
   return (
     <div className="min-h-screen bg-black text-white relative flex flex-col overflow-hidden">
@@ -21,15 +23,31 @@ export default function Home() {
         videoUrl="https://www.youtube.com/watch?v=m1iTy0zJ8dU"
       />
 
-      {/* Background Image */}
+      {/* Backgrounds */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={teaserPreview}
-          alt="Background"
-          fill
-          className="object-cover opacity-60"
-          priority
-        />
+        {/* Video Background (Default) - Fades out on hover */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${isHoveringTitle ? "opacity-0" : "opacity-60"}`}
+        >
+          <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/quicktime" />
+          <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/mp4" />
+        </video>
+
+        {/* Image Background (Hover) - Fades in on hover */}
+        <div className={`absolute inset-0 transition-opacity duration-1000 ${isHoveringTitle ? "opacity-60" : "opacity-0"}`}>
+          <Image
+            src={teaserPreview}
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
         {/* Gradient Fade */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30"></div>
       </div>
@@ -50,10 +68,13 @@ export default function Home() {
             href="https://rommelnunez.github.io/OHB_Film_Website/v3/"
             target="_blank"
             className="group relative block w-fit"
+            onMouseEnter={() => setIsHoveringTitle(true)}
+            onMouseLeave={() => setIsHoveringTitle(false)}
           >
-            <h1 className="font-display text-[15vw] leading-[0.85] tracking-tighter mb-12 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
+            <h1 className="font-display text-[10vw] leading-[0.85] tracking-tighter mb-12 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
+              <span className="absolute -top-[2vw] left-0 text-[3vw] tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
               OUR HERO,<br />BALTHAZAR
-              <span className="text-[3vw] align-top ml-4 relative -top-[4vw] tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
+              <span className="text-[2vw] align-top ml-4 relative -top-[3vw] tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
             </h1>
           </Link>
 

@@ -56,8 +56,8 @@ export function Monolith() {
                         backside
                         samples={16}
                         resolution={1024}
-                        transmission={0.95} // High transmission
-                        roughness={0.4}
+                        transmission={0.4} // Reduced for solid white "fill" look
+                        roughness={0.2}
                         thickness={10} // Tripled thickness (approx)
                         ior={1.5}
                         chromaticAberration={0.04}

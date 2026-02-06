@@ -12,7 +12,7 @@ export function PrismScene() {
             <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
                 <Suspense fallback={null}>
                     {/* Dark background Color */}
-                    <color attach="background" args={['#101010']} />
+                    <color attach="background" args={['#000000']} />
 
                     <ambientLight intensity={0.5} />
                     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />

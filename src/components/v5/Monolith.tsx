@@ -31,17 +31,17 @@ export function Monolith() {
 
     useFrame((state) => {
         if (meshRef.current) {
-            // Subtle floating rotation
-            meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.2) * 0.05;
-            meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.1 + (state.pointer.x * 0.2);
-            meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+            // Slower, subtle floating rotation
+            meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.05;
+            meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.15) * 0.1 + (state.pointer.x * 0.1);
+            meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.2) * 0.1;
         }
     });
 
     return (
         <group>
             <Center top>
-                <mesh ref={meshRef} rotation={[Math.PI, 0, 0]} scale={0.01}>
+                <mesh ref={meshRef} rotation={[Math.PI, 0, 0]} scale={0.001}> // Significantly smaller
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <MeshTransmissionMaterial
                         backside

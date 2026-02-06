@@ -19,10 +19,8 @@ export default function V5Home() {
             {/* UI Overlay Layer */}
             <div className="absolute inset-0 z-10 pointer-events-none p-8 flex flex-col justify-between">
                 {/* Simple Header */}
-                <div className="flex justify-between items-start opacity-70 font-mono text-xs">
-                    <div>WG_DIST_SYS_V5</div>
-                    <div>[INTERACTIVE_MODE]</div>
-                </div>
+                {/* Simple Header Removed */}
+                <div />
 
                 {/* Center Title - only visible on hover? or always? */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none mix-blend-difference">

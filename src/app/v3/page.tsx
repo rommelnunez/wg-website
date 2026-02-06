@@ -71,10 +71,10 @@ export default function V3Home() {
                         onMouseEnter={() => setIsHoveringTitle(true)}
                         onMouseLeave={() => setIsHoveringTitle(false)}
                     >
-                        {/* Smaller Title: text-3xl md:text-4xl */}
-                        <h1 className="font-display text-3xl md:text-4xl leading-[0.85] tracking-tighter mb-8 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
+                        {/* Smaller Title: text-5xl md:text-6xl (Matching V1) */}
+                        <h1 className="font-display text-5xl md:text-6xl leading-[0.85] tracking-tighter mb-8 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
                             OUR HERO,<br />BALTHAZAR
-                            <span className="text-sm align-top ml-2 relative -top-3 tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
+                            <span className="text-lg align-top ml-2 relative -top-4 tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
                         </h1>
                     </Link>
 

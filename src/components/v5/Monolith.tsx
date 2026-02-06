@@ -40,8 +40,8 @@ export function Monolith() {
 
     return (
         <group>
-            <Center top>
-                <mesh ref={meshRef} rotation={[Math.PI, 0, 0]} scale={0.0015}> {/* Slightly larger */}
+            <Center>
+                <mesh ref={meshRef} rotation={[0, 0, 0]} scale={0.0015}> {/* Slightly larger */}
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <MeshTransmissionMaterial
                         backside

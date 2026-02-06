@@ -71,10 +71,9 @@ export default function Home() {
             onMouseEnter={() => setIsHoveringTitle(true)}
             onMouseLeave={() => setIsHoveringTitle(false)}
           >
-            <h1 className="font-display text-[10vw] leading-[0.85] tracking-tighter mb-12 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
-              <span className="absolute -top-[2vw] left-0 text-[3vw] tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
+            <h1 className="font-display text-5xl md:text-6xl leading-[0.85] tracking-tighter mb-8 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
               OUR HERO,<br />BALTHAZAR
-              <span className="text-[2vw] align-top ml-4 relative -top-[3vw] tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
+              <span className="text-lg align-top ml-2 relative -top-4 tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
             </h1>
           </Link>
 

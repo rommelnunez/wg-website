@@ -30,7 +30,7 @@ export function Monolith() {
 
     // Create Extrude settings
     const extrudeSettings = useMemo(() => ({
-        depth: 40, // Increased depth for thickness
+        depth: 120, // Tripled depth
         bevelEnabled: true,
         bevelThickness: 1,
         bevelSize: 1,
@@ -56,9 +56,9 @@ export function Monolith() {
                         backside
                         samples={16}
                         resolution={1024}
-                        transmission={1}
+                        transmission={0.95} // High transmission
                         roughness={0.4}
-                        thickness={3}
+                        thickness={10} // Tripled thickness (approx)
                         ior={1.5}
                         chromaticAberration={0.04}
                         anisotropy={0.1}

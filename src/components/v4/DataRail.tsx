@@ -22,11 +22,7 @@ export function DataRail({ activeRelease, onHoverRelease }: DataRailProps) {
                     <div className="flex items-baseline gap-4 mb-2">
                         <span className="text-white/30 text-[10px]">001</span>
                         <h2 className="text-2xl md:text-4xl font-display font-bold uppercase leading-none tracking-tighter">
-                            {activeRelease === 'rel-001' ? (
-                                <ScrambleText text="OUR HERO, BALTHAZAR" scrambleSpeed={10} />
-                            ) : (
-                                "OUR HERO, BALTHAZAR"
-                            )}
+                            OUR HERO, BALTHAZAR
                         </h2>
                     </div>
 

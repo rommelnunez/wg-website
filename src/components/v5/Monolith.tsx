@@ -5,12 +5,13 @@ import { useRef, useMemo } from "react";
 import { Mesh, Color, Shape, ExtrudeGeometry } from "three";
 import { Center } from "@react-three/drei";
 import { SVGLoader } from "three-stdlib";
+import { getAssetPath } from "@/lib/assets";
 
 export function Monolith() {
     const meshRef = useRef<Mesh>(null);
 
     // Load SVG from the public folder
-    const svgData = useLoader(SVGLoader, '/assets/brand/wg-logo-vectorized.svg');
+    const svgData = useLoader(SVGLoader, getAssetPath('/assets/brand/wg-logo-vectorized.svg'));
 
     // Process SVG paths into Shapes
     const shapes = useMemo(() => {

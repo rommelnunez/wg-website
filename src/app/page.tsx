@@ -31,7 +31,7 @@ export default function Home() {
           loop
           muted
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${isHoveringTitle ? "opacity-0" : "opacity-60"}`}
+          className={`absolute inset-0 w-full h-full object-contain md:object-cover transition-opacity duration-1000 ${isHoveringTitle ? "opacity-0" : "opacity-60"}`}
         >
           <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/quicktime" />
           <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/mp4" />
@@ -71,9 +71,9 @@ export default function Home() {
             onMouseEnter={() => setIsHoveringTitle(true)}
             onMouseLeave={() => setIsHoveringTitle(false)}
           >
-            <h1 className="font-display text-5xl md:text-6xl leading-[0.85] tracking-tighter mb-8 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
+            <h1 className="font-display text-3xl md:text-5xl leading-[0.85] tracking-tighter mb-8 drop-shadow-2xl mix-blend-screen transition-all duration-700 group-hover:tracking-normal group-hover:opacity-80 relative">
               OUR HERO,<br />BALTHAZAR
-              <span className="text-lg align-top ml-2 relative -top-4 tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
+              <span className="text-sm md:text-lg align-top ml-2 relative -top-3 md:-top-4 tracking-widest opacity-100 group-hover:text-red-500 transition-colors duration-500">2026</span>
             </h1>
           </Link>
 

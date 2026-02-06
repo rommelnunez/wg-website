@@ -29,6 +29,10 @@ export const metadata: Metadata = {
   },
 };
 
+import { VersionSwitcher } from "@/components/VersionSwitcher";
+
+// ... (imports)
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,6 +43,7 @@ export default function RootLayout({
       <body
         className={`${jost.variable} antialiased`}
       >
+        <VersionSwitcher />
         {children}
       </body>
     </html>

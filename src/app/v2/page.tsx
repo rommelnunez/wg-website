@@ -57,6 +57,12 @@ export default function V2Home() {
                     className="relative cursor-pointer group"
                     onMouseEnter={() => setIsHoveringCenter(true)}
                     onMouseLeave={() => setIsHoveringCenter(false)}
+                    onClick={(e) => {
+                        if (!isHoveringCenter) {
+                            e.preventDefault();
+                            setIsHoveringCenter(true);
+                        }
+                    }}
                 >
                     <div className="relative h-[20vw] w-[60vw] flex items-center justify-center">
                         <AnimatePresence mode="popLayout">
@@ -78,7 +84,11 @@ export default function V2Home() {
                                     }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
-                                    <div className="relative w-full h-full">
+                                    <motion.div
+                                        className="relative w-full h-full"
+                                        animate={{ opacity: [1, 0.5, 1] }}
+                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                    >
                                         <Image
                                             src={logoImg}
                                             alt="WG Logo"
@@ -86,7 +96,7 @@ export default function V2Home() {
                                             className="object-contain drop-shadow-2xl"
                                             priority
                                         />
-                                    </div>
+                                    </motion.div>
                                 </motion.div>
                             ) : (
                                 <motion.div

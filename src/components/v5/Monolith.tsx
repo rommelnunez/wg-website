@@ -3,7 +3,7 @@
 import { useLoader, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import { Mesh, Color, Shape, ExtrudeGeometry } from "three";
-import { MeshTransmissionMaterial, Center, useVideoTexture } from "@react-three/drei";
+import { MeshTransmissionMaterial, Center } from "@react-three/drei";
 import { SVGLoader } from "three-stdlib";
 
 export function Monolith() {
@@ -11,14 +11,6 @@ export function Monolith() {
 
     // Load SVG from the public folder
     const svgData = useLoader(SVGLoader, '/assets/brand/wg-logo-vectorized.svg');
-
-    // Load the brand loop video for internal refraction
-    const videoTexture = useVideoTexture("/assets/brand/refraction-video.mp4", {
-        muted: true,
-        loop: true,
-        start: true,
-        playsInline: true,
-    });
 
     // Process SVG paths into Shapes
     const shapes = useMemo(() => {
@@ -69,7 +61,6 @@ export function Monolith() {
                         attenuationDistance={0.5}
                         attenuationColor="#ffffff"
                         color="#ffffff"
-                        background={videoTexture} // Video texture creates the "inside" look
                     />
                 </mesh>
             </Center>

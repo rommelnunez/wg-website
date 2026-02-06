@@ -13,13 +13,19 @@ export const metadata: Metadata = {
   description: "Film Distribution",
   metadataBase: new URL("https://rommelnunez.github.io/wg-website/"),
   openGraph: {
+    title: "WG",
+    description: "Film Distribution",
+    url: "https://rommelnunez.github.io/wg-website/",
+    siteName: "WG Film Distribution",
     images: [
       {
         url: "/opengraph-image.jpg",
         width: 1200,
         height: 600,
+        alt: "WG Film Distribution",
       },
     ],
+    type: "website",
   },
 };
 

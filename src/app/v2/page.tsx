@@ -106,9 +106,20 @@ export default function V2Home() {
                                     }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
-                                    <h1 className="font-display text-4xl md:text-5xl leading-[0.85] tracking-tighter text-center drop-shadow-2xl mix-blend-screen text-white">
-                                        OUR HERO,<br />BALTHAZAR
-                                    </h1>
+                                    <div className="flex flex-col items-center">
+                                        <h1 className="font-display text-4xl md:text-5xl leading-[0.85] tracking-tighter text-center drop-shadow-2xl mix-blend-screen text-white">
+                                            OUR HERO,<br />BALTHAZAR
+                                        </h1>
+                                        <motion.div
+                                            initial={{ width: 0 }}
+                                            animate={{
+                                                width: "100%",
+                                                transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }
+                                            }}
+                                            exit={{ width: 0 }}
+                                            className="h-[1px] bg-white mt-4"
+                                        />
+                                    </div>
                                 </motion.div>
                             )}
                         </AnimatePresence>

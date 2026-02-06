@@ -14,7 +14,7 @@ export const Footer = () => {
             <div className="flex flex-col gap-2">
                 <div className="flex gap-6 font-mono text-[10px] uppercase tracking-widest text-white">
                     <a href={`mailto:${socials.email}`} className="hover:text-white/70 transition-colors">
-                        EMAIL
+                        {socials.email}
                     </a>
                 </div>
             </div>

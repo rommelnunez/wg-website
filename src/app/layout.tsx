@@ -12,6 +12,15 @@ export const metadata: Metadata = {
   title: "WG",
   description: "Film Distribution",
   metadataBase: new URL("https://rommelnunez.github.io/wg-website/"),
+  openGraph: {
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 600,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

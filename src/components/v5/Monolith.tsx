@@ -41,25 +41,26 @@ export function Monolith() {
     return (
         <group>
             <Center>
-                <mesh ref={meshRef} rotation={[0, 0, 0]} scale={0.0015}> {/* Slightly larger */}
+                {/* Flip Y scale (-0.0015) to correct SVG coordinate system (upside down fix) */}
+                <mesh ref={meshRef} rotation={[0, 0, 0]} scale={[0.0015, -0.0015, 0.0015]}>
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <MeshTransmissionMaterial
                         backside
                         samples={16}
                         resolution={1024}
-                        transmission={1}
-                        roughness={0.0}
-                        thickness={3} // Increased thickness for glass effect
+                        transmission={0.6} // Reduced from 1 for "semi-opaque" look
+                        roughness={0.2}    // Slight roughness for "milky" look
+                        thickness={3}
                         ior={1.5}
-                        chromaticAberration={0.06}
+                        chromaticAberration={0.04} // Reduced aberration
                         anisotropy={0.1}
-                        distortion={0.1}
+                        distortion={0.0}   // Lower distortion
                         distortionScale={0.3}
-                        temporalDistortion={0.5}
+                        temporalDistortion={0.0}
                         clearcoat={1}
                         attenuationDistance={0.5}
                         attenuationColor="#ffffff"
-                        color="#ffffff"
+                        color="#ffffff" // White
                         background={new Color("#000000")}
                     />
                 </mesh>

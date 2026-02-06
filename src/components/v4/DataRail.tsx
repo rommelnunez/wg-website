@@ -51,9 +51,7 @@ export function DataRail({ activeRelease, onHoverRelease }: DataRailProps) {
                 </div>
             </div>
 
-            <div className="mt-auto pt-8">
-                <Footer />
-            </div>
+            {/* Footer moved to page layout for better mobile positioning */}
         </div>
     );
 }

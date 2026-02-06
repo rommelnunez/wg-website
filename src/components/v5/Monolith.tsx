@@ -22,11 +22,11 @@ export function Monolith() {
 
     // Create Extrude settings
     const extrudeSettings = useMemo(() => ({
-        depth: 120, // Tripled depth
+        depth: 120,
         bevelEnabled: true,
         bevelThickness: 1,
         bevelSize: 1,
-        bevelSegments: 4
+        bevelSegments: 2 // Reduced from 4 for mobile performance
     }), []);
 
     useFrame((state) => {
@@ -46,9 +46,9 @@ export function Monolith() {
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <MeshTransmissionMaterial
                         backside
-                        samples={16}
-                        resolution={1024}
-                        transmission={0.4} // Reduced for solid white "fill" look
+                        samples={6}    // Reduced from 16 to 6 for mobile stability
+                        resolution={512} // Reduced from 1024 for mobile stability
+                        transmission={0.4}
                         roughness={0.2}
                         thickness={10} // Tripled thickness (approx)
                         ior={1.5}

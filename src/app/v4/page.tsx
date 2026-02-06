@@ -22,6 +22,11 @@ export default function V4Home() {
             <div className="w-full md:w-[65%] h-[60vh] md:h-full relative z-10">
                 <Viewport activeRelease={activeRelease} />
             </div>
+
+            {/* Footer Layer (Absolute Bottom) */}
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-30">
+                <Footer />
+            </div>
         </div>
     );
 }

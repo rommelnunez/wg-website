@@ -8,7 +8,7 @@ import { Suspense } from "react";
 export function PrismScene() {
     return (
         <div className="w-full h-full">
-            <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+            <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
                 <Suspense fallback={null}>
                     <color attach="background" args={['#000000']} />
 

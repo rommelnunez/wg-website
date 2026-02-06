@@ -22,7 +22,7 @@ export function Monolith() {
 
     // Create Extrude settings
     const extrudeSettings = useMemo(() => ({
-        depth: 20, // Thick glass
+        depth: 40, // Increased depth for thickness
         bevelEnabled: true,
         bevelThickness: 1,
         bevelSize: 1,
@@ -41,7 +41,7 @@ export function Monolith() {
     return (
         <group>
             <Center top>
-                <mesh ref={meshRef} rotation={[Math.PI, 0, 0]} scale={0.001}> // Significantly smaller
+                <mesh ref={meshRef} rotation={[Math.PI, 0, 0]} scale={0.0015}> {/* Slightly larger */}
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <MeshTransmissionMaterial
                         backside
@@ -49,7 +49,7 @@ export function Monolith() {
                         resolution={1024}
                         transmission={1}
                         roughness={0.0}
-                        thickness={2} // Increased thickness for glass effect
+                        thickness={3} // Increased thickness for glass effect
                         ior={1.5}
                         chromaticAberration={0.06}
                         anisotropy={0.1}

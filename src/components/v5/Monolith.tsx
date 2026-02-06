@@ -13,7 +13,7 @@ export function Monolith() {
     const svgData = useLoader(SVGLoader, '/assets/brand/wg-logo-vectorized.svg');
 
     // Load the brand loop video for internal refraction
-    const videoTexture = useVideoTexture("/assets/brand/wg-brand-loop.mov", {
+    const videoTexture = useVideoTexture("/assets/brand/refraction-video.mp4", {
         muted: true,
         loop: true,
         start: true,

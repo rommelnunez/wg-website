@@ -3,7 +3,7 @@
 import { useLoader, useFrame, useThree } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import { Mesh, Color, Shape, ExtrudeGeometry } from "three";
-import { MeshTransmissionMaterial, Center } from "@react-three/drei";
+import { Center } from "@react-three/drei";
 import { SVGLoader } from "three-stdlib";
 
 export function Monolith() {
@@ -44,23 +44,18 @@ export function Monolith() {
                 {/* Flip Y scale (-0.0015) to correct SVG coordinate system (upside down fix) */}
                 <mesh ref={meshRef} rotation={[0, 0, 0]} scale={[0.0015, -0.0015, 0.0015]}>
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
-                    <MeshTransmissionMaterial
-                        backside
-                        samples={6}    // Reduced from 16 to 6 for mobile stability
-                        resolution={512} // Reduced from 1024 for mobile stability
-                        transmission={0.4}
-                        roughness={0.2}
-                        thickness={10} // Tripled thickness (approx)
-                        ior={1.5}
-                        chromaticAberration={0.04}
-                        anisotropy={0.1}
-                        distortion={0.1}
-                        distortionScale={0.3}
-                        temporalDistortion={0.0}
-                        clearcoat={1}
-                        attenuationDistance={0.5}
-                        attenuationColor="#ffffff"
+                    <meshPhysicalMaterial
                         color="#ffffff"
+                        transmission={0.4} // Solid "white fill" look
+                        opacity={1}
+                        metalness={0}
+                        roughness={0.2}
+                        ior={1.5}
+                        thickness={10} // Volume thickness for attenuation
+                        attenuationColor="#ffffff"
+                        attenuationDistance={0.5}
+                        clearcoat={1}
+                        side={2} // DoubleSide
                     />
                 </mesh>
             </Center>

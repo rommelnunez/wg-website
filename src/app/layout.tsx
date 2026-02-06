@@ -11,6 +11,7 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: "WG",
   description: "Film Distribution",
+  metadataBase: new URL("https://rommelnunez.github.io/wg-website/"),
 };
 
 export default function RootLayout({

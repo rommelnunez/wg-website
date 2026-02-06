@@ -42,7 +42,7 @@ export default function V3Home() {
 
             {/* Large Central WG Logo */}
             <div className={`absolute inset-0 flex items-center justify-center z-20 pointer-events-none transition-opacity duration-700 ${isHoveringTitle ? "opacity-0" : "opacity-100"}`}>
-                <div className="relative w-[40vw] h-[40vw] opacity-20">
+                <div className="relative w-[40vw] h-[40vw]">
                     <Image
                         src={logoImg}
                         alt="WG Logo"

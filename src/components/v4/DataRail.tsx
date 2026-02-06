@@ -1,6 +1,7 @@
-"use client";
 
-import { ScrambleText } from "./ScrambleText";
+import { Footer } from "@/components/Footer";
+
+
 
 interface DataRailProps {
     activeRelease: string | null;
@@ -32,20 +33,12 @@ export function DataRail({ activeRelease, onHoverRelease }: DataRailProps) {
                     {/* Metadata reveals on hover */}
                     <div className={`overflow-hidden transition-all duration-300 ease-out border-l border-white/20 pl-4 space-y-1 ${activeRelease === 'rel-001' ? 'max-h-32 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
                         <div className="flex justify-between">
-                            <span className="opacity-40">DIR</span>
-                            <span>ROMMEL NUNEZ</span>
-                        </div>
-                        <div className="flex justify-between">
                             <span className="opacity-40">YEAR</span>
                             <span>2026</span>
                         </div>
-                        <div className="flex justify-between">
-                            <span className="opacity-40">DUR</span>
-                            <span>MIN</span>
-                        </div>
                         <div className="mt-4">
                             <button className="px-3 py-1 bg-white text-black font-bold text-[10px] hover:bg-green-400 transition-colors uppercase">
-                                Initialize Playback
+                                Visit Site
                             </button>
                         </div>
                     </div>
@@ -60,6 +53,10 @@ export function DataRail({ activeRelease, onHoverRelease }: DataRailProps) {
                         </h2>
                     </div>
                 </div>
+            </div>
+
+            <div className="mt-auto pt-8">
+                <Footer />
             </div>
         </div>
     );

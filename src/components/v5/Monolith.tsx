@@ -48,20 +48,19 @@ export function Monolith() {
                         backside
                         samples={16}
                         resolution={1024}
-                        transmission={0.6} // Reduced from 1 for "semi-opaque" look
-                        roughness={0.2}    // Slight roughness for "milky" look
+                        transmission={1} // High transmission to see the video
+                        roughness={0.4}    // Higher roughness to blur the video
                         thickness={3}
                         ior={1.5}
-                        chromaticAberration={0.04} // Reduced aberration
+                        chromaticAberration={0.04}
                         anisotropy={0.1}
-                        distortion={0.0}   // Lower distortion
+                        distortion={0.1}
                         distortionScale={0.3}
                         temporalDistortion={0.0}
                         clearcoat={1}
                         attenuationDistance={0.5}
                         attenuationColor="#ffffff"
-                        color="#ffffff" // White
-                        background={new Color("#000000")}
+                        color="#ffffff"
                     />
                 </mesh>
             </Center>

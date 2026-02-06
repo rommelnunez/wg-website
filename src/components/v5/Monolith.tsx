@@ -49,6 +49,8 @@ export function Monolith() {
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <meshPhysicalMaterial
                         color="#ffffff"
+                        emissive="#ffffff" // Make it glow white
+                        emissiveIntensity={0.5} // Adjust for "super white" brightness without losing all definition
                         transmission={0.4}
                         opacity={1}
                         metalness={0}

@@ -43,20 +43,8 @@ export default function V2Home() {
             </div>
 
             <nav className="relative z-10 p-8 flex justify-between items-center pointer-events-none">
-                {/* Top Left Video Icon */}
-                <div className="w-16 h-16 relative overflow-hidden pointer-events-auto">
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                    >
-                        <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/quicktime" />
-                        <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/mp4" />
-                    </video>
-                </div>
-
+                {/* Top Left Icon Removed */}
+                <div className="w-16 h-16 relative overflow-hidden opacity-0"></div>
                 {/* Menu Disabled */}
             </nav>
 
@@ -71,14 +59,23 @@ export default function V2Home() {
                     onMouseLeave={() => setIsHoveringCenter(false)}
                 >
                     <div className="relative h-[20vw] w-[60vw] flex items-center justify-center">
-                        <AnimatePresence mode="wait">
+                        <AnimatePresence mode="popLayout">
                             {!isHoveringCenter ? (
                                 <motion.div
                                     key="logo"
-                                    initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                                    exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-                                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                                    initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                                    animate={{
+                                        opacity: 1,
+                                        scale: 1,
+                                        filter: "blur(0px)",
+                                        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+                                    }}
+                                    exit={{
+                                        opacity: 0,
+                                        scale: 1.2,
+                                        filter: "blur(20px)",
+                                        transition: { duration: 0.4, ease: "easeIn" }
+                                    }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
                                     <div className="relative w-full h-full">
@@ -94,13 +91,22 @@ export default function V2Home() {
                             ) : (
                                 <motion.div
                                     key="title"
-                                    initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
-                                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                                    exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-                                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                                    initial={{ opacity: 0, scale: 0.5, filter: "blur(20px)" }}
+                                    animate={{
+                                        opacity: 1,
+                                        scale: 1,
+                                        filter: "blur(0px)",
+                                        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }
+                                    }}
+                                    exit={{
+                                        opacity: 0,
+                                        scale: 0.8,
+                                        filter: "blur(10px)",
+                                        transition: { duration: 0.4, ease: "easeIn" }
+                                    }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
-                                    <h1 className="font-display text-[8vw] leading-[0.85] tracking-tighter text-center drop-shadow-2xl mix-blend-screen text-white">
+                                    <h1 className="font-display text-4xl md:text-5xl leading-[0.85] tracking-tighter text-center drop-shadow-2xl mix-blend-screen text-white">
                                         OUR HERO,<br />BALTHAZAR
                                     </h1>
                                 </motion.div>
@@ -110,12 +116,8 @@ export default function V2Home() {
                 </Link>
             </main>
 
-            <div className="relative z-10 p-8 flex justify-between items-end">
-                <ExpandableButton
-                    icon={<Play className="w-6 h-6 fill-current" />}
-                    label="Watch Trailer"
-                    onClick={() => setIsLightboxOpen(true)}
-                />
+            <div className="relative z-10 p-8 flex justify-center items-end">
+                {/* Trailer Button Removed */}
                 <Footer />
             </div>
         </div>

@@ -25,18 +25,6 @@ export default function V3Home() {
 
             {/* Backgrounds */}
             <div className="absolute inset-0 z-0">
-                {/* Video Background (Default) - Fades out on hover */}
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${isHoveringTitle ? "opacity-0" : "opacity-60"}`}
-                >
-                    <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/quicktime" />
-                    <source src={getAssetPath("/assets/brand/wg-brand-loop.mov")} type="video/mp4" />
-                </video>
-
                 {/* Image Background (Hover) - Fades in on hover */}
                 <div className={`absolute inset-0 transition-opacity duration-1000 ${isHoveringTitle ? "opacity-60" : "opacity-0"}`}>
                     <Image

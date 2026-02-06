@@ -10,9 +10,7 @@
   },
   "dependencies": {
     "@tinacms/cli": "^2.1.5",
-    "@types/flubber": "^0.4.0",
     "clsx": "^2.1.1",
-    "flubber": "^0.4.2",
     "framer-motion": "^12.33.0",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",

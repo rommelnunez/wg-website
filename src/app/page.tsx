@@ -52,10 +52,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30"></div>
       </div>
 
-      <nav className="relative z-10 p-8 flex justify-between items-center">
-        <Link href="/">
-          <Logo className="w-20 drop-shadow-2xl" />
-        </Link>
+      <nav className="relative z-10 p-8 flex justify-between items-center pointer-events-none">
+        <div /> {/* Placeholder for alignment if needed, or just empty */}
         {/* Menu Disabled */}
       </nav>
 

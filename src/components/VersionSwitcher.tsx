@@ -10,6 +10,8 @@ export function VersionSwitcher() {
         { href: "/", label: "V1" },
         { href: "/v2", label: "V2" },
         { href: "/v3", label: "V3" },
+        { href: "/v4", label: "V4" },
+        { href: "/v5", label: "V5" },
     ];
 
     return (
@@ -19,8 +21,8 @@ export function VersionSwitcher() {
                     key={link.href}
                     href={link.href}
                     className={`px-3 py-1 border border-white/30 rounded-full transition-colors ${pathname === link.href
-                            ? "bg-white text-black font-bold"
-                            : "text-white/50 hover:text-white hover:border-white"
+                        ? "bg-white text-black font-bold"
+                        : "text-white/50 hover:text-white hover:border-white"
                         }`}
                 >
                     {link.label}

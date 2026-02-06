@@ -33,18 +33,18 @@ export function Monolith() {
 
     useFrame((state) => {
         if (meshRef.current) {
-            // Slower, subtle floating rotation
-            meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.05;
-            meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.15) * 0.1 + (state.pointer.x * 0.1);
-            meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.2) * 0.1;
+            // Faster, more noticeable floating rotation
+            meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.05;
+            meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.1 + (state.pointer.x * 0.1);
+            meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.1;
         }
     });
 
     return (
         <group>
             <Center>
-                {/* Flip Y scale (-0.0015) to correct SVG coordinate system (upside down fix) */}
-                <mesh ref={meshRef} rotation={[0, 0, 0]} scale={[0.0015, -0.0015, 0.0015]}>
+                {/* Flip Y scale (-0.0012) to correct SVG coordinate system (upside down fix), slightly smaller */}
+                <mesh ref={meshRef} rotation={[0, 0, 0]} scale={[0.0012, -0.0012, 0.0012]}>
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <meshPhysicalMaterial
                         color="#ffffff"

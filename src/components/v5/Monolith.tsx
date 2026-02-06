@@ -51,7 +51,7 @@ export function Monolith() {
             <Text
                 position={[0, 0, -0.6]}
                 fontSize={0.8}
-                font="/fonts/Futura-Bold.woff" // Fallback to standard if not loaded
+                // Fallback to standard if not loaded
                 color="white"
                 anchorX="center"
                 anchorY="middle"

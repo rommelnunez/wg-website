@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls, Stars } from "@react-three/drei";
 import { Monolith } from "./Monolith";
 import { Suspense } from "react";
 
@@ -17,11 +17,21 @@ export function PrismScene() {
 
                     <Monolith />
 
-                    {/* Environment Mapping using a preset for now, or use the video texture in V6 */}
-                    <Environment preset="studio" />
+                    {/* Environment Mapping: City provides good high-contrast reflections for glass */}
+                    <Environment preset="city" />
 
-                    {/* Subtle controls, mainly for debug, disabled zoom */}
-                    <OrbitControls enableZoom={false} enablePan={false} minPolarAngle={Math.PI / 2 - 0.5} maxPolarAngle={Math.PI / 2 + 0.5} />
+                    {/* Background Stars to show refraction */}
+                    <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+
+                    {/* Unlocked Controls for interaction */}
+                    <OrbitControls
+                        autoRotate
+                        autoRotateSpeed={0.5}
+                        enableZoom={true}
+                        minDistance={4}
+                        maxDistance={12}
+                        enablePan={false}
+                    />
                 </Suspense>
             </Canvas>
         </div>

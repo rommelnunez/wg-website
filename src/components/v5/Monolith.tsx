@@ -7,8 +7,13 @@ import { Center } from "@react-three/drei";
 import { SVGLoader } from "three-stdlib";
 import { getAssetPath } from "@/lib/assets";
 
-export function Monolith() {
+interface MonolithProps {
+    inverted: boolean;
+}
+
+export function Monolith({ inverted }: MonolithProps) {
     const meshRef = useRef<Mesh>(null);
+    const materialRef = useRef<any>(null);
 
     // Load SVG from the public folder
     const svgData = useLoader(SVGLoader, getAssetPath('/assets/brand/wg-logo-vectorized.svg'));
@@ -39,6 +44,19 @@ export function Monolith() {
             meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.1;
             meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.1;
         }
+
+        // Smoothly interpolate material properties for transition
+        if (materialRef.current) {
+            const targetColor = inverted ? new Color("#000000") : new Color("#ffffff");
+            const targetEmissive = inverted ? new Color("#000000") : new Color("#ffffff");
+
+            materialRef.current.color.lerp(targetColor, 0.1);
+            materialRef.current.emissive.lerp(targetEmissive, 0.1);
+
+            // Lerp roughness? 
+            // Inverted (Black on White) -> Roughness 0.2 (Glossy Black plastic looking?) or Matte Black (0.8)?
+            // Creating a "void" look usually benefits from being matte. Let's stick to matte for now.
+        }
     });
 
     return (
@@ -48,18 +66,19 @@ export function Monolith() {
                 <mesh ref={meshRef} rotation={[0, 0, 0]} scale={[0.0012, -0.0012, 0.0012]}>
                     <extrudeGeometry args={[shapes, extrudeSettings]} />
                     <meshPhysicalMaterial
-                        color="#ffffff"
-                        emissive="#ffffff" // Make it glow white
-                        emissiveIntensity={0.5} // Adjust for "super white" brightness without losing all definition
+                        ref={materialRef}
+                        color="#ffffff" // Initial state
+                        emissive="#ffffff"
+                        emissiveIntensity={0.5}
                         transmission={0.4}
                         opacity={1}
                         metalness={0}
-                        roughness={0.8} // High roughness for "Matte" look
+                        roughness={0.8}
                         ior={1.5}
                         thickness={10}
                         attenuationColor="#ffffff"
                         attenuationDistance={0.5}
-                        clearcoat={0} // Removed shiny clearcoat
+                        clearcoat={0}
                         side={2} // DoubleSide
                     />
                 </mesh>

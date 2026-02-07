@@ -10,7 +10,7 @@ export const Footer = () => {
     };
 
     return (
-        <footer className="w-full py-12 px-6 flex justify-between items-end border-t border-white/10 mt-auto mix-blend-difference z-50 relative pointer-events-auto">
+        <footer className="w-full py-12 px-6 flex justify-between items-end border-t border-white/10 mt-auto z-50 relative pointer-events-auto">
             <div className="flex flex-col gap-2">
                 <div className="flex gap-6 font-mono text-[10px] uppercase tracking-widest text-white">
                     <a href={`mailto:${socials.email}`} className="hover:text-white/70 transition-colors">

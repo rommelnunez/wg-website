@@ -25,7 +25,7 @@ export default function V4Home() {
 
             {/* Footer Layer (Absolute Bottom) */}
             <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-30">
-                <Footer />
+                <Footer inverted={false} />
             </div>
         </div>
     );

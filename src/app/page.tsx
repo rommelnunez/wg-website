@@ -3,6 +3,7 @@
 import { PrismScene } from "@/components/v5/PrismScene";
 import { Footer } from "@/components/Footer";
 import { useState } from "react";
+import { Sun, Moon } from "lucide-react";
 
 export default function Home() {
   const [inverted, setInverted] = useState(false);
@@ -22,10 +23,14 @@ export default function Home() {
         <div className="w-full flex justify-end pointer-events-auto">
           <button
             onClick={() => setInverted(!inverted)}
-            className="w-4 h-4 rounded-full border border-current hover:bg-current hover:text-inherit transition-all duration-300"
+            className="p-2 rounded-full hover:bg-current/10 transition-colors duration-300"
             title={inverted ? "Switch to Dark Mode" : "Switch to Light Mode"}
           >
-            {/* Simple circle toggle */}
+            {inverted ? (
+              <Sun className="w-5 h-5 text-black" />
+            ) : (
+              <Moon className="w-5 h-5 text-white" />
+            )}
           </button>
         </div>
 
@@ -35,7 +40,7 @@ export default function Home() {
         </div>
 
         <div className="pointer-events-auto mix-blend-difference">
-          <Footer />
+          <Footer inverted={inverted} />
         </div>
       </div>
     </div>

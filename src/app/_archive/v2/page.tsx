@@ -124,7 +124,7 @@ export default function V2Home() {
 
             <div className="relative z-10 p-8 flex justify-center items-end">
                 {/* Trailer Button Removed */}
-                <Footer />
+                <Footer inverted={false} />
             </div>
         </div>
     );

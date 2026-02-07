@@ -95,7 +95,7 @@ export default function V3Home() {
             </main>
 
             <div className="relative z-10">
-                <Footer />
+                <Footer inverted={false} />
             </div>
         </div>
     );

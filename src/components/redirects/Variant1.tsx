@@ -1,6 +1,7 @@
 "use client";
 
 import { PrismSceneLite } from "./PrismSceneLite";
+import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -78,6 +79,11 @@ export default function Variant1() {
             </a>
           </div>
         </motion.div>
+      </div>
+
+      {/* Footer */}
+      <div className="absolute bottom-0 left-0 right-0 z-30">
+        <Footer inverted={false} />
       </div>
     </div>
   );

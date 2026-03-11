@@ -1,6 +1,6 @@
 "use client";
 
-import { PrismScene } from "@/components/v5/PrismScene";
+import { PrismSceneLite } from "./PrismSceneLite";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -23,7 +23,7 @@ export default function Variant1() {
   return (
     <div className="h-screen w-screen bg-black text-white relative overflow-hidden flex flex-col items-center justify-center">
       {/* Preview Image Layer */}
-      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 ${revealed ? "opacity-40" : "opacity-0"}`}>
+      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 ${revealed ? "opacity-60" : "opacity-0"}`}>
         <Image
           src={teaserPreview}
           alt="Our Hero Balthazar"
@@ -31,12 +31,12 @@ export default function Variant1() {
           className="object-cover scale-105"
           priority
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* 3D Scene Layer — smaller, centered, on top so the logo is interactive */}
-      <div className={`absolute left-1/2 top-[5%] -translate-x-1/2 w-[70vw] h-[58vh] md:w-[50vw] md:h-[60vh] z-20 transition-all duration-1000 ${revealed ? "opacity-30 scale-90" : "opacity-100 scale-100"}`}>
-        <PrismScene inverted={false} />
+      <div className={`absolute left-1/2 top-[5%] -translate-x-1/2 w-[80vw] h-[62vh] md:w-[55vw] md:h-[63vh] z-20 transition-all duration-1000 ${revealed ? "opacity-30 scale-90" : "opacity-100 scale-100"}`}>
+        <PrismSceneLite inverted={false} />
       </div>
 
       {/* UI Overlay — below the 3D scene, pointer-events only on interactive elements */}
@@ -72,7 +72,7 @@ export default function Variant1() {
           <div className={`md:hidden flex justify-center mt-8 transition-all duration-700 pointer-events-auto ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}>
             <a
               href={OHB_URL}
-              className="font-mono text-xs tracking-[0.4em] uppercase border border-white/30 px-8 py-3 hover:bg-white/10 active:bg-white/20 transition-colors"
+              className="font-mono text-xs tracking-[0.4em] uppercase px-8 py-3 hover:opacity-70 active:opacity-50 transition-opacity"
             >
               ENTER SITE
             </a>

@@ -318,7 +318,7 @@ const TheaterRow = memo(function TheaterRow({
 // Memoized Hero Section - prevents re-render on date changes
 const HeroSection = memo(function HeroSection() {
   return (
-    <div className="relative pt-20 pb-12 px-6 md:px-12 lg:px-16 border-b-2 border-black" style={{ backgroundColor: BRAND.white }}>
+    <div className="relative py-12 px-6 md:px-12 lg:px-16 border-b-2 border-black" style={{ backgroundColor: BRAND.white }}>
       <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 max-w-6xl mx-auto">
         {/* Movie Poster */}
         <motion.div
@@ -516,11 +516,8 @@ export default function OurHeroBalthazarPage() {
           </a>
         </div>
 
-        {/* Hero Section - Memoized to prevent re-renders on date change */}
-        <HeroSection />
-
         {/* Promo Cards */}
-        <div className="px-6 md:px-12 lg:px-16 py-8 border-b-2 border-black" style={{ backgroundColor: BRAND.lightGray }}>
+        <div className="px-6 md:px-12 lg:px-16 pt-20 pb-8 border-b-2 border-black" style={{ backgroundColor: BRAND.lightGray }}>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0">
             {PROMOS.map((promo, i) => (
               <div
@@ -719,8 +716,8 @@ export default function OurHeroBalthazarPage() {
               const isSelected = selectedDateStr === date.dateStr;
 
               return (
-                <div 
-                  key={date.dateStr} 
+                <div
+                  key={date.dateStr}
                   style={{ display: isSelected ? "block" : "none" }}
                 >
                   {theaterNames.length === 0 ? (
@@ -743,6 +740,9 @@ export default function OurHeroBalthazarPage() {
             })}
           </div>
         </div>
+
+        {/* Hero Section - Movie poster and description */}
+        <HeroSection />
 
         {/* Additional Details Footer */}
         <div className="px-6 md:px-12 lg:px-16 py-12 border-t-2 border-black" style={{ backgroundColor: BRAND.lightGray }}>

@@ -5,12 +5,13 @@ import Image from "next/image";
 import { useState, useRef, useMemo, memo, useCallback, useTransition, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// Brand Colors - Inverted dark theme palette
+// Brand Colors - Dark theme palette
 const BRAND = {
-  black: "#ffffff",
-  white: "#000000",
-  gray: "#999999",
-  lightGray: "#111111",
+  black: "#000000",
+  white: "#ffffff",
+  gray: "#666666",
+  lightGray: "#1a1a1a",
+  darkGray: "#111111",
 };
 
 // Real movie data from ourherobalthazar.com
@@ -253,7 +254,7 @@ const TheaterRow = memo(function TheaterRow({
   const logoPath = brand ? THEATER_LOGOS[brand] : null;
 
   return (
-    <div className="border-b-2 border-black/20 py-6 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-4 md:gap-8 items-start">
+    <div className="border-b-2 border-white/20 py-6 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-4 md:gap-8 items-start">
       {/* Theater Info */}
       <div className="flex flex-col">
         {logoPath && (
@@ -261,13 +262,14 @@ const TheaterRow = memo(function TheaterRow({
             <img
               src={logoPath}
               alt={brand || ""}
+              className="invert"
               style={{ width: "60px", height: "20px", objectFit: "contain", objectPosition: "left" }}
             />
           </div>
         )}
-        <span className="text-sm font-bold uppercase">{theaterName}</span>
+        <span className="text-sm font-bold uppercase text-white">{theaterName}</span>
         {showtimes.some(s => isSpecialEvent(s.eventType)) && (
-          <div className="mt-2 text-[10px] font-bold px-2 py-1 bg-black text-white inline-block self-start uppercase tracking-wide">
+          <div className="mt-2 text-[10px] font-bold px-2 py-1 bg-white text-black inline-block self-start uppercase tracking-wide">
             Special Event
           </div>
         )}
@@ -287,9 +289,9 @@ const TheaterRow = memo(function TheaterRow({
               rel="noopener noreferrer"
               className={`px-4 py-3 border-2 transition-all font-bold tracking-tight uppercase flex flex-col items-center ${soldOut ? "cursor-not-allowed opacity-50" : "hover:scale-105"}`}
               style={{
-                borderColor: BRAND.black,
-                color: special ? BRAND.white : BRAND.black,
-                backgroundColor: special ? BRAND.black : "transparent",
+                borderColor: BRAND.white,
+                color: special ? BRAND.black : BRAND.white,
+                backgroundColor: special ? BRAND.white : "transparent",
                 pointerEvents: soldOut ? "none" : "auto",
               }}
               title={showtime.eventType}
@@ -303,7 +305,7 @@ const TheaterRow = memo(function TheaterRow({
                 </span>
               )}
               {soldOut && (
-                <span className="text-[8px] mt-1 tracking-wider text-red-600 font-bold">
+                <span className="text-[8px] mt-1 tracking-wider text-red-500 font-bold">
                   SOLD OUT
                 </span>
               )}
@@ -318,7 +320,7 @@ const TheaterRow = memo(function TheaterRow({
 // Memoized Hero Section - prevents re-render on date changes
 const HeroSection = memo(function HeroSection() {
   return (
-    <div className="relative py-12 px-6 md:px-12 lg:px-16 border-b-2 border-black" style={{ backgroundColor: BRAND.white }}>
+    <div className="relative py-12 px-6 md:px-12 lg:px-16 border-b-2 border-white/20" style={{ backgroundColor: BRAND.black }}>
       <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 max-w-6xl mx-auto">
         {/* Movie Poster */}
         <motion.div
@@ -327,7 +329,7 @@ const HeroSection = memo(function HeroSection() {
           transition={{ duration: 0.6 }}
           className="flex-shrink-0"
         >
-          <div className="relative w-[260px] h-[390px] md:w-[300px] md:h-[450px] overflow-hidden border-2 border-black shadow-[8px_8px_0_0_#000]">
+          <div className="relative w-[260px] h-[390px] md:w-[300px] md:h-[450px] overflow-hidden border-2 border-white shadow-[8px_8px_0_0_#fff]">
             <Image
               src="/assets/ohb/poster.jpg"
               alt={MOVIE.title}
@@ -346,13 +348,12 @@ const HeroSection = memo(function HeroSection() {
           className="flex-1"
         >
           <p
-            className="text-xs tracking-[0.2em] font-bold mb-3 uppercase"
-            style={{ color: BRAND.black }}
+            className="text-xs tracking-[0.2em] font-bold mb-3 uppercase text-white"
           >
             {MOVIE.tagline}
           </p>
           <h1
-            className="text-4xl md:text-5xl lg:text-6xl mb-6 uppercase leading-[0.9]"
+            className="text-4xl md:text-5xl lg:text-6xl mb-6 uppercase leading-[0.9] text-white"
             style={{
               fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
               fontWeight: 900,
@@ -361,40 +362,40 @@ const HeroSection = memo(function HeroSection() {
           >
             our hero,<br/>balthazar
           </h1>
-          <p className="text-black/80 max-w-xl mb-8 leading-relaxed text-sm">
+          <p className="text-white/80 max-w-xl mb-8 leading-relaxed text-sm">
             {MOVIE.synopsis}
           </p>
 
           {/* Details Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div>
-              <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Directed by</p>
-              <p className="text-sm font-bold">{MOVIE.director}</p>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Directed by</p>
+              <p className="text-sm font-bold text-white">{MOVIE.director}</p>
             </div>
             <div>
-              <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Written by</p>
-              <p className="text-sm font-bold">{MOVIE.writers}</p>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Written by</p>
+              <p className="text-sm font-bold text-white">{MOVIE.writers}</p>
             </div>
             <div>
-              <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Film Details</p>
-              <p className="text-sm font-bold">
-                {MOVIE.year} <span className="inline-block border-2 border-black px-1 text-[10px] ml-1 font-bold">{MOVIE.rating}</span>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Film Details</p>
+              <p className="text-sm font-bold text-white">
+                {MOVIE.year} <span className="inline-block border-2 border-white px-1 text-[10px] ml-1 font-bold">{MOVIE.rating}</span>
               </p>
             </div>
             <div>
-              <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Runtime</p>
-              <p className="text-sm font-bold">{MOVIE.runtime}</p>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Runtime</p>
+              <p className="text-sm font-bold text-white">{MOVIE.runtime}</p>
             </div>
           </div>
 
           {/* Cast */}
           <div className="mb-8">
-            <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Starring</p>
-            <p className="text-sm font-bold">{MOVIE.cast.join(", ")}</p>
+            <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Starring</p>
+            <p className="text-sm font-bold text-white">{MOVIE.cast.join(", ")}</p>
           </div>
 
           {/* Share */}
-          <button className="flex items-center gap-2 text-black/70 hover:text-black transition-colors group border-2 border-black px-4 py-2 hover:bg-black hover:text-white">
+          <button className="flex items-center gap-2 text-white/70 hover:text-white transition-colors group border-2 border-white px-4 py-2 hover:bg-white hover:text-black">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13" />
             </svg>
@@ -509,17 +510,17 @@ export default function OurHeroBalthazarPage() {
 
   return (
     <div
-        className="min-h-screen text-black"
+        className="min-h-screen text-white"
         style={{
           fontFamily: "'Neue Haas Grotesk Text Pro', 'Inter', sans-serif",
-          backgroundColor: BRAND.white,
+          backgroundColor: BRAND.black,
         }}
       >
         {/* Back Arrow */}
         <div className="fixed top-6 left-6 z-50">
           <a
             href="/"
-            className="w-10 h-10 flex items-center justify-center border-2 border-black hover:bg-black hover:text-white transition-all"
+            className="w-10 h-10 flex items-center justify-center border-2 border-white hover:bg-white hover:text-black transition-all"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -528,7 +529,7 @@ export default function OurHeroBalthazarPage() {
         </div>
 
         {/* Date Picker */}
-        <div className="relative pt-20 border-b-2 border-black" style={{ backgroundColor: BRAND.black }}>
+        <div className="relative pt-20 border-b-2 border-white/20" style={{ backgroundColor: BRAND.black }}>
           {/* Buy Tickets Header */}
           <div className="text-center pb-6">
             <h2
@@ -591,10 +592,10 @@ export default function OurHeroBalthazarPage() {
         </div>
 
         {/* Location Bar */}
-        <div className="px-6 md:px-12 lg:px-16 py-4 border-b-2 border-black flex items-center justify-between relative" style={{ backgroundColor: BRAND.lightGray }} ref={locationRef}>
+        <div className="px-6 md:px-12 lg:px-16 py-4 border-b-2 border-white/20 flex items-center justify-between relative" style={{ backgroundColor: BRAND.lightGray }} ref={locationRef}>
           <button
             onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
-            className="flex items-center gap-2 text-black hover:opacity-70 transition-opacity"
+            className="flex items-center gap-2 text-white hover:opacity-70 transition-opacity"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -618,14 +619,14 @@ export default function OurHeroBalthazarPage() {
 
           {/* Dropdown */}
           {locationDropdownOpen && (
-            <div className="absolute top-full left-0 right-0 bg-white border-2 border-t-0 border-black z-50 shadow-lg">
+            <div className="absolute top-full left-0 right-0 bg-black border-2 border-t-0 border-white/20 z-50 shadow-lg">
               <button
                 onClick={() => {
                   setSelectedCity(null);
                   setLocationDropdownOpen(false);
                 }}
-                className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-black hover:text-white transition-colors flex items-center justify-between ${
-                  selectedCity === null ? "bg-black text-white" : "text-black"
+                className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors flex items-center justify-between ${
+                  selectedCity === null ? "bg-white text-black" : "text-white"
                 }`}
               >
                 All Locations
@@ -655,8 +656,8 @@ export default function OurHeroBalthazarPage() {
                       }
                     }
                   }}
-                  className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-black hover:text-white transition-colors flex items-center justify-between ${
-                    selectedCity === city ? "bg-black text-white" : "text-black"
+                  className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors flex items-center justify-between ${
+                    selectedCity === city ? "bg-white text-black" : "text-white"
                   }`}
                 >
                   {city}
@@ -670,13 +671,13 @@ export default function OurHeroBalthazarPage() {
             </div>
           )}
 
-          <div className="text-xs tracking-[0.15em] font-bold uppercase text-black/60">
+          <div className="text-xs tracking-[0.15em] font-bold uppercase text-white/60">
             {currentTheaters.length} {currentTheaters.length === 1 ? "Theater" : "Theaters"}
           </div>
         </div>
 
         {/* Theater Showtimes Grid */}
-        <div className="px-6 md:px-12 lg:px-16 py-8" style={{ backgroundColor: BRAND.white }}>
+        <div className="px-6 md:px-12 lg:px-16 py-8" style={{ backgroundColor: BRAND.black }}>
           <div className="max-w-6xl mx-auto">
             {availableDates.map(date => {
               const byTheater = showtimesByDateAndTheater[date.dateStr] || {};
@@ -710,20 +711,20 @@ export default function OurHeroBalthazarPage() {
         </div>
 
         {/* Promo Cards */}
-        <div className="px-6 md:px-12 lg:px-16 py-8 border-b-2 border-black" style={{ backgroundColor: BRAND.lightGray }}>
+        <div className="px-6 md:px-12 lg:px-16 py-8 border-b-2 border-white/20" style={{ backgroundColor: BRAND.lightGray }}>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0">
             {PROMOS.map((promo, i) => (
               <div
                 key={i}
-                className="p-5 border-2 border-black flex gap-4 -ml-[2px] first:ml-0 -mt-[2px] first:mt-0 md:mt-0"
-                style={{ backgroundColor: promo.highlight ? BRAND.black : BRAND.white }}
+                className="p-5 border-2 border-white/20 flex gap-4 -ml-[2px] first:ml-0 -mt-[2px] first:mt-0 md:mt-0"
+                style={{ backgroundColor: promo.highlight ? BRAND.white : BRAND.black }}
               >
                 <div className="flex-shrink-0 mt-0.5">
                   <div
                     className="w-5 h-5 flex items-center justify-center text-[10px] font-bold"
                     style={{
-                      backgroundColor: promo.highlight ? BRAND.white : BRAND.black,
-                      color: promo.highlight ? BRAND.black : BRAND.white,
+                      backgroundColor: promo.highlight ? BRAND.black : BRAND.white,
+                      color: promo.highlight ? BRAND.white : BRAND.black,
                     }}
                   >
                     ★
@@ -732,13 +733,13 @@ export default function OurHeroBalthazarPage() {
                 <div className="flex-1">
                   <p
                     className="text-sm font-bold mb-1 tracking-[0.05em] uppercase"
-                    style={{ color: promo.highlight ? BRAND.white : BRAND.black }}
+                    style={{ color: promo.highlight ? BRAND.black : BRAND.white }}
                   >
                     {promo.title}
                   </p>
                   <p
                     className="text-xs leading-relaxed"
-                    style={{ color: promo.highlight ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)" }}
+                    style={{ color: promo.highlight ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.7)" }}
                   >
                     {promo.description}
                   </p>
@@ -756,18 +757,18 @@ export default function OurHeroBalthazarPage() {
                             }
                           }
                         }}
-                        className="w-10 h-5 border-2 border-black transition-colors relative"
-                        style={{ backgroundColor: showSpecialOnly ? BRAND.black : BRAND.white }}
+                        className="w-10 h-5 border-2 border-white transition-colors relative"
+                        style={{ backgroundColor: showSpecialOnly ? BRAND.white : BRAND.black }}
                       >
                         <div
                           className="w-3 h-3 absolute top-0.5 transition-all"
                           style={{
-                            backgroundColor: showSpecialOnly ? BRAND.white : BRAND.black,
+                            backgroundColor: showSpecialOnly ? BRAND.black : BRAND.white,
                             left: showSpecialOnly ? "calc(100% - 14px)" : "2px",
                           }}
                         />
                       </button>
-                      <span className="text-[10px] text-black/60 font-bold tracking-[0.1em] uppercase">Show Special Events Only</span>
+                      <span className="text-[10px] text-white/60 font-bold tracking-[0.1em] uppercase">Show Special Events Only</span>
                     </div>
                   )}
                 </div>
@@ -780,10 +781,10 @@ export default function OurHeroBalthazarPage() {
         <HeroSection />
 
         {/* Additional Details Footer */}
-        <div className="px-6 md:px-12 lg:px-16 py-12 border-t-2 border-black" style={{ backgroundColor: BRAND.lightGray }}>
+        <div className="px-6 md:px-12 lg:px-16 py-12 border-t-2 border-white/20" style={{ backgroundColor: BRAND.lightGray }}>
           <div className="max-w-6xl mx-auto">
             <h3
-              className="text-2xl mb-8 uppercase"
+              className="text-2xl mb-8 uppercase text-white"
               style={{
                 fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
                 fontWeight: 900,
@@ -793,34 +794,34 @@ export default function OurHeroBalthazarPage() {
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div>
-                <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Directed by</p>
-                <p className="text-sm font-bold">{MOVIE.director}</p>
+                <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Directed by</p>
+                <p className="text-sm font-bold text-white">{MOVIE.director}</p>
               </div>
               <div>
-                <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Written by</p>
-                <p className="text-sm font-bold">{MOVIE.writers}</p>
+                <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Written by</p>
+                <p className="text-sm font-bold text-white">{MOVIE.writers}</p>
               </div>
               <div>
-                <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Film Details</p>
-                <p className="text-sm font-bold">
-                  {MOVIE.year} <span className="inline-block border-2 border-black px-1 text-[10px] ml-1 font-bold">{MOVIE.rating}</span>
+                <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Film Details</p>
+                <p className="text-sm font-bold text-white">
+                  {MOVIE.year} <span className="inline-block border-2 border-white px-1 text-[10px] ml-1 font-bold">{MOVIE.rating}</span>
                 </p>
               </div>
               <div>
-                <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Runtime</p>
-                <p className="text-sm font-bold">{MOVIE.runtime}</p>
+                <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Runtime</p>
+                <p className="text-sm font-bold text-white">{MOVIE.runtime}</p>
               </div>
             </div>
             <div className="mt-8">
-              <p className="text-[10px] tracking-[0.2em] font-bold text-black/50 mb-1 uppercase">Starring</p>
-              <p className="text-sm font-bold">{MOVIE.cast.join(", ")}</p>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Starring</p>
+              <p className="text-sm font-bold text-white">{MOVIE.cast.join(", ")}</p>
             </div>
           </div>
         </div>
 
         {/* Footer - OHB Style */}
         <footer
-          className="px-6 md:px-12 lg:px-16 py-6 border-t-2 border-black flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.15em] font-bold uppercase"
+          className="px-6 md:px-12 lg:px-16 py-6 border-t-2 border-white/20 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.15em] font-bold uppercase"
           style={{ backgroundColor: BRAND.black, color: BRAND.white }}
         >
           <div className="flex gap-6">

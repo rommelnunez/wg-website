@@ -238,7 +238,7 @@ const TheaterRow = memo(function TheaterRow({
   const logoPath = brand ? THEATER_LOGOS[brand] : null;
 
   return (
-    <div className="border-b-2 border-white/20 py-6 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-4 md:gap-8 items-start">
+    <div className="py-6 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-4 md:gap-8 items-start">
       {/* Theater Info */}
       <div className="flex flex-col">
         {logoPath && (
@@ -304,7 +304,7 @@ const TheaterRow = memo(function TheaterRow({
 // Memoized Hero Section - prevents re-render on date changes
 const HeroSection = memo(function HeroSection() {
   return (
-    <div className="relative py-12 px-6 md:px-12 lg:px-16 border-b-2 border-white/20" style={{ backgroundColor: BRAND.black }}>
+    <div className="relative py-12 px-6 md:px-12 lg:px-16" style={{ backgroundColor: BRAND.black }}>
       <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 max-w-6xl mx-auto">
         {/* Movie Poster */}
         <motion.div
@@ -513,7 +513,7 @@ export default function OurHeroBalthazarPage() {
         </div>
 
         {/* Date Picker */}
-        <div className="relative pt-6 border-b-2 border-white/20" style={{ backgroundColor: BRAND.black }}>
+        <div className="relative pt-6" style={{ backgroundColor: BRAND.black }}>
           {/* Buy Tickets Header */}
           <div className="text-center pb-4">
             <h2
@@ -765,7 +765,7 @@ export default function OurHeroBalthazarPage() {
 
         {/* Footer - OHB Style */}
         <footer
-          className="px-6 md:px-12 lg:px-16 py-6 border-t-2 border-white/20 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.15em] font-bold uppercase"
+          className="px-6 md:px-12 lg:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.15em] font-bold uppercase"
           style={{ backgroundColor: BRAND.black, color: BRAND.white }}
         >
           <div className="flex gap-6">

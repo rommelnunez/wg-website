@@ -313,7 +313,7 @@ const HeroSection = memo(function HeroSection() {
           transition={{ duration: 0.6 }}
           className="flex-shrink-0"
         >
-          <div className="relative w-[260px] h-[390px] md:w-[300px] md:h-[450px] overflow-hidden border-2 border-white shadow-[8px_8px_0_0_#fff]">
+          <div className="relative w-[260px] h-[390px] md:w-[300px] md:h-[450px] overflow-hidden">
             <Image
               src="/assets/ohb/poster.jpg"
               alt={MOVIE.title}

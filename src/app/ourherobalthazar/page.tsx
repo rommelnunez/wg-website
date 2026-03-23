@@ -431,6 +431,17 @@ export default function OurHeroBalthazarPage() {
     return dates;
   }, [selectedCity]);
 
+  // Get dates that have special events (Q&A, intro, etc.)
+  const datesWithSpecialEvents = useMemo(() => {
+    const dates = new Set<string>();
+    SHOWTIMES_DATA.forEach(s => {
+      if (isSpecialEvent(s.eventType)) {
+        dates.add(s.date);
+      }
+    });
+    return dates;
+  }, []);
+
   // Close dropdown when clicking outside
   const handleClickOutside = useCallback((e: MouseEvent) => {
     if (locationRef.current && !locationRef.current.contains(e.target as Node)) {
@@ -524,7 +535,9 @@ export default function OurHeroBalthazarPage() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {availableDates.map((date) => {
-              const isDisabled = selectedCity !== null && !datesForSelectedCity.has(date.dateStr);
+              const cityDisabled = selectedCity !== null && !datesForSelectedCity.has(date.dateStr);
+              const specialDisabled = showSpecialOnly && !datesWithSpecialEvents.has(date.dateStr);
+              const isDisabled = cityDisabled || specialDisabled;
               return (
                 <DateButton
                   key={date.dateStr}
@@ -720,7 +733,17 @@ export default function OurHeroBalthazarPage() {
                   {promo.toggle && (
                     <div className="flex items-center gap-2 mt-3">
                       <button
-                        onClick={() => setShowSpecialOnly(!showSpecialOnly)}
+                        onClick={() => {
+                          const newValue = !showSpecialOnly;
+                          setShowSpecialOnly(newValue);
+                          // If turning on special events filter and current date has no special events, select first available
+                          if (newValue && !datesWithSpecialEvents.has(selectedDateStr)) {
+                            const firstAvailableDate = availableDates.find(d => datesWithSpecialEvents.has(d.dateStr));
+                            if (firstAvailableDate) {
+                              setSelectedDateStr(firstAvailableDate.dateStr);
+                            }
+                          }
+                        }}
                         className="w-10 h-5 border-2 border-black transition-colors relative"
                         style={{ backgroundColor: showSpecialOnly ? BRAND.black : BRAND.white }}
                       >

@@ -2,7 +2,7 @@
 
 // Calendar-based ticket page for Our Hero, Balthazar
 import Image from "next/image";
-import { useState, useRef, useMemo, memo, useCallback, useTransition } from "react";
+import { useState, useRef, useMemo, memo, useCallback, useTransition, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Brand Colors - Black, white, gray palette
@@ -57,6 +57,40 @@ const SHOWTIMES_DATA: Showtime[] = [
   { theater: "Regal Union Square", date: "2026-03-27", time: "7:00 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-live-qa-w-cast-filmmakers-ho00020997?id=287491&site=1320&date=03-27-2026" },
   { theater: "Regal Union Square", date: "2026-03-27", time: "8:00 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-live-qa-w-cast-filmmakers-ho00020997?id=287491&site=1320&date=03-27-2026" },
   { theater: "Regal Union Square", date: "2026-03-27", time: "10:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-27-2026" },
+  // Mar 28 - New York
+  { theater: "Regal Union Square", date: "2026-03-28", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-28-2026" },
+  { theater: "Regal Union Square", date: "2026-03-28", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-28-2026" },
+  { theater: "Regal Union Square", date: "2026-03-28", time: "10:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-28-2026" },
+  // Mar 29 - New York
+  { theater: "Regal Union Square", date: "2026-03-29", time: "10:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-29-2026" },
+  { theater: "Regal Union Square", date: "2026-03-29", time: "6:00 PM", eventType: "General Admission (Sold Out)", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-29-2026" },
+  { theater: "Regal Union Square", date: "2026-03-29", time: "8:30 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-29-2026" },
+  { theater: "Regal Union Square", date: "2026-03-29", time: "11:00 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-29-2026" },
+  // Mar 30 - New York
+  { theater: "Regal Union Square", date: "2026-03-30", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-30-2026" },
+  { theater: "Regal Union Square", date: "2026-03-30", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-30-2026" },
+  { theater: "Regal Union Square", date: "2026-03-30", time: "9:50 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-30-2026" },
+  // Mar 31 - New York
+  { theater: "Regal Union Square", date: "2026-03-31", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
+  { theater: "Regal Union Square", date: "2026-03-31", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
+  { theater: "Regal Union Square", date: "2026-03-31", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
+  { theater: "Regal Union Square", date: "2026-03-31", time: "7:10 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
+  { theater: "Regal Union Square", date: "2026-03-31", time: "9:50 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
+  // Apr 1 - New York
+  { theater: "Regal Union Square", date: "2026-04-01", time: "8:20 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
+  { theater: "Regal Union Square", date: "2026-04-01", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
+  { theater: "Regal Union Square", date: "2026-04-01", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
+  { theater: "Regal Union Square", date: "2026-04-01", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
+  { theater: "Regal Union Square", date: "2026-04-01", time: "7:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
+  { theater: "Regal Union Square", date: "2026-04-01", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
+  { theater: "Regal Union Square", date: "2026-04-02", time: "12:40 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
+  // Apr 2 - New York
+  { theater: "Regal Union Square", date: "2026-04-02", time: "8:20 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
+  { theater: "Regal Union Square", date: "2026-04-02", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
+  { theater: "Regal Union Square", date: "2026-04-02", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
+  { theater: "Regal Union Square", date: "2026-04-02", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
+  { theater: "Regal Union Square", date: "2026-04-02", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
+  { theater: "Regal Union Square", date: "2026-04-03", time: "12:40 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-03-2026" },
   { theater: "AMC The Americana at Brand 18", date: "2026-04-03", time: "7:00 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://www.amctheatres.com/movies/our-hero-balthazar-live-q-a-with-cast-filmmakers-83146/showtimes?date=2026-04-03&theatre=amc-the-americana-at-brand-18" },
   { theater: "AMC Burbank Town Center 8", date: "2026-04-03", time: "7:45 PM", eventType: "General Admission", ticketLink: "https://www.amctheatres.com/movies/our-hero-balthazar-83057/showtimes?date=2026-04-03&theatre=amc-burbank-town-center-8" },
   { theater: "Alamo Drafthouse DTLA", date: "2026-04-03", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
@@ -86,6 +120,19 @@ const SHOWTIMES_DATA: Showtime[] = [
   { theater: "Alamo Drafthouse DTLA", date: "2026-04-08", time: "7:20 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
   { theater: "Alamo Drafthouse DTLA", date: "2026-04-08", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
 ];
+
+// City mapping for theaters
+const THEATER_CITIES: Record<string, string> = {
+  "Regal Union Square": "New York",
+  "AMC The Americana at Brand 18": "Los Angeles",
+  "AMC Burbank Town Center 8": "Los Angeles",
+  "Alamo Drafthouse DTLA": "Los Angeles",
+};
+
+// Get city from theater name
+const getTheaterCity = (theaterName: string): string => {
+  return THEATER_CITIES[theaterName] || "Unknown";
+};
 
 // Get theater brand from name
 const getTheaterBrand = (theaterName: string): string | null => {
@@ -148,28 +195,41 @@ const PROMOS = [
 const DateButton = memo(function DateButton({
   date,
   isSelected,
+  isDisabled,
   onSelect,
 }: {
   date: { dateStr: string; day: string; weekday: string; month: string };
   isSelected: boolean;
+  isDisabled: boolean;
   onSelect: (dateStr: string) => void;
 }) {
   return (
     <button
-      onClick={() => onSelect(date.dateStr)}
-      className={`flex-shrink-0 flex flex-col items-center justify-center px-6 md:px-10 py-6 border-r-2 ${
-        isSelected ? "bg-white border-black" : "bg-black border-white/10"
+      onClick={() => !isDisabled && onSelect(date.dateStr)}
+      disabled={isDisabled}
+      className={`flex-shrink-0 flex flex-col items-center justify-center px-6 md:px-10 py-6 border-r-2 transition-all ${
+        isDisabled
+          ? "bg-black/50 border-white/5 cursor-not-allowed"
+          : isSelected
+          ? "bg-white border-black"
+          : "bg-black border-white/10"
       }`}
       style={{ minWidth: "120px" }}
     >
-      <span className={`text-[10px] tracking-[0.2em] font-bold mb-1 uppercase ${isSelected ? "text-black" : "text-white"}`}>
+      <span className={`text-[10px] tracking-[0.2em] font-bold mb-1 uppercase ${
+        isDisabled ? "text-white/30" : isSelected ? "text-black" : "text-white"
+      }`}>
         {date.month}
       </span>
-      <span className={`text-[10px] tracking-[0.15em] font-bold mb-1 uppercase ${isSelected ? "text-black/40" : "text-white/40"}`}>
+      <span className={`text-[10px] tracking-[0.15em] font-bold mb-1 uppercase ${
+        isDisabled ? "text-white/20" : isSelected ? "text-black/40" : "text-white/40"
+      }`}>
         {date.weekday}
       </span>
       <span
-        className={`text-5xl md:text-7xl tracking-tighter ${isSelected ? "text-black" : "text-white"}`}
+        className={`text-5xl md:text-7xl tracking-tighter ${
+          isDisabled ? "text-white/30" : isSelected ? "text-black" : "text-white"
+        }`}
         style={{
           fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
           fontWeight: 900,
@@ -349,7 +409,41 @@ const HeroSection = memo(function HeroSection() {
 
 export default function OurHeroBalthazarPage() {
   const [showSpecialOnly, setShowSpecialOnly] = useState(false);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const locationRef = useRef<HTMLDivElement>(null);
+
+  // Get unique cities from showtimes
+  const availableCities = useMemo(() => {
+    const citySet = new Set(SHOWTIMES_DATA.map(s => getTheaterCity(s.theater)));
+    return Array.from(citySet).sort();
+  }, []);
+
+  // Get dates available for selected city
+  const datesForSelectedCity = useMemo(() => {
+    if (!selectedCity) return new Set<string>();
+    const dates = new Set<string>();
+    SHOWTIMES_DATA.forEach(s => {
+      if (getTheaterCity(s.theater) === selectedCity) {
+        dates.add(s.date);
+      }
+    });
+    return dates;
+  }, [selectedCity]);
+
+  // Close dropdown when clicking outside
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (locationRef.current && !locationRef.current.contains(e.target as Node)) {
+      setLocationDropdownOpen(false);
+    }
+  }, []);
+
+  // Set up click outside listener
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [handleClickOutside]);
 
   // Get unique dates from showtimes
   const availableDates = useMemo(() => {
@@ -383,6 +477,10 @@ export default function OurHeroBalthazarPage() {
       if (showSpecialOnly) {
         filtered = filtered.filter(s => isSpecialEvent(s.eventType));
       }
+      // Filter by selected city
+      if (selectedCity) {
+        filtered = filtered.filter(s => getTheaterCity(s.theater) === selectedCity);
+      }
 
       const byTheater: Record<string, Showtime[]> = {};
       filtered.forEach(showtime => {
@@ -395,7 +493,7 @@ export default function OurHeroBalthazarPage() {
     });
 
     return grouped;
-  }, [availableDates, showSpecialOnly]);
+  }, [availableDates, showSpecialOnly, selectedCity]);
 
   const currentTheaters = Object.keys(showtimesByDateAndTheater[selectedDateStr] || {});
 
@@ -486,14 +584,18 @@ export default function OurHeroBalthazarPage() {
             className="flex overflow-x-auto"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {availableDates.map((date) => (
-              <DateButton
-                key={date.dateStr}
-                date={date}
-                isSelected={selectedDateStr === date.dateStr}
-                onSelect={handleDateClick}
-              />
-            ))}
+            {availableDates.map((date) => {
+              const isDisabled = selectedCity !== null && !datesForSelectedCity.has(date.dateStr);
+              return (
+                <DateButton
+                  key={date.dateStr}
+                  date={date}
+                  isSelected={selectedDateStr === date.dateStr}
+                  isDisabled={isDisabled}
+                  onSelect={handleDateClick}
+                />
+              );
+            })}
           </div>
           {/* Scroll arrows */}
           <button
@@ -525,14 +627,85 @@ export default function OurHeroBalthazarPage() {
         </div>
 
         {/* Location Bar */}
-        <div className="px-6 md:px-12 lg:px-16 py-4 border-b-2 border-black flex items-center justify-between" style={{ backgroundColor: BRAND.lightGray }}>
-          <div className="flex items-center gap-2 text-black">
+        <div className="px-6 md:px-12 lg:px-16 py-4 border-b-2 border-black flex items-center justify-between relative" style={{ backgroundColor: BRAND.lightGray }} ref={locationRef}>
+          <button
+            onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
+            className="flex items-center gap-2 text-black hover:opacity-70 transition-opacity"
+          >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            <span className="text-sm font-bold uppercase tracking-wide">All Locations</span>
-          </div>
+            <span className="text-sm font-bold uppercase tracking-wide">
+              {selectedCity || "All Locations"}
+            </span>
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              className={`transition-transform ${locationDropdownOpen ? "rotate-180" : ""}`}
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+
+          {/* Dropdown */}
+          {locationDropdownOpen && (
+            <div className="absolute top-full left-0 right-0 bg-white border-2 border-t-0 border-black z-50 shadow-lg">
+              <button
+                onClick={() => {
+                  setSelectedCity(null);
+                  setLocationDropdownOpen(false);
+                }}
+                className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-black hover:text-white transition-colors flex items-center justify-between ${
+                  selectedCity === null ? "bg-black text-white" : "text-black"
+                }`}
+              >
+                All Locations
+                {selectedCity === null && (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                )}
+              </button>
+              {availableCities.map(city => (
+                <button
+                  key={city}
+                  onClick={() => {
+                    setSelectedCity(city);
+                    setLocationDropdownOpen(false);
+                    // If current selected date is not available in the new city, select the first available date
+                    const cityDates = new Set<string>();
+                    SHOWTIMES_DATA.forEach(s => {
+                      if (getTheaterCity(s.theater) === city) {
+                        cityDates.add(s.date);
+                      }
+                    });
+                    if (!cityDates.has(selectedDateStr)) {
+                      const firstAvailableDate = availableDates.find(d => cityDates.has(d.dateStr));
+                      if (firstAvailableDate) {
+                        setSelectedDateStr(firstAvailableDate.dateStr);
+                      }
+                    }
+                  }}
+                  className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-black hover:text-white transition-colors flex items-center justify-between ${
+                    selectedCity === city ? "bg-black text-white" : "text-black"
+                  }`}
+                >
+                  {city}
+                  {selectedCity === city && (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  )}
+                </button>
+              ))}
+            </div>
+          )}
+
           <div className="text-xs tracking-[0.15em] font-bold uppercase text-black/60">
             {currentTheaters.length} {currentTheaters.length === 1 ? "Theater" : "Theaters"}
           </div>

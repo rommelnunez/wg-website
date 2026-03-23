@@ -174,22 +174,6 @@ const SORTED_SHOWTIMES_DATA = [...SHOWTIMES_DATA].sort((a, b) => {
   return parseTimeToMinutes(a.time) - parseTimeToMinutes(b.time);
 });
 
-const PROMOS = [
-  {
-    title: "SPECIAL SCREENING",
-    description: "Cast & Filmmaker intro at select opening weekend screenings. Check your local theater for details.",
-    highlight: true,
-  },
-  {
-    title: "Q&A EVENTS",
-    description: "Join the cast and filmmakers for exclusive Q&A sessions after select screenings.",
-    toggle: true,
-  },
-  {
-    title: "GROUP TICKETS",
-    description: "Planning a group outing? Contact theaters directly for group booking discounts.",
-  },
-];
 
 // Memoized Date Button - prevents unnecessary re-renders
 const DateButton = memo(function DateButton({
@@ -671,8 +655,35 @@ export default function OurHeroBalthazarPage() {
             </div>
           )}
 
-          <div className="text-xs tracking-[0.15em] font-bold uppercase text-white/60">
-            {currentTheaters.length} {currentTheaters.length === 1 ? "Theater" : "Theaters"}
+          <div className="flex items-center gap-4">
+            {/* Special Events Toggle */}
+            <button
+              onClick={() => {
+                const newValue = !showSpecialOnly;
+                setShowSpecialOnly(newValue);
+                if (newValue && !datesWithSpecialEvents.has(selectedDateStr)) {
+                  const firstAvailableDate = availableDates.find(d => datesWithSpecialEvents.has(d.dateStr));
+                  if (firstAvailableDate) {
+                    setSelectedDateStr(firstAvailableDate.dateStr);
+                  }
+                }
+              }}
+              className={`flex items-center gap-2 px-3 py-1.5 border-2 text-[10px] font-bold uppercase tracking-wide transition-all ${
+                showSpecialOnly
+                  ? "bg-white text-black border-white"
+                  : "bg-transparent text-white border-white/40 hover:border-white"
+              }`}
+            >
+              <span>Q&A / Special</span>
+              {showSpecialOnly && (
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              )}
+            </button>
+            <div className="text-xs tracking-[0.15em] font-bold uppercase text-white/60">
+              {currentTheaters.length} {currentTheaters.length === 1 ? "Theater" : "Theaters"}
+            </div>
           </div>
         </div>
 
@@ -707,73 +718,6 @@ export default function OurHeroBalthazarPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-
-        {/* Promo Cards */}
-        <div className="px-6 md:px-12 lg:px-16 py-8 border-b-2 border-white/20" style={{ backgroundColor: BRAND.lightGray }}>
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0">
-            {PROMOS.map((promo, i) => (
-              <div
-                key={i}
-                className="p-5 border-2 border-white/20 flex gap-4 -ml-[2px] first:ml-0 -mt-[2px] first:mt-0 md:mt-0"
-                style={{ backgroundColor: promo.highlight ? BRAND.white : BRAND.black }}
-              >
-                <div className="flex-shrink-0 mt-0.5">
-                  <div
-                    className="w-5 h-5 flex items-center justify-center text-[10px] font-bold"
-                    style={{
-                      backgroundColor: promo.highlight ? BRAND.black : BRAND.white,
-                      color: promo.highlight ? BRAND.white : BRAND.black,
-                    }}
-                  >
-                    ★
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <p
-                    className="text-sm font-bold mb-1 tracking-[0.05em] uppercase"
-                    style={{ color: promo.highlight ? BRAND.black : BRAND.white }}
-                  >
-                    {promo.title}
-                  </p>
-                  <p
-                    className="text-xs leading-relaxed"
-                    style={{ color: promo.highlight ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.7)" }}
-                  >
-                    {promo.description}
-                  </p>
-                  {promo.toggle && (
-                    <div className="flex items-center gap-2 mt-3">
-                      <button
-                        onClick={() => {
-                          const newValue = !showSpecialOnly;
-                          setShowSpecialOnly(newValue);
-                          // If turning on special events filter and current date has no special events, select first available
-                          if (newValue && !datesWithSpecialEvents.has(selectedDateStr)) {
-                            const firstAvailableDate = availableDates.find(d => datesWithSpecialEvents.has(d.dateStr));
-                            if (firstAvailableDate) {
-                              setSelectedDateStr(firstAvailableDate.dateStr);
-                            }
-                          }
-                        }}
-                        className="w-10 h-5 border-2 border-white transition-colors relative"
-                        style={{ backgroundColor: showSpecialOnly ? BRAND.white : BRAND.black }}
-                      >
-                        <div
-                          className="w-3 h-3 absolute top-0.5 transition-all"
-                          style={{
-                            backgroundColor: showSpecialOnly ? BRAND.black : BRAND.white,
-                            left: showSpecialOnly ? "calc(100% - 14px)" : "2px",
-                          }}
-                        />
-                      </button>
-                      <span className="text-[10px] text-white/60 font-bold tracking-[0.1em] uppercase">Show Special Events Only</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 

@@ -513,9 +513,9 @@ export default function OurHeroBalthazarPage() {
         </div>
 
         {/* Date Picker */}
-        <div className="relative pt-20 border-b-2 border-white/20" style={{ backgroundColor: BRAND.black }}>
+        <div className="relative pt-6 border-b-2 border-white/20" style={{ backgroundColor: BRAND.black }}>
           {/* Buy Tickets Header */}
-          <div className="text-center pb-6">
+          <div className="text-center pb-4">
             <h2
               className="text-white text-2xl md:text-3xl uppercase tracking-[0.15em]"
               style={{

@@ -516,65 +516,8 @@ export default function OurHeroBalthazarPage() {
           </a>
         </div>
 
-        {/* Promo Cards */}
-        <div className="px-6 md:px-12 lg:px-16 pt-20 pb-8 border-b-2 border-black" style={{ backgroundColor: BRAND.lightGray }}>
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0">
-            {PROMOS.map((promo, i) => (
-              <div
-                key={i}
-                className="p-5 border-2 border-black flex gap-4 -ml-[2px] first:ml-0 -mt-[2px] first:mt-0 md:mt-0"
-                style={{ backgroundColor: promo.highlight ? BRAND.black : BRAND.white }}
-              >
-                <div className="flex-shrink-0 mt-0.5">
-                  <div
-                    className="w-5 h-5 flex items-center justify-center text-[10px] font-bold"
-                    style={{
-                      backgroundColor: promo.highlight ? BRAND.white : BRAND.black,
-                      color: promo.highlight ? BRAND.black : BRAND.white,
-                    }}
-                  >
-                    ★
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <p
-                    className="text-sm font-bold mb-1 tracking-[0.05em] uppercase"
-                    style={{ color: promo.highlight ? BRAND.white : BRAND.black }}
-                  >
-                    {promo.title}
-                  </p>
-                  <p
-                    className="text-xs leading-relaxed"
-                    style={{ color: promo.highlight ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)" }}
-                  >
-                    {promo.description}
-                  </p>
-                  {promo.toggle && (
-                    <div className="flex items-center gap-2 mt-3">
-                      <button
-                        onClick={() => setShowSpecialOnly(!showSpecialOnly)}
-                        className="w-10 h-5 border-2 border-black transition-colors relative"
-                        style={{ backgroundColor: showSpecialOnly ? BRAND.black : BRAND.white }}
-                      >
-                        <div
-                          className="w-3 h-3 absolute top-0.5 transition-all"
-                          style={{
-                            backgroundColor: showSpecialOnly ? BRAND.white : BRAND.black,
-                            left: showSpecialOnly ? "calc(100% - 14px)" : "2px",
-                          }}
-                        />
-                      </button>
-                      <span className="text-[10px] text-black/60 font-bold tracking-[0.1em] uppercase">Show Special Events Only</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Date Picker */}
-        <div className="relative border-b-2 border-black" style={{ backgroundColor: BRAND.black }}>
+        <div className="relative pt-20 border-b-2 border-black" style={{ backgroundColor: BRAND.black }}>
           <div
             ref={scrollRef}
             className="flex overflow-x-auto"
@@ -738,6 +681,63 @@ export default function OurHeroBalthazarPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Promo Cards */}
+        <div className="px-6 md:px-12 lg:px-16 py-8 border-b-2 border-black" style={{ backgroundColor: BRAND.lightGray }}>
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0">
+            {PROMOS.map((promo, i) => (
+              <div
+                key={i}
+                className="p-5 border-2 border-black flex gap-4 -ml-[2px] first:ml-0 -mt-[2px] first:mt-0 md:mt-0"
+                style={{ backgroundColor: promo.highlight ? BRAND.black : BRAND.white }}
+              >
+                <div className="flex-shrink-0 mt-0.5">
+                  <div
+                    className="w-5 h-5 flex items-center justify-center text-[10px] font-bold"
+                    style={{
+                      backgroundColor: promo.highlight ? BRAND.white : BRAND.black,
+                      color: promo.highlight ? BRAND.black : BRAND.white,
+                    }}
+                  >
+                    ★
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <p
+                    className="text-sm font-bold mb-1 tracking-[0.05em] uppercase"
+                    style={{ color: promo.highlight ? BRAND.white : BRAND.black }}
+                  >
+                    {promo.title}
+                  </p>
+                  <p
+                    className="text-xs leading-relaxed"
+                    style={{ color: promo.highlight ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)" }}
+                  >
+                    {promo.description}
+                  </p>
+                  {promo.toggle && (
+                    <div className="flex items-center gap-2 mt-3">
+                      <button
+                        onClick={() => setShowSpecialOnly(!showSpecialOnly)}
+                        className="w-10 h-5 border-2 border-black transition-colors relative"
+                        style={{ backgroundColor: showSpecialOnly ? BRAND.black : BRAND.white }}
+                      >
+                        <div
+                          className="w-3 h-3 absolute top-0.5 transition-all"
+                          style={{
+                            backgroundColor: showSpecialOnly ? BRAND.white : BRAND.black,
+                            left: showSpecialOnly ? "calc(100% - 14px)" : "2px",
+                          }}
+                        />
+                      </button>
+                      <span className="text-[10px] text-black/60 font-bold tracking-[0.1em] uppercase">Show Special Events Only</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

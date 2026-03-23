@@ -576,7 +576,7 @@ export default function OurHeroBalthazarPage() {
         </div>
 
         {/* Location Bar */}
-        <div className="px-6 md:px-12 lg:px-16 py-4 border-b-2 border-white/20 flex items-center justify-between relative" style={{ backgroundColor: BRAND.lightGray }} ref={locationRef}>
+        <div className="px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between relative" style={{ backgroundColor: BRAND.lightGray }} ref={locationRef}>
           <button
             onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
             className="flex items-center gap-2 text-white hover:opacity-70 transition-opacity"
@@ -725,7 +725,7 @@ export default function OurHeroBalthazarPage() {
         <HeroSection />
 
         {/* Additional Details Footer */}
-        <div className="px-6 md:px-12 lg:px-16 py-12 border-t-2 border-white/20" style={{ backgroundColor: BRAND.lightGray }}>
+        <div className="px-6 md:px-12 lg:px-16 py-12" style={{ backgroundColor: BRAND.lightGray }}>
           <div className="max-w-6xl mx-auto">
             <h3
               className="text-2xl mb-8 uppercase text-white"

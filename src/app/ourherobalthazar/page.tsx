@@ -5,12 +5,12 @@ import Image from "next/image";
 import { useState, useRef, useMemo, memo, useCallback, useTransition, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// Brand Colors - Black, white, gray palette
+// Brand Colors - Inverted dark theme palette
 const BRAND = {
-  black: "#000000",
-  white: "#ffffff",
-  gray: "#666666",
-  lightGray: "#f5f5f5",
+  black: "#ffffff",
+  white: "#000000",
+  gray: "#999999",
+  lightGray: "#111111",
 };
 
 // Real movie data from ourherobalthazar.com
@@ -529,6 +529,18 @@ export default function OurHeroBalthazarPage() {
 
         {/* Date Picker */}
         <div className="relative pt-20 border-b-2 border-black" style={{ backgroundColor: BRAND.black }}>
+          {/* Buy Tickets Header */}
+          <div className="text-center pb-6">
+            <h2
+              className="text-white text-2xl md:text-3xl uppercase tracking-[0.15em]"
+              style={{
+                fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
+                fontWeight: 900,
+              }}
+            >
+              Buy Tickets
+            </h2>
+          </div>
           <div
             ref={scrollRef}
             className="flex overflow-x-auto"

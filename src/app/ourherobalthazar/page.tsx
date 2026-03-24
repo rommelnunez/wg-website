@@ -264,94 +264,64 @@ const TheaterRow = memo(function TheaterRow({
 });
 
 // Memoized Hero Section - prevents re-render on date changes
-// const HeroSection = memo(function HeroSection() {
-//   return (
-//     <div className="relative py-12 px-6 md:px-12 lg:px-16" style={{ backgroundColor: BRAND.black }}>
-//       <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 max-w-6xl mx-auto">
-//         {/* Movie Poster */}
-//         <motion.div
-//           initial={{ opacity: 0, x: -20 }}
-//           animate={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.6 }}
-//           className="flex-shrink-0"
-//         >
-//           <div className="relative w-[260px] h-[390px] md:w-[300px] md:h-[450px] overflow-hidden">
-//             <Image
-//               src="/assets/ohb/poster.jpg"
-//               alt={MOVIE.title}
-//               fill
-//               className="object-cover"
-//               priority
-//             />
-//           </div>
-//         </motion.div>
+const HeroSection = memo(function HeroSection() {
+  return (
+    <div className="relative py-12 px-6 md:px-12 lg:px-16" style={{ backgroundColor: BRAND.black }}>
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-xs tracking-[0.2em] font-bold mb-3 uppercase text-white">
+            {MOVIE.tagline}
+          </p>
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl mb-6 uppercase leading-[0.9] text-white"
+            style={{
+              fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
+              fontWeight: 900,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            our hero, balthazar
+          </h2>
+          <p className="text-white/80 mb-8 leading-relaxed text-sm max-w-2xl">
+            {MOVIE.synopsis}
+          </p>
 
-//         {/* Movie Info */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.6, delay: 0.2 }}
-//           className="flex-1"
-//         >
-//           <p
-//             className="text-xs tracking-[0.2em] font-bold mb-3 uppercase text-white"
-//           >
-//             {MOVIE.tagline}
-//           </p>
-//           <h1
-//             className="text-4xl md:text-5xl lg:text-6xl mb-6 uppercase leading-[0.9] text-white"
-//             style={{
-//               fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
-//               fontWeight: 900,
-//               letterSpacing: "-0.02em",
-//             }}
-//           >
-//             our hero,<br/>balthazar
-//           </h1>
-//           <p className="text-white/80 max-w-xl mb-8 leading-relaxed text-sm">
-//             {MOVIE.synopsis}
-//           </p>
+          {/* Details Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Directed by</p>
+              <p className="text-sm font-bold text-white">{MOVIE.director}</p>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Written by</p>
+              <p className="text-sm font-bold text-white">{MOVIE.writers}</p>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Film Details</p>
+              <p className="text-sm font-bold text-white">
+                {MOVIE.year} <span className="inline-block border-2 border-white px-1 text-[10px] ml-1 font-bold">{MOVIE.rating}</span>
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Runtime</p>
+              <p className="text-sm font-bold text-white">{MOVIE.runtime}</p>
+            </div>
+          </div>
 
-//           {/* Details Grid */}
-//           {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-//             <div>
-//               <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Directed by</p>
-//               <p className="text-sm font-bold text-white">{MOVIE.director}</p>
-//             </div>
-//             <div>
-//               <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Written by</p>
-//               <p className="text-sm font-bold text-white">{MOVIE.writers}</p>
-//             </div>
-//             <div>
-//               <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Film Details</p>
-//               <p className="text-sm font-bold text-white">
-//                 {MOVIE.year} <span className="inline-block border-2 border-white px-1 text-[10px] ml-1 font-bold">{MOVIE.rating}</span>
-//               </p>
-//             </div>
-//             <div>
-//               <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Runtime</p>
-//               <p className="text-sm font-bold text-white">{MOVIE.runtime}</p>
-//             </div>
-//           </div> */}
-
-//           {/* Cast */}
-//           {/* <div className="mb-8">
-//             <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Starring</p>
-//             <p className="text-sm font-bold text-white">{MOVIE.cast.join(", ")}</p>
-//           </div> */}
-
-//           {/* Share */}
-//           <button className="flex items-center gap-2 text-white/70 hover:text-white transition-colors group border-2 border-white px-4 py-2 hover:bg-white hover:text-black">
-//             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-//               <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13" />
-//             </svg>
-//             <span className="text-xs tracking-[0.15em] font-bold uppercase">Share</span>
-//           </button>
-//         </motion.div>
-//       </div>
-//     </div>
-//   );
-// });
+          {/* Cast */}
+          <div>
+            <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Starring</p>
+            <p className="text-sm font-bold text-white">{MOVIE.cast.join(", ")}</p>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+});
 
 export default function OurHeroBalthazarPage() {
   const [showtimesData, setShowtimesData] = useState<Showtime[]>([]);
@@ -724,7 +694,7 @@ export default function OurHeroBalthazarPage() {
       </div>
 
       {/* Hero Section - Movie poster and description */}
-      {/* <HeroSection /> */}
+      <HeroSection />
 
       {/* Additional Details Footer */}
       {/* <div className="px-6 md:px-12 lg:px-16 py-12" style={{ backgroundColor: BRAND.lightGray }}>

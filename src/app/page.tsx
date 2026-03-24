@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { useState, useCallback } from "react";
 import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
 
-const OHB_URL = "https://ourherobalthazar.com/";
+const OHB_URL = "/ourherobalthazar";
 
 export default function Home() {
   const [revealed, setRevealed] = useState(false);
@@ -65,18 +65,18 @@ export default function Home() {
             </h1>
             <div className={`h-[1px] bg-white transition-all duration-700 mt-2 ${revealed ? "w-full" : "w-0 group-hover:w-full"}`} />
             <span className={`mt-8 font-mono text-xs tracking-widest transition-opacity duration-500 hidden md:block ${revealed ? "opacity-40" : "opacity-0 group-hover:opacity-40"}`}>
-              ENTER SITE
+              GET TICKETS
             </span>
           </Link>
 
           {/* Mobile enter button — visible after first tap */}
           <div className={`md:hidden flex justify-center mt-8 transition-all duration-700 pointer-events-auto ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}>
-            <a
+            <Link
               href={OHB_URL}
               className="font-mono text-xs tracking-[0.4em] uppercase px-8 py-3 hover:opacity-70 active:opacity-50 transition-opacity"
             >
-              ENTER SITE
-            </a>
+              GET TICKETS
+            </Link>
           </div>
         </motion.div>
       </div>

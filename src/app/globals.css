@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+/* OHB Page Fonts */
+@font-face {
+  font-family: 'Neue Haas Grotesk Text Pro';
+  src: url('/fonts/NeueHaasTextPro75Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Display';
+  src: url('/fonts/NeueHaasDisplayBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #000000;
   --foreground: #ffffff;

@@ -351,7 +351,7 @@ const HeroSection = memo(function HeroSection() {
           </p>
 
           {/* Details Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div>
               <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Directed by</p>
               <p className="text-sm font-bold text-white">{MOVIE.director}</p>
@@ -370,13 +370,13 @@ const HeroSection = memo(function HeroSection() {
               <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Runtime</p>
               <p className="text-sm font-bold text-white">{MOVIE.runtime}</p>
             </div>
-          </div>
+          </div> */}
 
           {/* Cast */}
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <p className="text-[10px] tracking-[0.2em] font-bold text-white/50 mb-1 uppercase">Starring</p>
             <p className="text-sm font-bold text-white">{MOVIE.cast.join(", ")}</p>
-          </div>
+          </div> */}
 
           {/* Share */}
           <button className="flex items-center gap-2 text-white/70 hover:text-white transition-colors group border-2 border-white px-4 py-2 hover:bg-white hover:text-black">
@@ -725,7 +725,7 @@ export default function OurHeroBalthazarPage() {
         <HeroSection />
 
         {/* Additional Details Footer */}
-        <div className="px-6 md:px-12 lg:px-16 py-12" style={{ backgroundColor: BRAND.lightGray }}>
+        {/* <div className="px-6 md:px-12 lg:px-16 py-12" style={{ backgroundColor: BRAND.lightGray }}>
           <div className="max-w-6xl mx-auto">
             <h3
               className="text-2xl mb-8 uppercase text-white"
@@ -761,7 +761,7 @@ export default function OurHeroBalthazarPage() {
               <p className="text-sm font-bold text-white">{MOVIE.cast.join(", ")}</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Footer - OHB Style */}
         <footer

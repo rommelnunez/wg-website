@@ -49,77 +49,39 @@ interface Showtime {
   ticketLink: string;
 }
 
-// Real showtime data from CSV
-const SHOWTIMES_DATA: Showtime[] = [
-  { theater: "Regal Union Square", date: "2026-03-26", time: "7:30 PM", eventType: "Live Intro with Cast & Filmmakers", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-live-intro-wcast-filmmakers-ho00021029?date=03-26-2026" },
-  { theater: "Regal Union Square", date: "2026-03-27", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-27-2026" },
-  { theater: "Regal Union Square", date: "2026-03-27", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-27-2026" },
-  { theater: "Regal Union Square", date: "2026-03-27", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-27-2026" },
-  { theater: "Regal Union Square", date: "2026-03-27", time: "7:00 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-live-qa-w-cast-filmmakers-ho00020997?id=287491&site=1320&date=03-27-2026" },
-  { theater: "Regal Union Square", date: "2026-03-27", time: "8:00 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-live-qa-w-cast-filmmakers-ho00020997?id=287491&site=1320&date=03-27-2026" },
-  { theater: "Regal Union Square", date: "2026-03-27", time: "10:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-27-2026" },
-  // Mar 28 - New York
-  { theater: "Regal Union Square", date: "2026-03-28", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-28-2026" },
-  { theater: "Regal Union Square", date: "2026-03-28", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-28-2026" },
-  { theater: "Regal Union Square", date: "2026-03-28", time: "10:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-28-2026" },
-  // Mar 29 - New York
-  { theater: "Regal Union Square", date: "2026-03-29", time: "10:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-29-2026" },
-  { theater: "Regal Union Square", date: "2026-03-29", time: "6:00 PM", eventType: "General Admission (Sold Out)", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-29-2026" },
-  { theater: "Regal Union Square", date: "2026-03-29", time: "8:30 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-29-2026" },
-  { theater: "Regal Union Square", date: "2026-03-29", time: "11:00 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-29-2026" },
-  // Mar 30 - New York
-  { theater: "Regal Union Square", date: "2026-03-30", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-30-2026" },
-  { theater: "Regal Union Square", date: "2026-03-30", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-30-2026" },
-  { theater: "Regal Union Square", date: "2026-03-30", time: "9:50 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-30-2026" },
-  // Mar 31 - New York
-  { theater: "Regal Union Square", date: "2026-03-31", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
-  { theater: "Regal Union Square", date: "2026-03-31", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
-  { theater: "Regal Union Square", date: "2026-03-31", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
-  { theater: "Regal Union Square", date: "2026-03-31", time: "7:10 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
-  { theater: "Regal Union Square", date: "2026-03-31", time: "9:50 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=03-31-2026" },
-  // Apr 1 - New York
-  { theater: "Regal Union Square", date: "2026-04-01", time: "8:20 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
-  { theater: "Regal Union Square", date: "2026-04-01", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
-  { theater: "Regal Union Square", date: "2026-04-01", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
-  { theater: "Regal Union Square", date: "2026-04-01", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
-  { theater: "Regal Union Square", date: "2026-04-01", time: "7:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
-  { theater: "Regal Union Square", date: "2026-04-01", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-01-2026" },
-  { theater: "Regal Union Square", date: "2026-04-02", time: "12:40 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
-  // Apr 2 - New York
-  { theater: "Regal Union Square", date: "2026-04-02", time: "8:20 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
-  { theater: "Regal Union Square", date: "2026-04-02", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
-  { theater: "Regal Union Square", date: "2026-04-02", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
-  { theater: "Regal Union Square", date: "2026-04-02", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
-  { theater: "Regal Union Square", date: "2026-04-02", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://www.regmovies.com/movies/our-hero-balthazar-ho00020753?date=04-02-2026" },
-  { theater: "AMC The Americana at Brand 18", date: "2026-04-03", time: "7:00 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://www.amctheatres.com/movies/our-hero-balthazar-live-q-a-with-cast-filmmakers-83146/showtimes?date=2026-04-03&theatre=amc-the-americana-at-brand-18" },
-  { theater: "AMC Burbank Town Center 8", date: "2026-04-03", time: "7:45 PM", eventType: "General Admission", ticketLink: "https://www.amctheatres.com/movies/our-hero-balthazar-83057/showtimes?date=2026-04-03&theatre=amc-burbank-town-center-8" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-03", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-03", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-03", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-03", time: "7:00 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-03", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-04", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-04", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-04", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-04", time: "7:00 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-04", time: "7:45 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-04", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-05", time: "11:00 AM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-05", time: "1:40 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-05", time: "4:20 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-05", time: "7:00 PM", eventType: "Live Q&A with Cast & Filmmakers (Sold Out)", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-05", time: "7:45 PM", eventType: "Live Q&A with Cast & Filmmakers", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-07", time: "11:20 AM", eventType: "Baby Day Show", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-07", time: "2:00 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-07", time: "4:40 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-07", time: "7:20 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-07", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-08", time: "11:20 AM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-08", time: "2:00 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-08", time: "4:40 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-08", time: "7:20 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-  { theater: "Alamo Drafthouse DTLA", date: "2026-04-08", time: "10:00 PM", eventType: "General Admission", ticketLink: "https://drafthouse.com/los-angeles/show/our-hero-balthazar?cinemaId=1701&sessionId=109784" },
-];
+// Parse CSV text into Showtime array
+function parseCSV(csvText: string): Showtime[] {
+  const lines = csvText.trim().split('\n');
+  const headers = lines[0].split(',');
+
+  return lines.slice(1).map(line => {
+    // Handle commas within quoted fields
+    const values: string[] = [];
+    let current = '';
+    let inQuotes = false;
+
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char === '"') {
+        inQuotes = !inQuotes;
+      } else if (char === ',' && !inQuotes) {
+        values.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+    values.push(current.trim());
+
+    return {
+      theater: values[0] || '',
+      date: values[1] || '',
+      time: values[2] || '',
+      eventType: values[3] || '',
+      ticketLink: values[4] || '',
+    };
+  });
+}
 
 // City mapping for theaters
 const THEATER_CITIES: Record<string, string> = {
@@ -132,6 +94,15 @@ const THEATER_CITIES: Record<string, string> = {
 // Get city from theater name
 const getTheaterCity = (theaterName: string): string => {
   return THEATER_CITIES[theaterName] || "Unknown";
+};
+
+// Sort showtimes by date, theater, then time
+const sortShowtimes = (showtimes: Showtime[]): Showtime[] => {
+  return [...showtimes].sort((a, b) => {
+    if (a.date !== b.date) return a.date.localeCompare(b.date);
+    if (a.theater !== b.theater) return a.theater.localeCompare(b.theater);
+    return parseTimeToMinutes(a.time) - parseTimeToMinutes(b.time);
+  });
 };
 
 // Get theater brand from name
@@ -166,13 +137,6 @@ const parseTimeToMinutes = (time: string): number => {
   return hours * 60 + minutes;
 };
 
-// Pre-sort showtimes data once at module load
-const SORTED_SHOWTIMES_DATA = [...SHOWTIMES_DATA].sort((a, b) => {
-  // Sort by date first, then by theater, then by time
-  if (a.date !== b.date) return a.date.localeCompare(b.date);
-  if (a.theater !== b.theater) return a.theater.localeCompare(b.theater);
-  return parseTimeToMinutes(a.time) - parseTimeToMinutes(b.time);
-});
 
 
 // Memoized Date Button - prevents unnecessary re-renders
@@ -392,40 +356,60 @@ const TheaterRow = memo(function TheaterRow({
 // });
 
 export default function OurHeroBalthazarPage() {
+  const [showtimesData, setShowtimesData] = useState<Showtime[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [showSpecialOnly, setShowSpecialOnly] = useState(false);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
 
+  // Fetch CSV data on mount
+  useEffect(() => {
+    fetch('/data/showtimes.csv')
+      .then(res => res.text())
+      .then(csvText => {
+        const parsed = parseCSV(csvText);
+        setShowtimesData(parsed);
+        setIsLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load showtimes:', err);
+        setIsLoading(false);
+      });
+  }, []);
+
+  // Sorted showtimes
+  const sortedShowtimes = useMemo(() => sortShowtimes(showtimesData), [showtimesData]);
+
   // Get unique cities from showtimes
   const availableCities = useMemo(() => {
-    const citySet = new Set(SHOWTIMES_DATA.map(s => getTheaterCity(s.theater)));
+    const citySet = new Set(showtimesData.map(s => getTheaterCity(s.theater)));
     return Array.from(citySet).sort();
-  }, []);
+  }, [showtimesData]);
 
   // Get dates available for selected city
   const datesForSelectedCity = useMemo(() => {
     if (!selectedCity) return new Set<string>();
     const dates = new Set<string>();
-    SHOWTIMES_DATA.forEach(s => {
+    showtimesData.forEach(s => {
       if (getTheaterCity(s.theater) === selectedCity) {
         dates.add(s.date);
       }
     });
     return dates;
-  }, [selectedCity]);
+  }, [selectedCity, showtimesData]);
 
   // Get dates that have special events (Q&A, intro, etc.)
   const datesWithSpecialEvents = useMemo(() => {
     const dates = new Set<string>();
-    SHOWTIMES_DATA.forEach(s => {
+    showtimesData.forEach(s => {
       if (isSpecialEvent(s.eventType)) {
         dates.add(s.date);
       }
     });
     return dates;
-  }, []);
+  }, [showtimesData]);
 
   // Close dropdown when clicking outside
   const handleClickOutside = useCallback((e: MouseEvent) => {
@@ -442,7 +426,7 @@ export default function OurHeroBalthazarPage() {
 
   // Get unique dates from showtimes
   const availableDates = useMemo(() => {
-    const dateSet = new Set(SHOWTIMES_DATA.map(s => s.date));
+    const dateSet = new Set(showtimesData.map(s => s.date));
     return Array.from(dateSet).sort().map(dateStr => {
       const date = new Date(dateStr + "T00:00:00");
       return {
@@ -452,10 +436,17 @@ export default function OurHeroBalthazarPage() {
         month: date.toLocaleDateString("en-US", { month: "short" }).toUpperCase(),
       };
     });
-  }, []);
+  }, [showtimesData]);
 
-  const [selectedDateStr, setSelectedDateStr] = useState(availableDates[0]?.dateStr || "");
+  const [selectedDateStr, setSelectedDateStr] = useState("");
   const [isPending, startTransition] = useTransition();
+
+  // Set initial date when data loads
+  useEffect(() => {
+    if (availableDates.length > 0 && !selectedDateStr) {
+      setSelectedDateStr(availableDates[0].dateStr);
+    }
+  }, [availableDates, selectedDateStr]);
 
   const handleDateClick = useCallback((dateStr: string) => {
     startTransition(() => {
@@ -468,7 +459,7 @@ export default function OurHeroBalthazarPage() {
     const grouped: Record<string, Record<string, Showtime[]>> = {};
 
     availableDates.forEach(date => {
-      let filtered = SORTED_SHOWTIMES_DATA.filter(s => s.date === date.dateStr);
+      let filtered = sortedShowtimes.filter(s => s.date === date.dateStr);
       if (showSpecialOnly) {
         filtered = filtered.filter(s => isSpecialEvent(s.eventType));
       }
@@ -488,9 +479,25 @@ export default function OurHeroBalthazarPage() {
     });
 
     return grouped;
-  }, [availableDates, showSpecialOnly, selectedCity]);
+  }, [availableDates, showSpecialOnly, selectedCity, sortedShowtimes]);
 
   const currentTheaters = Object.keys(showtimesByDateAndTheater[selectedDateStr] || {});
+
+  if (isLoading) {
+    return (
+      <div
+        className="min-h-screen text-white flex items-center justify-center"
+        style={{
+          fontFamily: "'Neue Haas Grotesk Text Pro', 'Inter', sans-serif",
+          backgroundColor: BRAND.black,
+        }}
+      >
+        <div className="text-center">
+          <div className="text-2xl font-bold uppercase tracking-wide animate-pulse">Loading Showtimes...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -628,7 +635,7 @@ export default function OurHeroBalthazarPage() {
                     setLocationDropdownOpen(false);
                     // If current selected date is not available in the new city, select the first available date
                     const cityDates = new Set<string>();
-                    SHOWTIMES_DATA.forEach(s => {
+                    showtimesData.forEach(s => {
                       if (getTheaterCity(s.theater) === city) {
                         cityDates.add(s.date);
                       }

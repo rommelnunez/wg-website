@@ -766,7 +766,7 @@ export default function OurHeroBalthazarPage() {
         </div> */}
 
       {/* Footer - OHB Style */}
-      <footer
+      {/* <footer
         className="px-6 md:px-12 lg:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.15em] font-bold uppercase"
         style={{ backgroundColor: BRAND.black, color: BRAND.white }}
       >
@@ -782,7 +782,7 @@ export default function OurHeroBalthazarPage() {
           </a>
         </div>
         <span style={{ color: "rgba(255,255,255,0.5)" }}>&copy; 2026 WG Pictures</span>
-      </footer>
+      </footer> */}
     </div>
   );
 }

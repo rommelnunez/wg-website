@@ -32,6 +32,8 @@ const MOVIE = {
     "Becky Ann Baker",
     "Avan Jogia",
     "Pippa Knowles",
+    "Noah Centineo",
+    "Chris Bauer",
   ],
 };
 

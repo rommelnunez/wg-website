@@ -28,8 +28,10 @@ const MOVIE = {
     "Jaeden Martell",
     "Asa Butterfield",
     "Anna Baryshnikov",
-    "Ricky Camilleri",
-    "Noah Jupe",
+    "Jennifer Ehle",
+    "Becky Ann Baker",
+    "Avan Jogia",
+    "Pippa Knowles",
   ],
 };
 
@@ -116,8 +118,8 @@ const getTheaterBrand = (theaterName: string): string | null => {
 // Check if event is special (Q&A, intro, etc.)
 const isSpecialEvent = (eventType: string): boolean => {
   return eventType.toLowerCase().includes("q&a") ||
-         eventType.toLowerCase().includes("intro") ||
-         eventType.toLowerCase().includes("baby day");
+    eventType.toLowerCase().includes("intro") ||
+    eventType.toLowerCase().includes("baby day");
 };
 
 // Check if event is sold out
@@ -155,29 +157,25 @@ const DateButton = memo(function DateButton({
     <button
       onClick={() => !isDisabled && onSelect(date.dateStr)}
       disabled={isDisabled}
-      className={`flex-shrink-0 flex flex-col items-center justify-center px-6 md:px-10 py-6 border-r-2 transition-all ${
-        isDisabled
+      className={`flex-shrink-0 flex flex-col items-center justify-center px-6 md:px-10 py-6 border-r-2 transition-all ${isDisabled
           ? "bg-black/50 border-white/5 cursor-not-allowed"
           : isSelected
-          ? "bg-white border-black"
-          : "bg-black border-white/10"
-      }`}
+            ? "bg-white border-black"
+            : "bg-black border-white/10"
+        }`}
       style={{ minWidth: "120px" }}
     >
-      <span className={`text-[10px] tracking-[0.2em] font-bold mb-1 uppercase ${
-        isDisabled ? "text-white/30" : isSelected ? "text-black" : "text-white"
-      }`}>
+      <span className={`text-[10px] tracking-[0.2em] font-bold mb-1 uppercase ${isDisabled ? "text-white/30" : isSelected ? "text-black" : "text-white"
+        }`}>
         {date.month}
       </span>
-      <span className={`text-[10px] tracking-[0.15em] font-bold mb-1 uppercase ${
-        isDisabled ? "text-white/20" : isSelected ? "text-black/40" : "text-white/40"
-      }`}>
+      <span className={`text-[10px] tracking-[0.15em] font-bold mb-1 uppercase ${isDisabled ? "text-white/20" : isSelected ? "text-black/40" : "text-white/40"
+        }`}>
         {date.weekday}
       </span>
       <span
-        className={`text-5xl md:text-7xl tracking-tighter ${
-          isDisabled ? "text-white/30" : isSelected ? "text-black" : "text-white"
-        }`}
+        className={`text-5xl md:text-7xl tracking-tighter ${isDisabled ? "text-white/30" : isSelected ? "text-black" : "text-white"
+          }`}
         style={{
           fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
           fontWeight: 900,
@@ -248,8 +246,8 @@ const TheaterRow = memo(function TheaterRow({
               {special && (
                 <span className="text-[8px] mt-1 tracking-wider opacity-70">
                   {showtime.eventType.includes("Q&A") ? "Q&A" :
-                   showtime.eventType.includes("Intro") ? "INTRO" :
-                   showtime.eventType.includes("Baby") ? "BABY DAY" : "SPECIAL"}
+                    showtime.eventType.includes("Intro") ? "INTRO" :
+                      showtime.eventType.includes("Baby") ? "BABY DAY" : "SPECIAL"}
                 </span>
               )}
               {soldOut && (
@@ -501,238 +499,235 @@ export default function OurHeroBalthazarPage() {
 
   return (
     <div
-        className="min-h-screen text-white"
-        style={{
-          fontFamily: "'Neue Haas Grotesk Text Pro', 'Inter', sans-serif",
-          backgroundColor: BRAND.black,
-        }}
-      >
-        {/* Back Arrow */}
-        <div className="fixed top-6 left-6 z-50">
-          <a
-            href="/"
-            className="w-10 h-10 flex items-center justify-center border-2 border-white hover:bg-white hover:text-black transition-all"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-          </a>
-        </div>
+      className="min-h-screen text-white"
+      style={{
+        fontFamily: "'Neue Haas Grotesk Text Pro', 'Inter', sans-serif",
+        backgroundColor: BRAND.black,
+      }}
+    >
+      {/* Back Arrow */}
+      <div className="fixed top-6 left-6 z-50">
+        <a
+          href="/"
+          className="w-10 h-10 flex items-center justify-center border-2 border-white hover:bg-white hover:text-black transition-all"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </a>
+      </div>
 
-        {/* Date Picker */}
-        <div className="relative pt-6" style={{ backgroundColor: BRAND.black }}>
-          {/* Buy Tickets Header */}
-          <div className="text-center pb-4">
-            <h2
-              className="text-white text-2xl md:text-3xl uppercase tracking-[0.15em]"
-              style={{
-                fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
-                fontWeight: 900,
+      {/* Date Picker */}
+      <div className="relative pt-6" style={{ backgroundColor: BRAND.black }}>
+        {/* Buy Tickets Header */}
+        <div className="text-center pb-4">
+          <h2
+            className="text-white text-2xl md:text-3xl uppercase tracking-[0.15em]"
+            style={{
+              fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
+              fontWeight: 900,
+            }}
+          >
+            Buy Tickets
+          </h2>
+        </div>
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {availableDates.map((date) => {
+            const cityDisabled = selectedCity !== null && !datesForSelectedCity.has(date.dateStr);
+            const specialDisabled = showSpecialOnly && !datesWithSpecialEvents.has(date.dateStr);
+            const isDisabled = cityDisabled || specialDisabled;
+            return (
+              <DateButton
+                key={date.dateStr}
+                date={date}
+                isSelected={selectedDateStr === date.dateStr}
+                isDisabled={isDisabled}
+                onSelect={handleDateClick}
+              />
+            );
+          })}
+        </div>
+        {/* Scroll arrows */}
+        <button
+          onClick={() => scrollRef.current?.scrollBy({ left: -240, behavior: "smooth" })}
+          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center transition-colors border-2"
+          style={{
+            backgroundColor: BRAND.black,
+            borderColor: BRAND.white,
+            color: BRAND.white,
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+            <path d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={() => scrollRef.current?.scrollBy({ left: 240, behavior: "smooth" })}
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center transition-colors border-2"
+          style={{
+            backgroundColor: BRAND.black,
+            borderColor: BRAND.white,
+            color: BRAND.white,
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+            <path d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Location Bar */}
+      <div className="px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between relative" style={{ backgroundColor: BRAND.lightGray }} ref={locationRef}>
+        <button
+          onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
+          className="flex items-center gap-2 text-white hover:opacity-70 transition-opacity"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span className="text-sm font-bold uppercase tracking-wide">
+            {selectedCity || "All Locations"}
+          </span>
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            className={`transition-transform ${locationDropdownOpen ? "rotate-180" : ""}`}
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        {/* Dropdown */}
+        {locationDropdownOpen && (
+          <div className="absolute top-full left-0 right-0 bg-black border-2 border-t-0 border-white/20 z-50 shadow-lg">
+            <button
+              onClick={() => {
+                setSelectedCity(null);
+                setLocationDropdownOpen(false);
               }}
-            >
-              Buy Tickets
-            </h2>
-          </div>
-          <div
-            ref={scrollRef}
-            className="flex overflow-x-auto"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {availableDates.map((date) => {
-              const cityDisabled = selectedCity !== null && !datesForSelectedCity.has(date.dateStr);
-              const specialDisabled = showSpecialOnly && !datesWithSpecialEvents.has(date.dateStr);
-              const isDisabled = cityDisabled || specialDisabled;
-              return (
-                <DateButton
-                  key={date.dateStr}
-                  date={date}
-                  isSelected={selectedDateStr === date.dateStr}
-                  isDisabled={isDisabled}
-                  onSelect={handleDateClick}
-                />
-              );
-            })}
-          </div>
-          {/* Scroll arrows */}
-          <button
-            onClick={() => scrollRef.current?.scrollBy({ left: -240, behavior: "smooth" })}
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center transition-colors border-2"
-            style={{
-              backgroundColor: BRAND.black,
-              borderColor: BRAND.white,
-              color: BRAND.white,
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <path d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            onClick={() => scrollRef.current?.scrollBy({ left: 240, behavior: "smooth" })}
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center transition-colors border-2"
-            style={{
-              backgroundColor: BRAND.black,
-              borderColor: BRAND.white,
-              color: BRAND.white,
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-              <path d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Location Bar */}
-        <div className="px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between relative" style={{ backgroundColor: BRAND.lightGray }} ref={locationRef}>
-          <button
-            onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
-            className="flex items-center gap-2 text-white hover:opacity-70 transition-opacity"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span className="text-sm font-bold uppercase tracking-wide">
-              {selectedCity || "All Locations"}
-            </span>
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              className={`transition-transform ${locationDropdownOpen ? "rotate-180" : ""}`}
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </button>
-
-          {/* Dropdown */}
-          {locationDropdownOpen && (
-            <div className="absolute top-full left-0 right-0 bg-black border-2 border-t-0 border-white/20 z-50 shadow-lg">
-              <button
-                onClick={() => {
-                  setSelectedCity(null);
-                  setLocationDropdownOpen(false);
-                }}
-                className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors flex items-center justify-between ${
-                  selectedCity === null ? "bg-white text-black" : "text-white"
+              className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors flex items-center justify-between ${selectedCity === null ? "bg-white text-black" : "text-white"
                 }`}
+            >
+              All Locations
+              {selectedCity === null && (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              )}
+            </button>
+            {availableCities.map(city => (
+              <button
+                key={city}
+                onClick={() => {
+                  setSelectedCity(city);
+                  setLocationDropdownOpen(false);
+                  // If current selected date is not available in the new city, select the first available date
+                  const cityDates = new Set<string>();
+                  showtimesData.forEach(s => {
+                    if (getTheaterCity(s.theater) === city) {
+                      cityDates.add(s.date);
+                    }
+                  });
+                  if (!cityDates.has(selectedDateStr)) {
+                    const firstAvailableDate = availableDates.find(d => cityDates.has(d.dateStr));
+                    if (firstAvailableDate) {
+                      setSelectedDateStr(firstAvailableDate.dateStr);
+                    }
+                  }
+                }}
+                className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors flex items-center justify-between ${selectedCity === city ? "bg-white text-black" : "text-white"
+                  }`}
               >
-                All Locations
-                {selectedCity === null && (
+                {city}
+                {selectedCity === city && (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
                 )}
               </button>
-              {availableCities.map(city => (
-                <button
-                  key={city}
-                  onClick={() => {
-                    setSelectedCity(city);
-                    setLocationDropdownOpen(false);
-                    // If current selected date is not available in the new city, select the first available date
-                    const cityDates = new Set<string>();
-                    showtimesData.forEach(s => {
-                      if (getTheaterCity(s.theater) === city) {
-                        cityDates.add(s.date);
-                      }
-                    });
-                    if (!cityDates.has(selectedDateStr)) {
-                      const firstAvailableDate = availableDates.find(d => cityDates.has(d.dateStr));
-                      if (firstAvailableDate) {
-                        setSelectedDateStr(firstAvailableDate.dateStr);
-                      }
-                    }
-                  }}
-                  className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors flex items-center justify-between ${
-                    selectedCity === city ? "bg-white text-black" : "text-white"
-                  }`}
-                >
-                  {city}
-                  {selectedCity === city && (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  )}
-                </button>
-              ))}
-            </div>
-          )}
+            ))}
+          </div>
+        )}
 
-          <div className="flex items-center gap-4">
-            {/* Special Events Toggle */}
-            <button
-              onClick={() => {
-                const newValue = !showSpecialOnly;
-                setShowSpecialOnly(newValue);
-                if (newValue && !datesWithSpecialEvents.has(selectedDateStr)) {
-                  const firstAvailableDate = availableDates.find(d => datesWithSpecialEvents.has(d.dateStr));
-                  if (firstAvailableDate) {
-                    setSelectedDateStr(firstAvailableDate.dateStr);
-                  }
+        <div className="flex items-center gap-4">
+          {/* Special Events Toggle */}
+          <button
+            onClick={() => {
+              const newValue = !showSpecialOnly;
+              setShowSpecialOnly(newValue);
+              if (newValue && !datesWithSpecialEvents.has(selectedDateStr)) {
+                const firstAvailableDate = availableDates.find(d => datesWithSpecialEvents.has(d.dateStr));
+                if (firstAvailableDate) {
+                  setSelectedDateStr(firstAvailableDate.dateStr);
                 }
-              }}
-              className={`flex items-center gap-2 px-3 py-1.5 border-2 text-[10px] font-bold uppercase tracking-wide transition-all ${
-                showSpecialOnly
-                  ? "bg-white text-black border-white"
-                  : "bg-transparent text-white border-white/40 hover:border-white"
+              }
+            }}
+            className={`flex items-center gap-2 px-3 py-1.5 border-2 text-[10px] font-bold uppercase tracking-wide transition-all ${showSpecialOnly
+                ? "bg-white text-black border-white"
+                : "bg-transparent text-white border-white/40 hover:border-white"
               }`}
-            >
-              <span>Q&A / Special</span>
-              {showSpecialOnly && (
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-              )}
-            </button>
-            <div className="text-xs tracking-[0.15em] font-bold uppercase text-white/60">
-              {currentTheaters.length} {currentTheaters.length === 1 ? "Theater" : "Theaters"}
-            </div>
+          >
+            <span>Q&A / Special</span>
+            {showSpecialOnly && (
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            )}
+          </button>
+          <div className="text-xs tracking-[0.15em] font-bold uppercase text-white/60">
+            {currentTheaters.length} {currentTheaters.length === 1 ? "Theater" : "Theaters"}
           </div>
         </div>
+      </div>
 
-        {/* Theater Showtimes Grid */}
-        <div className="px-6 md:px-12 lg:px-16 py-8" style={{ backgroundColor: BRAND.black }}>
-          <div className="max-w-6xl mx-auto">
-            {availableDates.map(date => {
-              const byTheater = showtimesByDateAndTheater[date.dateStr] || {};
-              const theaterNames = Object.keys(byTheater);
-              const isSelected = selectedDateStr === date.dateStr;
+      {/* Theater Showtimes Grid */}
+      <div className="px-6 md:px-12 lg:px-16 py-8" style={{ backgroundColor: BRAND.black }}>
+        <div className="max-w-6xl mx-auto">
+          {availableDates.map(date => {
+            const byTheater = showtimesByDateAndTheater[date.dateStr] || {};
+            const theaterNames = Object.keys(byTheater);
+            const isSelected = selectedDateStr === date.dateStr;
 
-              return (
-                <div
-                  key={date.dateStr}
-                  style={{ display: isSelected ? "block" : "none" }}
-                >
-                  {theaterNames.length === 0 ? (
-                    <div className="py-12 text-center">
-                      <p className="text-lg font-bold uppercase tracking-wide opacity-60">
-                        {showSpecialOnly ? "No special events on this date" : "No showtimes available for this date"}
-                      </p>
-                    </div>
-                  ) : (
-                    theaterNames.map((theaterName) => (
-                      <TheaterRow
-                        key={theaterName}
-                        theaterName={theaterName}
-                        showtimes={byTheater[theaterName]}
-                      />
-                    ))
-                  )}
-                </div>
-              );
-            })}
-          </div>
+            return (
+              <div
+                key={date.dateStr}
+                style={{ display: isSelected ? "block" : "none" }}
+              >
+                {theaterNames.length === 0 ? (
+                  <div className="py-12 text-center">
+                    <p className="text-lg font-bold uppercase tracking-wide opacity-60">
+                      {showSpecialOnly ? "No special events on this date" : "No showtimes available for this date"}
+                    </p>
+                  </div>
+                ) : (
+                  theaterNames.map((theaterName) => (
+                    <TheaterRow
+                      key={theaterName}
+                      theaterName={theaterName}
+                      showtimes={byTheater[theaterName]}
+                    />
+                  ))
+                )}
+              </div>
+            );
+          })}
         </div>
+      </div>
 
-        {/* Hero Section - Movie poster and description */}
-        {/* <HeroSection /> */}
+      {/* Hero Section - Movie poster and description */}
+      {/* <HeroSection /> */}
 
-        {/* Additional Details Footer */}
-        {/* <div className="px-6 md:px-12 lg:px-16 py-12" style={{ backgroundColor: BRAND.lightGray }}>
+      {/* Additional Details Footer */}
+      {/* <div className="px-6 md:px-12 lg:px-16 py-12" style={{ backgroundColor: BRAND.lightGray }}>
           <div className="max-w-6xl mx-auto">
             <h3
               className="text-2xl mb-8 uppercase text-white"
@@ -770,24 +765,24 @@ export default function OurHeroBalthazarPage() {
           </div>
         </div> */}
 
-        {/* Footer - OHB Style */}
-        <footer
-          className="px-6 md:px-12 lg:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.15em] font-bold uppercase"
-          style={{ backgroundColor: BRAND.black, color: BRAND.white }}
-        >
-          <div className="flex gap-6">
-            <a href="https://ourherobalthazar.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">
-              Official Site
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">
-              Instagram
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">
-              Twitter
-            </a>
-          </div>
-          <span style={{ color: "rgba(255,255,255,0.5)" }}>&copy; 2026 Picturehouse</span>
-        </footer>
-      </div>
+      {/* Footer - OHB Style */}
+      <footer
+        className="px-6 md:px-12 lg:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] tracking-[0.15em] font-bold uppercase"
+        style={{ backgroundColor: BRAND.black, color: BRAND.white }}
+      >
+        <div className="flex gap-6">
+          <a href="https://ourherobalthazar.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">
+            Official Site
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">
+            Instagram
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors">
+            Twitter
+          </a>
+        </div>
+        <span style={{ color: "rgba(255,255,255,0.5)" }}>&copy; 2026 WG Pictures</span>
+      </footer>
+    </div>
   );
 }

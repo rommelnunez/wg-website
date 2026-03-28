@@ -141,6 +141,19 @@ const parseTimeToMinutes = (time: string): number => {
   return hours * 60 + minutes;
 };
 
+// Check if a date is in the past (relative to midnight Pacific Time)
+const isPastDatePST = (dateStr: string): boolean => {
+  // Get current date in Pacific Time
+  const nowPST = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  const todayPST = new Date(nowPST.getFullYear(), nowPST.getMonth(), nowPST.getDate());
+
+  // Parse the showtime date (YYYY-MM-DD format)
+  const [year, month, day] = dateStr.split('-').map(Number);
+  const showtimeDate = new Date(year, month - 1, day);
+
+  return showtimeDate < todayPST;
+};
+
 
 
 // Memoized Date Button - prevents unnecessary re-renders
@@ -394,18 +407,21 @@ export default function OurHeroBalthazarPage() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [handleClickOutside]);
 
-  // Get unique dates from showtimes
+  // Get unique dates from showtimes (excluding past dates based on Pacific Time)
   const availableDates = useMemo(() => {
     const dateSet = new Set(showtimesData.map(s => s.date));
-    return Array.from(dateSet).sort().map(dateStr => {
-      const date = new Date(dateStr + "T00:00:00");
-      return {
-        dateStr,
-        day: date.getDate().toString().padStart(2, "0"),
-        weekday: date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase(),
-        month: date.toLocaleDateString("en-US", { month: "short" }).toUpperCase(),
-      };
-    });
+    return Array.from(dateSet)
+      .filter(dateStr => !isPastDatePST(dateStr))
+      .sort()
+      .map(dateStr => {
+        const date = new Date(dateStr + "T00:00:00");
+        return {
+          dateStr,
+          day: date.getDate().toString().padStart(2, "0"),
+          weekday: date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase(),
+          month: date.toLocaleDateString("en-US", { month: "short" }).toUpperCase(),
+        };
+      });
   }, [showtimesData]);
 
   const [selectedDateStr, setSelectedDateStr] = useState("");
@@ -503,53 +519,63 @@ export default function OurHeroBalthazarPage() {
             Buy Tickets
           </h2>
         </div>
-        <div
-          ref={scrollRef}
-          className="flex overflow-x-auto"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {availableDates.map((date) => {
-            const cityDisabled = selectedCity !== null && !datesForSelectedCity.has(date.dateStr);
-            const specialDisabled = showSpecialOnly && !datesWithSpecialEvents.has(date.dateStr);
-            const isDisabled = cityDisabled || specialDisabled;
-            return (
-              <DateButton
-                key={date.dateStr}
-                date={date}
-                isSelected={selectedDateStr === date.dateStr}
-                isDisabled={isDisabled}
-                onSelect={handleDateClick}
-              />
-            );
-          })}
-        </div>
-        {/* Scroll arrows */}
-        <button
-          onClick={() => scrollRef.current?.scrollBy({ left: -240, behavior: "smooth" })}
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center transition-colors border-2"
-          style={{
-            backgroundColor: BRAND.black,
-            borderColor: BRAND.white,
-            color: BRAND.white,
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-            <path d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button
-          onClick={() => scrollRef.current?.scrollBy({ left: 240, behavior: "smooth" })}
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center transition-colors border-2"
-          style={{
-            backgroundColor: BRAND.black,
-            borderColor: BRAND.white,
-            color: BRAND.white,
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-            <path d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+        {availableDates.length === 0 ? (
+          <div className="py-12 text-center">
+            <p className="text-lg font-bold uppercase tracking-wide opacity-60">
+              No upcoming showtimes available
+            </p>
+          </div>
+        ) : (
+          <>
+            <div
+              ref={scrollRef}
+              className="flex overflow-x-auto"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {availableDates.map((date) => {
+                const cityDisabled = selectedCity !== null && !datesForSelectedCity.has(date.dateStr);
+                const specialDisabled = showSpecialOnly && !datesWithSpecialEvents.has(date.dateStr);
+                const isDisabled = cityDisabled || specialDisabled;
+                return (
+                  <DateButton
+                    key={date.dateStr}
+                    date={date}
+                    isSelected={selectedDateStr === date.dateStr}
+                    isDisabled={isDisabled}
+                    onSelect={handleDateClick}
+                  />
+                );
+              })}
+            </div>
+            {/* Scroll arrows */}
+            <button
+              onClick={() => scrollRef.current?.scrollBy({ left: -240, behavior: "smooth" })}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center transition-colors border-2"
+              style={{
+                backgroundColor: BRAND.black,
+                borderColor: BRAND.white,
+                color: BRAND.white,
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => scrollRef.current?.scrollBy({ left: 240, behavior: "smooth" })}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center transition-colors border-2"
+              style={{
+                backgroundColor: BRAND.black,
+                borderColor: BRAND.white,
+                color: BRAND.white,
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
       </div>
 
       {/* Location Bar */}

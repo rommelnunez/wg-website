@@ -5,26 +5,21 @@ import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
 
 const OHB_URL = "/ourherobalthazar";
 
 export default function Home() {
-  const [revealed, setRevealed] = useState(false);
-
-  const handleTap = useCallback((e: React.MouseEvent) => {
-    // On mobile (no hover), first tap reveals, second tap navigates
-    if (!revealed) {
-      e.preventDefault();
-      setRevealed(true);
-    }
-  }, [revealed]);
+  // Desktop hover state only - mobile shows preview by default via CSS
+  const [hovered, setHovered] = useState(false);
 
   return (
     <div className="h-screen w-screen bg-black text-white relative overflow-hidden flex flex-col items-center justify-center">
-      {/* Preview Image Layer */}
-      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 ${revealed ? "opacity-60" : "opacity-0"}`}>
+      {/* Preview Image Layer
+          - Mobile: always visible at 35% opacity (via CSS class)
+          - Desktop: visible on hover at 60% opacity */}
+      <div className={`absolute inset-0 z-0 transition-opacity duration-1000 opacity-[0.35] md:opacity-0 ${hovered ? "md:!opacity-60" : ""}`}>
         <Image
           src={teaserPreview}
           alt="Our Hero Balthazar"
@@ -35,8 +30,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* 3D Scene Layer — smaller, centered, on top so the logo is interactive */}
-      <div className={`absolute left-1/2 top-[5%] -translate-x-1/2 w-[80vw] h-[62vh] md:w-[55vw] md:h-[63vh] z-20 transition-all duration-1000 ${revealed ? "opacity-30 scale-90" : "opacity-100 scale-100"}`}>
+      {/* 3D Scene Layer — smaller, centered, on top so the logo is interactive
+          - Mobile: slightly dimmed to let preview show through
+          - Desktop: full opacity, dims on hover */}
+      <div className={`absolute left-1/2 top-[5%] -translate-x-1/2 w-[80vw] h-[62vh] md:w-[55vw] md:h-[63vh] z-20 transition-all duration-1000 opacity-60 md:opacity-100 ${hovered ? "md:!opacity-30 md:scale-90" : "scale-100"}`}>
         <PrismSceneLite inverted={false} />
       </div>
 
@@ -48,36 +45,28 @@ export default function Home() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="mt-[65vh]"
         >
-          {/* Desktop: single link with hover reveal */}
-          {/* Mobile: first tap reveals, then show explicit enter button */}
+          {/* Desktop: hover reveals preview, click navigates
+              Mobile: single tap navigates directly (preview always visible) */}
           <Link
             href={OHB_URL}
             className="group flex flex-col items-center pointer-events-auto"
-            onMouseEnter={() => setRevealed(true)}
-            onMouseLeave={() => setRevealed(false)}
-            onClick={handleTap}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
           >
-            <span className={`font-mono text-[10px] tracking-[0.5em] uppercase mb-4 transition-opacity duration-500 ${revealed ? "opacity-100" : "opacity-40 group-hover:opacity-100"}`}>
+            {/* "New Release" label - always visible on mobile, hover-reveal on desktop */}
+            <span className={`font-mono text-[10px] tracking-[0.5em] uppercase mb-4 transition-opacity duration-500 opacity-100 md:opacity-40 ${hovered ? "md:!opacity-100" : ""} md:group-hover:opacity-100`}>
               New Release
             </span>
-            <h1 className={`font-display text-4xl md:text-6xl tracking-tighter text-white transition-transform duration-700 ${revealed ? "scale-105" : "group-hover:scale-105"}`}>
+            <h1 className={`font-display text-4xl md:text-6xl tracking-tighter text-white transition-transform duration-700 ${hovered ? "md:scale-105" : ""} md:group-hover:scale-105`}>
               OUR HERO, BALTHAZAR
             </h1>
-            <div className={`h-[1px] bg-white transition-all duration-700 mt-2 ${revealed ? "w-full" : "w-0 group-hover:w-full"}`} />
-            <span className={`mt-8 font-mono text-xs tracking-widest transition-opacity duration-500 hidden md:block ${revealed ? "opacity-40" : "opacity-0 group-hover:opacity-40"}`}>
+            {/* Underline - always visible on mobile, hover-reveal on desktop */}
+            <div className={`h-[1px] bg-white transition-all duration-700 mt-2 w-full md:w-0 ${hovered ? "md:!w-full" : ""} md:group-hover:w-full`} />
+            {/* "GET TICKETS" - hidden on mobile, hover-reveal on desktop */}
+            <span className={`mt-8 font-mono text-xs tracking-widest transition-opacity duration-500 hidden md:block ${hovered ? "opacity-40" : "opacity-0"} group-hover:opacity-40`}>
               GET TICKETS
             </span>
           </Link>
-
-          {/* Mobile enter button — visible after first tap */}
-          <div className={`md:hidden flex justify-center mt-8 transition-all duration-700 pointer-events-auto ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}>
-            <Link
-              href={OHB_URL}
-              className="font-mono text-xs tracking-[0.4em] uppercase px-8 py-3 hover:opacity-70 active:opacity-50 transition-opacity"
-            >
-              GET TICKETS
-            </Link>
-          </div>
         </motion.div>
       </div>
 

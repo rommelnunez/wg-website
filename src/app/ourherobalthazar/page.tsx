@@ -42,7 +42,7 @@ const THEATER_LOGOS: Record<string, string> = {
   "Regal": "/assets/ohb/regal.svg",
   "AMC": "/assets/ohb/amc.svg",
   "Alamo": "/assets/ohb/alamo.svg",
-  "Fandango": "/assets/ohb/fandango.svg",
+  "Fandango": "/assets/ohb/fandango.png",
 };
 
 // Showtime data structure
@@ -226,7 +226,7 @@ const TheaterRow = memo(function TheaterRow({
             <img
               src={logoPath}
               alt={brand || ""}
-              className="invert"
+              className={brand === "Fandango" ? "" : "invert"}
               style={{ width: "60px", height: "20px", objectFit: "contain", objectPosition: "left" }}
             />
           </div>

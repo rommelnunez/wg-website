@@ -95,6 +95,12 @@ const THEATER_CITIES: Record<string, string> = {
   "AMC Burbank Town Center 8": "Los Angeles",
   "Alamo Drafthouse DTLA": "Los Angeles",
   "Los Feliz 3": "Los Angeles",
+  "Yale HQ LO2": "New Haven",
+  "Angelika Film Center Village East": "New York",
+  "Cedar Lee Theatre": "Cleveland",
+  "Playhouse Square Campus": "Cleveland",
+  "Phoenix Film Foundation": "Phoenix",
+  "Cinema 3 - Piers Handling Cinema": "Toronto",
 };
 
 // Get city from theater name

@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-
-const jost = Jost({
-  variable: "--font-jost",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
 
 export const metadata: Metadata = {
   title: "WG",
@@ -58,9 +51,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body
-        className={`${jost.variable} antialiased`}
-      >
+      <body className="antialiased">
         {children}
       </body>
     </html>

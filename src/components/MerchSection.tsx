@@ -36,20 +36,20 @@ export function MerchSection() {
                   "text-align": "left",
                 },
                 title: {
-                  "font-family": "'Inter', sans-serif",
+                  "font-family": "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   "font-size": "14px",
                   "font-weight": "600",
                   color: "#000",
                   "margin-bottom": "8px",
                 },
                 price: {
-                  "font-family": "'Inter', sans-serif",
+                  "font-family": "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   "font-size": "14px",
                   "font-weight": "500",
                   color: "#000",
                 },
                 button: {
-                  "font-family": "'Inter', sans-serif",
+                  "font-family": "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   "font-size": "12px",
                   "font-weight": "600",
                   "text-transform": "uppercase",
@@ -65,7 +65,7 @@ export function MerchSection() {
                   },
                 },
                 options: {
-                  "font-family": "'Inter', sans-serif",
+                  "font-family": "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   "font-size": "12px",
                 },
               },
@@ -84,14 +84,14 @@ export function MerchSection() {
             option: {
               styles: {
                 label: {
-                  "font-family": "'Inter', sans-serif",
+                  "font-family": "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   "font-size": "11px",
                   "text-transform": "uppercase",
                   "letter-spacing": "0.05em",
                   color: "#666",
                 },
                 select: {
-                  "font-family": "'Inter', sans-serif",
+                  "font-family": "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   "font-size": "13px",
                   "font-weight": "700",
                   "border-radius": "0",
@@ -112,7 +112,7 @@ export function MerchSection() {
             cart: {
               styles: {
                 button: {
-                  "font-family": "'Inter', sans-serif",
+                  "font-family": "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   "font-weight": "600",
                   "text-transform": "uppercase",
                   "letter-spacing": "0.05em",
@@ -169,11 +169,11 @@ export function MerchSection() {
   }, []);
 
   return (
-    <section id="merch" className="bg-[#ff3600] py-16 px-[4vw]">
+    <section id="merch" className="bg-white py-16 px-[4vw]">
       <div className="max-w-[1400px] mx-auto">
         <div className="mb-8">
           <h3 className="font-display text-5xl md:text-6xl font-black uppercase leading-[0.9] text-black">
-            Official Merch
+            SHOP
           </h3>
         </div>
         <div className="flex justify-center gap-6">

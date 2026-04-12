@@ -78,15 +78,15 @@ export default function ShopifyTestPage() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2 text-white/40"
+            className="flex flex-col items-center gap-2 text-white"
           >
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase">Shop</span>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="opacity-60">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M10 4V16M10 16L4 10M10 16L16 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </motion.div>

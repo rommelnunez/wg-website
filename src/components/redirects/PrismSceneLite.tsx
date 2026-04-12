@@ -29,9 +29,7 @@ function LiteSceneContent({ inverted }: PrismSceneLiteProps) {
       <OrbitControls
         autoRotate
         autoRotateSpeed={0.5}
-        enableZoom={true}
-        minDistance={4}
-        maxDistance={12}
+        enableZoom={false}
         enablePan={false}
       />
 

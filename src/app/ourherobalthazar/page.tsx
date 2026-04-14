@@ -103,6 +103,8 @@ const THEATER_CITIES: Record<string, string> = {
   "Playhouse Square Campus": "Cleveland",
   "Phoenix Film Foundation": "Phoenix",
   "Cinema 3 - Piers Handling Cinema": "Toronto",
+  "Alamo Drafthouse Sloan's Lake": "Denver",
+  "Alamo Drafthouse Wrigleyville": "Chicago",
 };
 
 // Get city from theater name

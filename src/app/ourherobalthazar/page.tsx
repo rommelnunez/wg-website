@@ -44,6 +44,7 @@ const THEATER_LOGOS: Record<string, string> = {
   "Alamo": "/assets/ohb/alamo.svg",
   "Fandango": "/assets/ohb/fandango.png",
   "Angelika": "/angelikalogo.svg",
+  "Reading": "/reading_logo_us.svg",
 };
 
 // Showtime data structure
@@ -105,6 +106,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Cinema 3 - Piers Handling Cinema": "Toronto",
   "Alamo Drafthouse Sloan's Lake": "Denver",
   "Alamo Drafthouse Wrigleyville": "Chicago",
+  "Reading Cinemas Manville": "New Jersey",
 };
 
 // Get city from theater name
@@ -128,6 +130,7 @@ const getTheaterBrand = (theaterName: string): string | null => {
   if (theaterName.toLowerCase().includes("alamo")) return "Alamo";
   if (theaterName.toLowerCase().includes("los feliz")) return "Fandango";
   if (theaterName.toLowerCase().includes("angelika")) return "Angelika";
+  if (theaterName.toLowerCase().includes("reading")) return "Reading";
   return null;
 };
 

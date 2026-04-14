@@ -43,6 +43,7 @@ const THEATER_LOGOS: Record<string, string> = {
   "AMC": "/assets/ohb/amc.svg",
   "Alamo": "/assets/ohb/alamo.svg",
   "Fandango": "/assets/ohb/fandango.png",
+  "Angelika": "/angelikalogo.svg",
 };
 
 // Showtime data structure
@@ -97,6 +98,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Los Feliz 3": "Los Angeles",
   "Yale HQ LO2": "New Haven",
   "Angelika Film Center Village East": "New York",
+  "Village East by Angelika": "New York",
   "Cedar Lee Theatre": "Cleveland",
   "Playhouse Square Campus": "Cleveland",
   "Phoenix Film Foundation": "Phoenix",
@@ -123,6 +125,7 @@ const getTheaterBrand = (theaterName: string): string | null => {
   if (theaterName.toLowerCase().includes("amc")) return "AMC";
   if (theaterName.toLowerCase().includes("alamo")) return "Alamo";
   if (theaterName.toLowerCase().includes("los feliz")) return "Fandango";
+  if (theaterName.toLowerCase().includes("angelika")) return "Angelika";
   return null;
 };
 

@@ -382,9 +382,13 @@ export default function OurHeroBalthazarPage() {
   // Sorted showtimes
   const sortedShowtimes = useMemo(() => sortShowtimes(showtimesData), [showtimesData]);
 
-  // Get unique cities from showtimes
+  // Get unique cities from showtimes (only for future dates)
   const availableCities = useMemo(() => {
-    const citySet = new Set(showtimesData.map(s => getTheaterCity(s.theater)));
+    const citySet = new Set(
+      showtimesData
+        .filter(s => !isPastDatePST(s.date))
+        .map(s => getTheaterCity(s.theater))
+    );
     return Array.from(citySet).sort();
   }, [showtimesData]);
 

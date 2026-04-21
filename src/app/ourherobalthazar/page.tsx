@@ -90,16 +90,23 @@ function parseCSV(csvText: string): Showtime[] {
   });
 }
 
-// City mapping for theaters
+// City mapping for theaters — keep in sync with OHB src/lib/theaters.ts
 const THEATER_CITIES: Record<string, string> = {
   "Regal Union Square": "New York",
   "AMC The Americana at Brand 18": "Los Angeles",
   "AMC Burbank Town Center 8": "Los Angeles",
   "Alamo Drafthouse DTLA": "Los Angeles",
   "Los Feliz 3": "Los Angeles",
-  "Yale HQ LO2": "New Haven",
-  "Angelika Film Center Village East": "New York",
+  "HQ LO2": "New Haven",
+  "Angelika Village East": "New York",
   "Village East by Angelika": "New York",
+  "Village East by Angelika (NYC)": "New York",
+  "Cinema 123 by Angelika (NYC)": "New York",
+  "Angelika New York (SoHo)": "New York",
+  "Angelika Mosaic (Fairfax, VA)": "Washington DC",
+  "Angelika Pop-Up at Union Market (DC)": "Washington DC",
+  "Angelika Film Center - Dallas": "Dallas",
+  "Angelika Carmel Mountain (San Diego)": "San Diego",
   "Cedar Lee Theatre": "Cleveland",
   "Playhouse Square Campus": "Cleveland",
   "Phoenix Film Foundation": "Phoenix",
@@ -107,6 +114,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Alamo Drafthouse Sloan's Lake": "Denver",
   "Alamo Drafthouse Wrigleyville": "Chicago",
   "Reading Cinemas Manville": "New Jersey",
+  "Reading Cinemas Manville (NJ)": "New Jersey",
 };
 
 // Get city from theater name
@@ -240,7 +248,7 @@ const TheaterRow = memo(function TheaterRow({
             <img
               src={logoPath}
               alt={brand || ""}
-              className={brand === "Fandango" ? "" : "invert"}
+              className={brand === "Fandango" || brand === "Angelika" ? "" : "invert"}
               style={{ width: "60px", height: "20px", objectFit: "contain", objectPosition: "left" }}
             />
           </div>

@@ -104,6 +104,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Cinema 123 by Angelika (NYC)": "New York",
   "Angelika New York (SoHo)": "New York",
   "Angelika Mosaic (Fairfax, VA)": "Washington DC",
+  "Angelika Mosaic (Fairfax VA)": "Washington DC",
   "Angelika Pop-Up at Union Market (DC)": "Washington DC",
   "Angelika Film Center - Dallas": "Dallas",
   "Angelika Carmel Mountain (San Diego)": "San Diego",
@@ -115,6 +116,8 @@ const THEATER_CITIES: Record<string, string> = {
   "Alamo Drafthouse Wrigleyville": "Chicago",
   "Reading Cinemas Manville": "New Jersey",
   "Reading Cinemas Manville (NJ)": "New Jersey",
+  "Gardena Cinema (Los Angeles)": "Los Angeles",
+  "Roxie Theater (San Francisco)": "San Francisco",
 };
 
 // Get city from theater name

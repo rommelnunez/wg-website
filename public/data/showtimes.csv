@@ -1,8 +1,5 @@
 Theater,Date,Time,Event Type,Ticket Link
-Alamo Drafthouse Wrigleyville,2026-04-21,10:45 PM,General Admission,https://drafthouse.com/chicago/show/our-hero-balthazar?cinemaId=1801&sessionId=30955&date=2026-04-21
-Alamo Drafthouse Sloan's Lake,2026-04-21,8:00 PM,General Admission,https://drafthouse.com/denver/show/our-hero-balthazar?cinemaId=0402&sessionId=113132&date=2026-04-21
 Alamo Drafthouse Wrigleyville,2026-04-22,10:00 PM,General Admission,https://drafthouse.com/chicago/show/our-hero-balthazar?cinemaId=1801&sessionId=30976&date=2026-04-22
-Village East by Angelika (NYC),2026-04-22,11:20 AM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77270/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-22,12:35 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/134936/HO00008244
 Alamo Drafthouse Sloan's Lake,2026-04-22,3:30 PM,General Admission,https://drafthouse.com/denver/show/our-hero-balthazar?cinemaId=0402&sessionId=113159&date=2026-04-22
 Angelika Film Center - Dallas,2026-04-22,4:00 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/91888/HO00008244
@@ -18,7 +15,7 @@ Alamo Drafthouse Sloan's Lake,2026-04-23,4:45 PM,General Admission,https://draft
 Reading Cinemas Manville (NJ),2026-04-23,6:45 PM,Standard,https://readingcinemas.com/manville/sessions/150586/HO00008244
 Reading Cinemas Manville (NJ),2026-04-23,9:00 PM,Standard,https://readingcinemas.com/manville/sessions/150585/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-23,9:45 AM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/134995/HO00008244
-Village East by Angelika (NYC),2026-04-24,10:10 PM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77328/HO00008244
+Village East by Angelika (NYC),2026-04-24,10:10 PM,Q&A before the screening,https://angelikafilmcenter.com/villageeast/sessions/77328/HO00008244
 Angelika Film Center - Dallas,2026-04-24,11:35 AM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92120/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-24,12:00 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135336/HO00008244
 Village East by Angelika (NYC),2026-04-24,12:00 PM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77324/HO00008244
@@ -33,7 +30,7 @@ Village East by Angelika (NYC),2026-04-24,7:15 PM,Q&A to follow the screening,ht
 Angelika Mosaic (Fairfax VA),2026-04-24,7:30 PM,General Admission,https://angelikafilmcenter.com/mosaic/sessions/96127/HO00008244
 Angelika Pop-Up at Union Market (DC),2026-04-24,9:00 PM,General Admission,https://angelikafilmcenter.com/dc/sessions/28852/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-24,9:40 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135335/HO00008244
-Village East by Angelika (NYC),2026-04-25,10:10 PM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77346/HO00008244
+Village East by Angelika (NYC),2026-04-25,10:10 PM,Q&A before the screening,https://angelikafilmcenter.com/villageeast/sessions/77346/HO00008244
 Angelika Film Center - Dallas,2026-04-25,10:10 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92152/HO00008244
 Village East by Angelika (NYC),2026-04-25,10:45 AM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77347/HO00008244
 Angelika Film Center - Dallas,2026-04-25,11:00 AM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92151/HO00008244
@@ -43,12 +40,11 @@ Village East by Angelika (NYC),2026-04-25,3:35 PM,General Admission,https://ange
 Angelika Carmel Mountain (San Diego),2026-04-25,4:50 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135342/HO00008244
 Cinema 123 by Angelika (NYC),2026-04-25,6:00 PM,General Admission,https://angelikafilmcenter.com/cinemas123/sessions/29511/HO00008244
 Village East by Angelika (NYC),2026-04-25,7:15 PM,Q&A to follow the screening,https://angelikafilmcenter.com/villageeast/sessions/77345/HO00008244
-Gardena Cinema (Los Angeles),2026-04-25,3:00 PM,Coming Soon,
 Gardena Cinema (Los Angeles),2026-04-25,7:30 PM,Coming Soon,
 Angelika Pop-Up at Union Market (DC),2026-04-25,8:00 PM,General Admission,https://angelikafilmcenter.com/dc/sessions/28866/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-25,9:40 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135344/HO00008244
 Angelika Mosaic (Fairfax VA),2026-04-25,9:55 PM,General Admission,https://angelikafilmcenter.com/mosaic/sessions/96196/HO00008244
-Village East by Angelika (NYC),2026-04-26,10:10 PM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77356/HO00008244
+Village East by Angelika (NYC),2026-04-26,10:10 PM,Q&A before the screening,https://angelikafilmcenter.com/villageeast/sessions/77356/HO00008244
 Angelika Pop-Up at Union Market (DC),2026-04-26,10:15 AM,General Admission,https://angelikafilmcenter.com/dc/sessions/28881/HO00008244
 Village East by Angelika (NYC),2026-04-26,11:45 AM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77359/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-26,12:40 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135394/HO00008244
@@ -97,6 +93,7 @@ Angelika Film Center - Dallas,2026-04-29,12:00 PM,General Admission,https://ange
 Village East by Angelika (NYC),2026-04-29,1:55 PM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77421/HO00008244
 Angelika Film Center - Dallas,2026-04-29,2:15 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92224/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-29,5:35 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135522/HO00008244
+Angelika Mosaic (Fairfax VA),2026-04-29,7:30 PM,General Admission,https://angelikafilmcenter.com/mosaic/sessions/96291/HO00008217
 Cinema 123 by Angelika (NYC),2026-04-29,8:20 PM,General Admission,https://angelikafilmcenter.com/cinemas123/sessions/29540/HO00008244
 Angelika Film Center - Dallas,2026-04-29,9:00 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92222/HO00008244
 Cinema 123 by Angelika (NYC),2026-04-30,11:30 AM,General Admission,https://angelikafilmcenter.com/cinemas123/sessions/29541/HO00008244

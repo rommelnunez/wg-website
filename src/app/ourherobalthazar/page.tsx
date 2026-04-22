@@ -147,9 +147,8 @@ const getTheaterBrand = (theaterName: string): string | null => {
 
 // Check if event is special (Q&A, intro, etc.)
 const isSpecialEvent = (eventType: string): boolean => {
-  return eventType.toLowerCase().includes("q&a") ||
-    eventType.toLowerCase().includes("intro") ||
-    eventType.toLowerCase().includes("baby day");
+  const lower = eventType.toLowerCase();
+  return lower.includes("q&a") || lower.includes("intro") || lower.includes("baby day") || lower.includes("special screening");
 };
 
 // Check if event is sold out
@@ -290,7 +289,8 @@ const TheaterRow = memo(function TheaterRow({
                 <span className="text-[8px] mt-1 tracking-wider opacity-70">
                   {showtime.eventType.includes("Q&A") ? "Q&A" :
                     showtime.eventType.includes("Intro") ? "INTRO" :
-                      showtime.eventType.includes("Baby") ? "BABY DAY" : "SPECIAL"}
+                      showtime.eventType.includes("Baby") ? "BABY DAY" :
+                        showtime.eventType.toLowerCase().includes("special screening") ? "SPECIAL SCREENING" : "SPECIAL"}
                 </span>
               )}
               {soldOut && (

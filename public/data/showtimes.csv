@@ -1,20 +1,5 @@
 Theater,Date,Time,Event Type,Ticket Link
-Alamo Drafthouse Wrigleyville,2026-04-22,10:00 PM,General Admission,https://drafthouse.com/chicago/show/our-hero-balthazar?cinemaId=1801&sessionId=30976&date=2026-04-22
-Angelika Carmel Mountain (San Diego),2026-04-22,12:35 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/134936/HO00008244
-Alamo Drafthouse Sloan's Lake,2026-04-22,3:30 PM,General Admission,https://drafthouse.com/denver/show/our-hero-balthazar?cinemaId=0402&sessionId=113159&date=2026-04-22
-Angelika Film Center - Dallas,2026-04-22,4:00 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/91888/HO00008244
-Reading Cinemas Manville (NJ),2026-04-22,4:30 PM,Standard,https://readingcinemas.com/manville/sessions/150559/HO00008244
-Village East by Angelika (NYC),2026-04-22,4:35 PM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77272/HO00008244
-Reading Cinemas Manville (NJ),2026-04-22,6:45 PM,Standard,https://readingcinemas.com/manville/sessions/150560/HO00008244
-Alamo Drafthouse Sloan's Lake,2026-04-22,7:45 PM,General Admission,https://drafthouse.com/denver/show/our-hero-balthazar?cinemaId=0402&sessionId=113160&date=2026-04-22
-Reading Cinemas Manville (NJ),2026-04-22,9:00 PM,Standard,https://readingcinemas.com/manville/sessions/150561/HO00008244
 Alamo Drafthouse Wrigleyville,2026-04-23,10:30 PM,General Admission,https://drafthouse.com/chicago/show/our-hero-balthazar?cinemaId=1801&sessionId=31030&date=2026-04-23
-Angelika Film Center - Dallas,2026-04-23,4:10 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/91900/HO00008244
-Reading Cinemas Manville (NJ),2026-04-23,4:30 PM,Standard,https://readingcinemas.com/manville/sessions/150587/HO00008244
-Alamo Drafthouse Sloan's Lake,2026-04-23,4:45 PM,General Admission,https://drafthouse.com/denver/show/our-hero-balthazar?cinemaId=0402&sessionId=113353&date=2026-04-23
-Reading Cinemas Manville (NJ),2026-04-23,6:45 PM,Standard,https://readingcinemas.com/manville/sessions/150586/HO00008244
-Reading Cinemas Manville (NJ),2026-04-23,9:00 PM,Standard,https://readingcinemas.com/manville/sessions/150585/HO00008244
-Angelika Carmel Mountain (San Diego),2026-04-23,9:45 AM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/134995/HO00008244
 Village East by Angelika (NYC),2026-04-24,10:10 PM,Q&A before the screening,https://angelikafilmcenter.com/villageeast/sessions/77328/HO00008244
 Angelika Film Center - Dallas,2026-04-24,11:35 AM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92120/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-24,12:00 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135336/HO00008244
@@ -33,8 +18,8 @@ Angelika Carmel Mountain (San Diego),2026-04-24,9:40 PM,General Admission,https:
 Village East by Angelika (NYC),2026-04-25,10:10 PM,Q&A before the screening,https://angelikafilmcenter.com/villageeast/sessions/77346/HO00008244
 Angelika Film Center - Dallas,2026-04-25,10:10 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92152/HO00008244
 Village East by Angelika (NYC),2026-04-25,10:45 AM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77347/HO00008244
-Angelika Film Center - Dallas,2026-04-25,11:00 AM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92151/HO00008244
 Reading Cinemas Manville (NJ),2026-04-25,11:00 AM,Q&A to follow the screening,https://readingcinemas.com/manville/sessions/151255/HO00008244
+Angelika Film Center - Dallas,2026-04-25,11:00 AM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92151/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-25,12:00 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135340/HO00008244
 Village East by Angelika (NYC),2026-04-25,1:10 PM,General Admission,https://angelikafilmcenter.com/villageeast/sessions/77348/HO00008244
 Gardena Cinema (Los Angeles),2026-04-25,3:00 PM,Special Screening,https://ticketing.uswest.veezi.com/purchase/1109?siteToken=he5nsxynkgmw2w1wvfey3mvh64
@@ -98,9 +83,11 @@ Angelika Carmel Mountain (San Diego),2026-04-29,5:35 PM,General Admission,https:
 Angelika Mosaic (Fairfax VA),2026-04-29,7:30 PM,General Admission,https://angelikafilmcenter.com/mosaic/sessions/96291/HO00008217
 Cinema 123 by Angelika (NYC),2026-04-29,8:20 PM,General Admission,https://angelikafilmcenter.com/cinemas123/sessions/29540/HO00008244
 Angelika Film Center - Dallas,2026-04-29,9:00 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92222/HO00008244
+Roxy Cinema (NYC),2026-04-29,9:30 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/7337?siteToken=tt17e5ajy3v48kh5b2kremvnz4
 Cinema 123 by Angelika (NYC),2026-04-30,11:30 AM,General Admission,https://angelikafilmcenter.com/cinemas123/sessions/29541/HO00008244
 Angelika Film Center - Dallas,2026-04-30,12:10 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92237/HO00008244
 Angelika Carmel Mountain (San Diego),2026-04-30,12:25 PM,General Admission,https://angelikafilmcenter.com/sandiego/sessions/135564/HO00008244
 Angelika Film Center - Dallas,2026-04-30,2:45 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92240/HO00008244
 Angelika Film Center - Dallas,2026-04-30,5:00 PM,General Admission,https://angelikafilmcenter.com/dallas/sessions/92239/HO00008244
+Roxy Cinema (NYC),2026-04-30,7:15 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/7338?siteToken=tt17e5ajy3v48kh5b2kremvnz4
 Roxie Theater (San Francisco),2026-05-09,8:30 PM,Q&A to follow the screening,https://ticketing.uswest.veezi.com/purchase/20887?siteToken=4m48btf3yavn7xjk5yxk6nc40c

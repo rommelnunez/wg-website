@@ -45,6 +45,7 @@ const THEATER_LOGOS: Record<string, string> = {
   "Fandango": "/assets/ohb/fandango.png",
   "Angelika": "/angelikalogo.svg",
   "Reading": "/reading_logo_us.svg",
+  "Roxy": "/assets/ohb/roxy.png",
 };
 
 // Showtime data structure
@@ -118,6 +119,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Reading Cinemas Manville (NJ)": "New Jersey",
   "Gardena Cinema (Los Angeles)": "Los Angeles",
   "Roxie Theater (San Francisco)": "San Francisco",
+  "Roxy Cinema (NYC)": "New York",
 };
 
 // Get city from theater name
@@ -142,6 +144,7 @@ const getTheaterBrand = (theaterName: string): string | null => {
   if (theaterName.toLowerCase().includes("los feliz")) return "Fandango";
   if (theaterName.toLowerCase().includes("angelika")) return "Angelika";
   if (theaterName.toLowerCase().includes("reading")) return "Reading";
+  if (theaterName.toLowerCase().includes("roxy")) return "Roxy";
   return null;
 };
 

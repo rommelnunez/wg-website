@@ -140,6 +140,8 @@ const THEATER_CITIES: Record<string, string> = {
   "Regal Meridian": "Seattle",
   "Regal Benders Landing": "Spring",
   "Regal New Roc": "New Rochelle",
+  "Michigan Theater (Ann Arbor)": "Ann Arbor",
+  "Regal Fox Tower (Portland)": "Portland",
 };
 
 // Get city from theater name

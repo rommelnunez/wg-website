@@ -138,7 +138,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Regal Edwards Ontario Palace": "Ontario",
   "Regal Long Beach": "Long Beach",
   "Regal Meridian": "Seattle",
-  "Regal Benders Landing": "Spring",
+  "Regal Benders Landing": "Houston",
   "Regal New Roc": "New Rochelle",
   "Michigan Theater (Ann Arbor)": "Ann Arbor",
   "Regal Fox Tower (Portland)": "Portland",

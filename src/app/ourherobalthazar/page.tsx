@@ -91,57 +91,131 @@ function parseCSV(csvText: string): Showtime[] {
   });
 }
 
-// City mapping for theaters — keep in sync with OHB src/lib/theaters.ts
+// City mapping for theaters — keep in sync with OHB public/index.html
 const THEATER_CITIES: Record<string, string> = {
   "Regal Union Square": "New York",
+  "Regal Union Square (NYC)": "New York",
   "AMC The Americana at Brand 18": "Los Angeles",
   "AMC Burbank Town Center 8": "Los Angeles",
   "Alamo Drafthouse DTLA": "Los Angeles",
+  "Alamo Drafthouse Sloan's Lake": "Denver",
+  "Alamo Drafthouse Sloan's Lake (Denver - CO)": "Denver",
+  "Alamo Drafthouse Wrigleyville": "Chicago",
+  "Alamo Drafthouse Wrigleyville (Chicago - IL)": "Chicago",
   "Los Feliz 3": "Los Angeles",
   "HQ LO2": "New Haven",
   "Angelika Village East": "New York",
   "Village East by Angelika": "New York",
   "Village East by Angelika (NYC)": "New York",
-  "Cinema 123 by Angelika (NYC)": "New York",
   "Angelika New York (SoHo)": "New York",
-  "Angelika Mosaic (Fairfax, VA)": "Fairfax",
+  "Angelika Mosaic (Fairfax - VA)": "Fairfax",
   "Angelika Mosaic (Fairfax VA)": "Fairfax",
+  "Angelika Mosaic (Fairfax, VA)": "Fairfax",
+  "Cinema 123 by Angelika (NYC)": "New York",
   "Angelika Pop-Up at Union Market (DC)": "Washington DC",
   "Angelika Film Center - Dallas": "Dallas",
-  "Angelika Carmel Mountain (San Diego)": "San Diego",
+  "Angelika Film Center (Dallas - TX)": "Dallas",
   "Cedar Lee Theatre": "Cleveland",
   "Playhouse Square Campus": "Cleveland",
   "Phoenix Film Foundation": "Phoenix",
   "Cinema 3 - Piers Handling Cinema": "Toronto",
-  "Alamo Drafthouse Sloan's Lake": "Denver",
-  "Alamo Drafthouse Wrigleyville": "Chicago",
-  "Reading Cinemas Manville": "New Jersey",
   "Reading Cinemas Manville (NJ)": "New Jersey",
+  "Angelika Carmel Mountain (San Diego)": "San Diego",
+  "Angelika Carmel Mountain (San Diego - CA)": "San Diego",
   "Gardena Cinema (Los Angeles)": "Los Angeles",
+  "Gardena Cinema (Los Angeles - CA)": "Los Angeles",
   "Roxie Theater (San Francisco)": "San Francisco",
+  "Roxie Theater (San Francisco - CA)": "San Francisco",
   "Roxy Cinema (NYC)": "New York",
   "Laemmle Town Center (Encino)": "Los Angeles",
-  "Laemmle NoHo 7 (North Hollywood)": "Los Angeles",
+  "Laemmle Town Center (Encino - CA)": "Los Angeles",
   "Landmark Midtown Art Cinema (Atlanta)": "Atlanta",
+  "Landmark Midtown Art Cinema (Atlanta - GA)": "Atlanta",
   "Landmark Del Mar (Santa Cruz)": "Santa Cruz",
-  "Landmark Opera Plaza Cinema (San Francisco)": "San Francisco",
-  "Landmark Lagoon Cinema (Minneapolis)": "Minneapolis",
-  "Landmark Piedmont Theatre (Oakland)": "Oakland",
-  "Landmark Ritz Five (Philadelphia)": "Philadelphia",
-  "Landmark Kendall Square Cinema (Boston)": "Boston",
-  "Landmark Mayan Theatre (Denver)": "Denver",
+  "Landmark Del Mar (Santa Cruz - CA)": "Santa Cruz",
   "Tower Theatre by Angelika (Sacramento)": "Sacramento",
+  "Tower Theatre by Angelika (Sacramento - CA)": "Sacramento",
   "Apple Cinemas Westbrook (ME)": "Maine",
+  "Landmark Opera Plaza Cinema (San Francisco)": "San Francisco",
+  "Landmark Opera Plaza Cinema (San Francisco - CA)": "San Francisco",
+  "Landmark Lagoon Cinema (Minneapolis)": "Minneapolis",
+  "Landmark Lagoon Cinema (Minneapolis - MN)": "Minneapolis",
+  "Landmark Piedmont Theatre (Oakland)": "Oakland",
+  "Landmark Piedmont Theatre (Oakland - CA)": "Oakland",
+  "Landmark Ritz Five (Philadelphia)": "Philadelphia",
+  "Landmark Ritz Five (Philadelphia - PA)": "Philadelphia",
+  "Laemmle NoHo 7 (North Hollywood)": "Los Angeles",
+  "Laemmle NoHo 7 (North Hollywood - CA)": "Los Angeles",
   "Regal E-Walk": "New York",
+  "Regal E-Walk (NYC)": "New York",
   "Regal Essex Crossing": "New York",
+  "Regal Essex Crossing (NYC)": "New York",
   "Regal Winter Park Village": "Orlando",
+  "Regal Winter Park Village (Orlando - FL)": "Orlando",
   "Regal Edwards Ontario Palace": "Ontario",
+  "Regal Edwards Ontario Palace (Ontario - CA)": "Ontario",
   "Regal Long Beach": "Long Beach",
+  "Regal Long Beach (Long Beach - CA)": "Long Beach",
   "Regal Meridian": "Seattle",
+  "Regal Meridian (Seattle - WA)": "Seattle",
   "Regal Benders Landing": "Houston",
+  "Regal Benders Landing (Houston - TX)": "Houston",
   "Regal New Roc": "New Rochelle",
+  "Regal New Roc (New Rochelle - NY)": "New Rochelle",
+  "Landmark Kendall Square Cinema (Boston)": "Boston",
+  "Landmark Kendall Square Cinema (Boston - MA)": "Boston",
+  "Landmark Mayan Theatre (Denver)": "Denver",
+  "Landmark Mayan Theatre (Denver - CO)": "Denver",
   "Michigan Theater (Ann Arbor)": "Ann Arbor",
+  "Michigan Theater (Ann Arbor - MI)": "Ann Arbor",
   "Regal Fox Tower (Portland)": "Portland",
+  "Regal Fox Tower (Portland - OR)": "Portland",
+  "Regal Irvine Spectrum": "Irvine",
+  "Regal Irvine Spectrum (Irvine - CA)": "Irvine",
+  "Regal Edwards Long Beach": "Long Beach",
+  "Laemmle Noho 7": "Los Angeles",
+  "Laemmle Glendale": "Glendale",
+  "Laemmle Glendale (Glendale)": "Glendale",
+  "Laemmle Royal": "Los Angeles",
+  "Laemmle Theater 90": "Los Angeles",
+  "The Frida Cinema": "Santa Ana",
+};
+
+// City display labels (City - ST format for dropdown)
+const CITY_LABELS: Record<string, string> = {
+  "Ann Arbor": "Ann Arbor - MI",
+  "Atlanta": "Atlanta - GA",
+  "Boston": "Boston - MA",
+  "Chicago": "Chicago - IL",
+  "Cleveland": "Cleveland - OH",
+  "Dallas": "Dallas - TX",
+  "Denver": "Denver - CO",
+  "Fairfax": "Fairfax - VA",
+  "Glendale": "Glendale - CA",
+  "Houston": "Houston - TX",
+  "Long Beach": "Long Beach - CA",
+  "Los Angeles": "Los Angeles - CA",
+  "Maine": "Westbrook - ME",
+  "Minneapolis": "Minneapolis - MN",
+  "New Haven": "New Haven - CT",
+  "New Jersey": "Manville - NJ",
+  "New Rochelle": "New Rochelle - NY",
+  "New York": "New York - NY",
+  "Oakland": "Oakland - CA",
+  "Ontario": "Ontario - CA",
+  "Orlando": "Orlando - FL",
+  "Philadelphia": "Philadelphia - PA",
+  "Phoenix": "Phoenix - AZ",
+  "Portland": "Portland - OR",
+  "Sacramento": "Sacramento - CA",
+  "San Diego": "San Diego - CA",
+  "San Francisco": "San Francisco - CA",
+  "Santa Ana": "Santa Ana - CA",
+  "Santa Cruz": "Santa Cruz - CA",
+  "Seattle": "Seattle - WA",
+  "Toronto": "Toronto - ON",
+  "Washington DC": "Washington - DC",
+  "Irvine": "Irvine - CA",
 };
 
 // Get city from theater name
@@ -646,7 +720,7 @@ export default function OurHeroBalthazarPage() {
             <circle cx="12" cy="10" r="3" />
           </svg>
           <span className="text-sm font-bold uppercase tracking-wide">
-            {selectedCity || "All Locations"}
+            {selectedCity ? (CITY_LABELS[selectedCity] || selectedCity) : "All Locations"}
           </span>
           <svg
             width="12"
@@ -702,7 +776,7 @@ export default function OurHeroBalthazarPage() {
                 className={`w-full px-6 py-3 text-left text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors flex items-center justify-between ${selectedCity === city ? "bg-white text-black" : "text-white"
                   }`}
               >
-                {city}
+                {CITY_LABELS[city] || city}
                 {selectedCity === city && (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                     <path d="M20 6L9 17l-5-5" />

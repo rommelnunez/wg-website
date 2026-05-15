@@ -179,6 +179,21 @@ const THEATER_CITIES: Record<string, string> = {
   "Laemmle Royal": "Los Angeles",
   "Laemmle Theater 90": "Los Angeles",
   "The Frida Cinema": "Santa Ana",
+  "Flix Brewhouse Round Rock": "Round Rock",
+  "Flix Brewhouse Albuquerque": "Albuquerque",
+  "Flix Brewhouse Albuquerque Tramway": "Albuquerque",
+  "Flix Brewhouse Carmel": "Carmel",
+  "Flix Brewhouse Des Moines": "Des Moines",
+  "Flix Brewhouse East El Paso": "El Paso",
+  "Flix Brewhouse Montecillo": "El Paso",
+  "Flix Brewhouse West El Paso": "El Paso",
+  "Flix Brewhouse Frisco": "Frisco",
+  "Flix Brewhouse Katy": "Katy",
+  "Flix Brewhouse Lubbock": "Lubbock",
+  "Flix Brewhouse Madison": "Madison",
+  "Flix Brewhouse Mansfield": "Mansfield",
+  "Flix Brewhouse Oklahoma City": "Oklahoma City",
+  "Flix Brewhouse San Antonio": "San Antonio",
 };
 
 // City display labels (City - ST format for dropdown)
@@ -216,6 +231,18 @@ const CITY_LABELS: Record<string, string> = {
   "Toronto": "Toronto - ON",
   "Washington DC": "Washington - DC",
   "Irvine": "Irvine - CA",
+  "Round Rock": "Round Rock - TX",
+  "Albuquerque": "Albuquerque - NM",
+  "Carmel": "Carmel - IN",
+  "Des Moines": "Des Moines - IA",
+  "El Paso": "El Paso - TX",
+  "Frisco": "Frisco - TX",
+  "Katy": "Katy - TX",
+  "Lubbock": "Lubbock - TX",
+  "Madison": "Madison - WI",
+  "Mansfield": "Mansfield - TX",
+  "Oklahoma City": "Oklahoma City - OK",
+  "San Antonio": "San Antonio - TX",
 };
 
 // Get city from theater name

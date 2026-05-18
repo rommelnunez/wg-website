@@ -176,8 +176,8 @@ const THEATER_CITIES: Record<string, string> = {
   "Laemmle Noho 7": "Los Angeles",
   "Laemmle Glendale": "Glendale",
   "Laemmle Glendale (Glendale)": "Glendale",
-  "Laemmle Royal": "Los Angeles",
-  "Laemmle Theater 90": "Los Angeles",
+  "Laemmle Royal": "Santa Monica",
+  "Laemmle Royal (Santa Monica)": "Santa Monica",
   "The Frida Cinema": "Santa Ana",
   "Flix Brewhouse Round Rock": "Round Rock",
   "Flix Brewhouse Albuquerque": "Albuquerque",
@@ -247,6 +247,7 @@ const CITY_LABELS: Record<string, string> = {
   "San Antonio": "San Antonio - TX",
   "Fort Lauderdale": "Fort Lauderdale - FL",
   "Greenfield": "Greenfield - MA",
+  "Santa Monica": "Santa Monica - CA",
 };
 
 // Get city from theater name

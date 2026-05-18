@@ -195,6 +195,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Flix Brewhouse Oklahoma City": "Oklahoma City",
   "Flix Brewhouse San Antonio": "San Antonio",
   "Savor Cinema (Fort Lauderdale)": "Fort Lauderdale",
+  "Greenfield Garden Cinemas": "Greenfield",
 };
 
 // City display labels (City - ST format for dropdown)
@@ -245,6 +246,7 @@ const CITY_LABELS: Record<string, string> = {
   "Oklahoma City": "Oklahoma City - OK",
   "San Antonio": "San Antonio - TX",
   "Fort Lauderdale": "Fort Lauderdale - FL",
+  "Greenfield": "Greenfield - MA",
 };
 
 // Get city from theater name

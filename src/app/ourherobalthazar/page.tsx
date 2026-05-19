@@ -196,6 +196,9 @@ const THEATER_CITIES: Record<string, string> = {
   "Flix Brewhouse San Antonio": "San Antonio",
   "Savor Cinema (Fort Lauderdale)": "Fort Lauderdale",
   "Greenfield Garden Cinemas": "Greenfield",
+  "The Eastwood (Playhouse Paradiso)": "Los Angeles",
+  "The Eastwood (Eastwood Mainstage)": "Los Angeles",
+  "The Eastwood": "Los Angeles",
 };
 
 // City display labels (City - ST format for dropdown)

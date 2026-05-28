@@ -200,6 +200,9 @@ const THEATER_CITIES: Record<string, string> = {
   "The Eastwood (Eastwood Mainstage)": "Los Angeles",
   "The Eastwood": "Los Angeles",
   "Rio Theatre (Vancouver)": "Vancouver",
+  "Fox Theatre (Toronto)": "Toronto",
+  "Bytowne Cinema (Ottawa)": "Ottawa",
+  "Playhouse Cinema (Hamilton)": "Hamilton",
 };
 
 // City display labels (City - ST format for dropdown)
@@ -253,6 +256,8 @@ const CITY_LABELS: Record<string, string> = {
   "Greenfield": "Greenfield - MA",
   "Santa Monica": "Santa Monica - CA",
   "Vancouver": "Vancouver - BC",
+  "Ottawa": "Ottawa - ON",
+  "Hamilton": "Hamilton - ON",
 };
 
 // Get city from theater name

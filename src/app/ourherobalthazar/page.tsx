@@ -203,6 +203,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Fox Theatre (Toronto)": "Toronto",
   "Bytowne Cinema (Ottawa)": "Ottawa",
   "Playhouse Cinema (Hamilton)": "Hamilton",
+  "Roxy Bremerton": "Bremerton",
 };
 
 // City display labels (City - ST format for dropdown)
@@ -258,6 +259,7 @@ const CITY_LABELS: Record<string, string> = {
   "Vancouver": "Vancouver - BC",
   "Ottawa": "Ottawa - ON",
   "Hamilton": "Hamilton - ON",
+  "Bremerton": "Bremerton - WA",
 };
 
 // Get city from theater name

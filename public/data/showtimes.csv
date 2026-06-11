@@ -1,8 +1,4 @@
 Theater,Date,Time,Event Type,Ticket Link
-The Frida Cinema,2026-06-10,12:30 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-10%2B12%3A30&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-1e3533eb67b56c42877e18c217077f1d4ca23a9b2ad9253b87f3f55e58a79d83
-The Frida Cinema,2026-06-10,3:00 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-10%2B15%3A00&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-13894503149a0fabca2374835ce61f994bd2c7fe2bad59090e9926ac66c90d44
-The Frida Cinema,2026-06-10,5:30 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-10%2B17%3A30&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-d5a9f39f55c65947c58cd43108e6146689350833dba9d335c6f2c9d308ca35b2
-Angelika New York (SoHo),2026-06-10,9:40 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/76069/HO00008244
 Angelika New York (SoHo),2026-06-11,8:45 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/76073/HO00008244
 Angelika New York (SoHo),2026-06-12,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/76989/HO00008244
 Angelika New York (SoHo),2026-06-13,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77113/HO00008244
@@ -11,17 +7,25 @@ Angelika New York (SoHo),2026-06-14,10:00 PM,General Admission,https://angelikaf
 Fox Theatre (Toronto),2026-06-14,5:45 PM,Q&A with Director,https://tickets.foxtheatre.ca/websales/pages/ticketsearchcriteria.aspx?evtinfo=628417~3cc021f8-1c84-4d3e-b58d-8be52cd73055&
 Angelika New York (SoHo),2026-06-15,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77125/HO00008244
 Playhouse Cinema (Hamilton),2026-06-15,6:45 PM,Director Q&A,https://playhousecinema.ca/movie/our-hero-balthazar-with-director-qa
-Landmark Cinemas (Kingston),2026-06-16,7:20 PM,Q&A with Director,https://www.landmarkcinemas.com/booking?cinemaId=190&filmId=126944&externalSessionId=173289&sessionId=11465258
 Angelika New York (SoHo),2026-06-16,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77131/HO00008244
 Angelika New York (SoHo),2026-06-17,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77137/HO00008244
 Bytowne Cinema (Ottawa),2026-06-17,6:30 PM,Q&A with Director,https://tickets.bytowne.ca/websales/pages/ticketsearchcriteria.aspx?evtinfo=628415~e548796f-93a0-4d9d-a0ac-45eae7d3eafc&
 Angelika New York (SoHo),2026-06-18,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77143/HO00008244
 Cinéma du Parc (Montreal),2026-06-19,6:30 PM,Q&A with Director,https://cinemacinema.ca/fr/films/our-hero-balthazar-2031
 Roxy Bremerton,2026-06-19,4:30 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3019?siteToken=sph70k9cjx75st6g97asz3972w
+Landmark Cinemas (Kingston),2026-06-16,7:20 PM,Q&A with Director,https://www.landmarkcinemas.com/booking?cinemaId=190&filmId=126944&externalSessionId=173289&sessionId=11465258
+Roxy Bremerton,2026-06-19,4:30 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3019?siteToken=sph70k9cjx75st6g97asz3972w
 Savor Cinema (Fort Lauderdale),2026-06-19,6:30 PM,General Admission,https://fliff.com/events/ourherobalthazar/
 Savor Cinema (Fort Lauderdale),2026-06-20,2:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
 Savor Cinema (Fort Lauderdale),2026-06-20,4:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
+Roxy Bremerton,2026-06-20,7:00 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3018?siteToken=sph70k9cjx75st6g97asz3972w
 Savor Cinema (Fort Lauderdale),2026-06-21,4:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
 Savor Cinema (Fort Lauderdale),2026-06-21,6:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
-Roxy Bremerton,2026-06-20,7:00 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3018?siteToken=sph70k9cjx75st6g97asz3972w
 Roxy Bremerton,2026-06-23,2:00 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3030?siteToken=sph70k9cjx75st6g97asz3972w
+Savor Cinema (Fort Lauderdale),2026-06-20,2:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
+Savor Cinema (Fort Lauderdale),2026-06-20,4:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
+Roxy Bremerton,2026-06-20,7:00 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3018?siteToken=sph70k9cjx75st6g97asz3972w
+Savor Cinema (Fort Lauderdale),2026-06-21,4:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
+Savor Cinema (Fort Lauderdale),2026-06-21,6:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
+Roxy Bremerton,2026-06-23,2:00 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3030?siteToken=sph70k9cjx75st6g97asz3972w
+Landmark Cinemas (Kingston),2026-06-16,7:20 PM,Q&A with Director,https://www.landmarkcinemas.com/booking?cinemaId=190&filmId=126944&externalSessionId=173289&sessionId=11465258

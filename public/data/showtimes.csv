@@ -1,11 +1,4 @@
 Theater,Date,Time,Event Type,Ticket Link
-Angelika New York (SoHo),2026-06-12,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/76989/HO00008244
-Angelika New York (SoHo),2026-06-13,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77113/HO00008244
-Rio Theatre (Vancouver),2026-06-13,8:45 PM,General Admission,https://riotheatretickets.ca/events/41923-our-hero-balthazar
-Angelika New York (SoHo),2026-06-14,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77119/HO00008244
-Fox Theatre (Toronto),2026-06-14,5:45 PM,Q&A with Director,https://tickets.foxtheatre.ca/websales/pages/ticketsearchcriteria.aspx?evtinfo=628417~3cc021f8-1c84-4d3e-b58d-8be52cd73055&
-Angelika New York (SoHo),2026-06-15,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77125/HO00008244
-Playhouse Cinema (Hamilton),2026-06-15,6:45 PM,Director Q&A,https://playhousecinema.ca/movie/our-hero-balthazar-with-director-qa
 Angelika New York (SoHo),2026-06-16,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77131/HO00008244
 Landmark Cinemas (Kingston),2026-06-16,7:20 PM,Q&A with Director,https://www.landmarkcinemas.com/booking?cinemaId=190&filmId=126944&externalSessionId=173289&sessionId=11465258
 Angelika New York (SoHo),2026-06-17,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77137/HO00008244
@@ -13,10 +6,28 @@ Bytowne Cinema (Ottawa),2026-06-17,6:30 PM,Q&A with Director,https://tickets.byt
 Angelika New York (SoHo),2026-06-18,10:00 PM,General Admission,https://angelikafilmcenter.com/nyc/sessions/77143/HO00008244
 Roxy Bremerton,2026-06-19,4:30 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3019?siteToken=sph70k9cjx75st6g97asz3972w
 Cinéma du Parc (Montreal),2026-06-19,6:30 PM,Q&A with Director,https://cinemacinema.ca/fr/films/our-hero-balthazar-2031
-Savor Cinema (Fort Lauderdale),2026-06-19,6:30 PM,General Admission,https://fliff.com/events/ourherobalthazar/
-Savor Cinema (Fort Lauderdale),2026-06-20,2:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
-Savor Cinema (Fort Lauderdale),2026-06-20,4:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
+Savor Cinema (Fort Lauderdale),2026-06-19,6:30 PM,Q&A with Director,https://fliff.com/events/ourherobalthazar/
+Savor Cinema (Fort Lauderdale),2026-06-20,2:00 PM,Special Screening,https://fliff.com/events/ourherobalthazar/
+Savor Cinema (Fort Lauderdale),2026-06-20,4:00 PM,Special Screening,https://fliff.com/events/ourherobalthazar/
 Roxy Bremerton,2026-06-20,7:00 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3018?siteToken=sph70k9cjx75st6g97asz3972w
-Savor Cinema (Fort Lauderdale),2026-06-21,4:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
-Savor Cinema (Fort Lauderdale),2026-06-21,6:00 PM,General Admission,https://fliff.com/events/ourherobalthazar/
+Savor Cinema (Fort Lauderdale),2026-06-21,4:00 PM,Special Screening,https://fliff.com/events/ourherobalthazar/
+Savor Cinema (Fort Lauderdale),2026-06-21,6:00 PM,Special Screening,https://fliff.com/events/ourherobalthazar/
+The Frida Cinema,2026-06-22,12:00 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-22%2B12%3A00&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-354614ced23e56430b3e09bfdd501614e650d9075e4a4805fd1cacbbd554f215
+The Frida Cinema,2026-06-22,4:30 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-22%2B16%3A30&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-f539f15a84ea9f975b0b2074fffd75ae574ef02f67a8815e9f5d3ef0e725c2d2
 Roxy Bremerton,2026-06-23,2:00 PM,General Admission,https://ticketing.uswest.veezi.com/purchase/3030?siteToken=sph70k9cjx75st6g97asz3972w
+The Frida Cinema,2026-06-23,2:30 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-23%2B14%3A30&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-2b78cbab260d3748fdfbf52995536ed723ad2e53f3cc261e2b845b003d8d2a47
+The Frida Cinema,2026-06-24,12:30 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-24%2B12%3A30&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-eb655a44286e46abe3fab41e8d35a26d42dfc8c96c6037ec486ba4a9159e64ac
+The Frida Cinema,2026-06-24,5:45 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-24%2B17%3A45&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-9b7f3042905fc713aaa00a5e676b585c1d96b85fe70bef4a26ba219628a6ab71
+The Frida Cinema,2026-06-25,1:30 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-25%2B13%3A30&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-71cc075725958ef1e159ca8a3dd2e7971e69e879f4f0b7328f8992e76019cd54
+The Frida Cinema,2026-06-26,4:00 PM,General Admission,https://tickets.fandango.com/transaction/ticketing/mobile/jump.aspx?sdate=2026-06-26%2B16%3A00&from=mov_det_showtimes&source=desktop&mid=244581&tid=aaxfr&dfam=webbrowser&showtimehashcode=v2-353582a48d856d0b0a9751bd2a8c340b773ff383e2042c377aaafdac846d9124
+West Newton Cinema (Newton),2026-06-28,6:30 PM,Q&A with Producer Ricky Camilleri,https://ticketing.uswest.veezi.com/purchase/60328?siteToken=sq9871g21qvhktp727tnes3e3g
+Cinema Art Theater (Rehoboth Beach),2026-07-10,3:00 PM,Q&A with Producer Ricky Camilleri,https://www.rehobothfilm.com/CAT-this-week-cinema-art-theater-now-playing
+Kan-Kan Cinema & Bar (Indianapolis),2026-07-15,6:00 PM,General Admission,https://www.goelevent.com/Kan-KanCinemaandBrasserie/e/OURHEROBALTHAZAR
+Tivoli Cinema (Charlottetown),2026-07-17,7:15 PM,General Admission,https://tivolicinema.com/production/our-hero-balthazar/
+Tivoli Cinema (Charlottetown),2026-07-18,7:15 PM,General Admission,https://tivolicinema.com/production/our-hero-balthazar/
+Tivoli Cinema (Charlottetown),2026-07-19,5:00 PM,General Admission,https://tivolicinema.com/production/our-hero-balthazar/
+Tivoli Cinema (Charlottetown),2026-07-20,7:15 PM,General Admission,https://tivolicinema.com/production/our-hero-balthazar/
+Tivoli Cinema (Charlottetown),2026-07-21,7:15 PM,General Admission,https://tivolicinema.com/production/our-hero-balthazar/
+Tivoli Cinema (Charlottetown),2026-07-22,7:15 PM,General Admission,https://tivolicinema.com/production/our-hero-balthazar/
+Tivoli Cinema (Charlottetown),2026-07-23,7:15 PM,General Admission,https://tivolicinema.com/production/our-hero-balthazar/
+Greenfield Garden Cinemas,2026-07-30,5:00 PM,General Admission,https://www.gardencinemas.net/movie/Our_Hero_Balthazar

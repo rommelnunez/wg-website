@@ -204,6 +204,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Bytowne Cinema (Ottawa)": "Ottawa",
   "Playhouse Cinema (Hamilton)": "Hamilton",
   "Roxy Bremerton": "Bremerton",
+  "The Independent Picture House (Charlotte)": "Charlotte",
 };
 
 // City display labels (City - ST format for dropdown)
@@ -260,6 +261,7 @@ const CITY_LABELS: Record<string, string> = {
   "Ottawa": "Ottawa - ON",
   "Hamilton": "Hamilton - ON",
   "Bremerton": "Bremerton - WA",
+  "Charlotte": "Charlotte - NC",
 };
 
 // Get city from theater name

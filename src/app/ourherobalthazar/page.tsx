@@ -205,6 +205,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Playhouse Cinema (Hamilton)": "Hamilton",
   "Roxy Bremerton": "Bremerton",
   "The Independent Picture House (Charlotte)": "Charlotte",
+  "FACETS Cinema (Chicago)": "Chicago",
 };
 
 // City display labels (City - ST format for dropdown)

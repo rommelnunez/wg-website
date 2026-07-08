@@ -214,6 +214,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Playhouse Cinema (Hamilton)": "Hamilton",
   "Roxy Bremerton": "Bremerton",
   "Cinema Art Theater (Lewes)": "Lewes",
+  "Ciné Athens": "Athens",
   "Kan-Kan Cinema & Bar (Indianapolis)": "Indianapolis",
   "Tivoli Cinema (Charlottetown)": "Charlottetown",
   "The Independent Picture House (Charlotte)": "Charlotte",

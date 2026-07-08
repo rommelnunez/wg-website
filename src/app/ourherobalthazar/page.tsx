@@ -221,6 +221,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Pop's Art Theatre": "Rochester",
   "Jean Cocteau Cinema": "Santa Fe",
   "The Nightlight": "Akron",
+  "Tasveer Film Center": "Seattle",
   "Landmark 24 Whitby": "Whitby",
   "Landmark 24 Kanata": "Kanata",
   "Landmark 10 Kingston": "Kingston",

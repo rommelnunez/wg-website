@@ -222,6 +222,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Jean Cocteau Cinema": "Santa Fe",
   "The Nightlight": "Akron",
   "Tasveer Film Center": "Seattle",
+  "Sleepy Hollow Cinema": "Sleepy Hollow",
   "Landmark 24 Whitby": "Whitby",
   "Landmark 24 Kanata": "Kanata",
   "Landmark 10 Kingston": "Kingston",

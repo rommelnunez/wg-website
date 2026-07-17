@@ -111,6 +111,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Angelika Mosaic (Fairfax - VA)": "Fairfax",
   "Angelika Mosaic (Fairfax VA)": "Fairfax",
   "Angelika Mosaic (Fairfax, VA)": "Fairfax",
+  "Angelika Film Center Mosaic": "Fairfax",
   "Cinema 123 by Angelika (NYC)": "New York",
   "Angelika Pop-Up at Union Market (DC)": "Washington DC",
   "Angelika Film Center - Dallas": "Dallas",
@@ -135,6 +136,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Landmark Del Mar (Santa Cruz - CA)": "Santa Cruz",
   "Tower Theatre by Angelika (Sacramento)": "Sacramento",
   "Tower Theatre by Angelika (Sacramento - CA)": "Sacramento",
+  "The Tower Theatre by Angelika": "Sacramento",
   "Apple Cinemas Westbrook (ME)": "Maine",
   "Landmark Opera Plaza Cinema (San Francisco)": "San Francisco",
   "Landmark Opera Plaza Cinema (San Francisco - CA)": "San Francisco",
@@ -235,7 +237,34 @@ const THEATER_CITIES: Record<string, string> = {
   "Landmark Grand 10 Kelowna": "Kelowna",
   "Landmark 9 Brandon": "Brandon",
   "Landmark 8 Regina": "Regina",
+  "Landmark 7 Saskatoon": "Saskatoon",
+  "Landmark Cinemas Windsor": "Windsor",
+  "Landmark 6 Jackson Square": "Hamilton",
+  "Landmark 8 London": "London, ON",
+  "Landmark 8 Grant Park": "Winnipeg",
+  "SilverCity Victoria Cinemas": "Victoria",
+  "SilverCity London Cinemas": "London, ON",
+  "SilverCity Thunder Bay Cinemas": "Thunder Bay",
+  "Oriental Theatre (Milwaukee)": "Milwaukee",
+  "The Cameo Cinema (Edinburgh)": "Edinburgh",
+  "Picturehouse at FACT (Liverpool)": "Liverpool",
+  "Greenwich Picturehouse (London)": "London",
+  "Tyneside Cinema (Newcastle)": "Newcastle",
+  "Picturehouse Central (London)": "London",
+  "Finsbury Park Picturehouse (London)": "London",
+  "Hackney Picturehouse (London)": "London",
+  "Ritzy Cinema (London)": "London",
+  "Cinema City (Norwich)": "Norwich",
+  "Duke's at Komedia (Brighton)": "Brighton",
+  "Watershed (Bristol)": "Bristol",
+  "Arts Picturehouse (Cambridge)": "Cambridge",
+  "Metro Cinema (Edmonton)": "Edmonton",
   "Williams Center Rivoli": "Rutherford",
+  "Garland Theater": "Spokane",
+  "Sandpoint Cinemas": "Ponderay",
+  "Hayden Cinema": "Hayden",
+  "Lyric Theatre": "Blacksburg",
+  "O Cinema South Beach": "Miami Beach",
 };
 
 // City display labels (City - ST format for dropdown)
@@ -274,6 +303,11 @@ const CITY_LABELS: Record<string, string> = {
   "Toronto": "Toronto - ON",
   "Washington DC": "Washington - DC",
   "Irvine": "Irvine - CA",
+  "Spokane": "Spokane - WA",
+  "Ponderay": "Ponderay - ID",
+  "Hayden": "Hayden - ID",
+  "Blacksburg": "Blacksburg - VA",
+  "Miami Beach": "Miami Beach - FL",
   "Round Rock": "Round Rock - TX",
   "Albuquerque": "Albuquerque - NM",
   "Carmel": "Carmel - IN",
@@ -312,6 +346,21 @@ const CITY_LABELS: Record<string, string> = {
   "Rochester": "Rochester - MN",
   "Akron": "Akron - OH",
   "North Hollywood": "North Hollywood - CA",
+  "Saskatoon": "Saskatoon - SK",
+  "Windsor": "Windsor - ON",
+  "London, ON": "London - ON",
+  "Winnipeg": "Winnipeg - MB",
+  "Victoria": "Victoria - BC",
+  "Thunder Bay": "Thunder Bay - ON",
+  "Milwaukee": "Milwaukee - WI",
+  "Edinburgh": "Edinburgh - UK",
+  "Liverpool": "Liverpool - UK",
+  "London": "London - UK",
+  "Newcastle": "Newcastle - UK",
+  "Norwich": "Norwich - UK",
+  "Brighton": "Brighton - UK",
+  "Bristol": "Bristol - UK",
+  "Cambridge": "Cambridge - UK",
 };
 
 // Get city from theater name
@@ -343,7 +392,7 @@ const getTheaterBrand = (theaterName: string): string | null => {
 // Check if event is special (Q&A, intro, etc.)
 const isSpecialEvent = (eventType: string): boolean => {
   const lower = eventType.toLowerCase();
-  return lower.includes("q&a") || lower.includes("intro") || lower.includes("baby day") || lower.includes("special screening");
+  return lower.includes("q&a") || lower.includes("intro") || lower.includes("baby day") || lower.includes("special screening") || lower.includes("special event");
 };
 
 // Check if event is sold out

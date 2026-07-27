@@ -270,6 +270,7 @@ const THEATER_CITIES: Record<string, string> = {
   "Garland Theater": "Spokane",
   "Sandpoint Cinemas": "Ponderay",
   "Hayden Cinema": "Hayden",
+  "Zeitgeist Theatre & Lounge (Arabi)": "Arabi",
   "Lyric Theatre": "Blacksburg",
   "O Cinema South Beach": "Miami Beach",
 };
@@ -315,6 +316,7 @@ const CITY_LABELS: Record<string, string> = {
   "Spokane": "Spokane - WA",
   "Ponderay": "Ponderay - ID",
   "Hayden": "Hayden - ID",
+  "Arabi": "Arabi - LA",
   "Blacksburg": "Blacksburg - VA",
   "Miami Beach": "Miami Beach - FL",
   "Mesilla": "Mesilla - NM",

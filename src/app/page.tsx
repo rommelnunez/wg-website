@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
 
-const OHB_URL = "/ourherobalthazar";
+const OHB_URL = "https://tv.apple.com/us/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79";
 
 export default function Home() {
   // Desktop hover state only - mobile shows preview by default via CSS

@@ -21,14 +21,17 @@ const BRAND = {
 const WATCH_PROVIDERS = [
   {
     label: "Apple TV",
+    logo: "/assets/providers/apple-tv.svg",
     href: "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?at=1000l3cjs&ct=wgpic&itsct=tv_box_link&itscg=30200&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79",
   },
   {
     label: "Prime Video",
+    logo: "/assets/providers/prime-video.svg",
     href: "https://www.primevideo.com/detail/0IMJBWIYHPI4ZKHN0TKVU8CNJE",
   },
   {
     label: "Fandango at Home",
+    logo: "/assets/providers/fandango-at-home.svg",
     href: "https://athome.fandango.com/content/browse/details/Our-Hero-Balthazar/5037404",
   },
 ];
@@ -834,9 +837,15 @@ export default function OurHeroBalthazarPage() {
               href={provider.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center min-w-[13.5rem] min-h-[3rem] px-5 py-2.5 w-full sm:w-auto max-w-[21rem] border-2 border-white bg-white text-black text-xs font-extrabold uppercase tracking-[0.05em] transition-colors hover:bg-transparent hover:text-white"
+              aria-label={`Watch on ${provider.label}`}
+              className="inline-flex items-center justify-center w-full sm:w-[17rem] max-w-[21rem] min-h-[5.25rem] sm:min-h-[6rem] px-8 py-5 border-2 border-white/35 transition-all hover:bg-white/10 hover:border-white hover:-translate-y-0.5"
             >
-              {provider.label}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={provider.logo}
+                alt={provider.label}
+                className="block h-8 sm:h-9 w-auto max-w-full object-contain"
+              />
             </a>
           ))}
         </div>

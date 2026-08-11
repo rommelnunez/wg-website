@@ -8,12 +8,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
 
-// No country code: Apple redirects each visitor to their own storefront
-// (verified 301, affiliate query params preserved). Covers UK/IE and CA
-// without geo-detection. The at/ct params are WG's affiliate attribution —
-// they were missing from this link and must not be dropped again.
-const OHB_URL =
-  "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?at=1000l3cjs&ct=wgpic&itsct=tv_box_link&itscg=30200&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79";
+// Points at the film's own page rather than straight out to Apple TV, so
+// viewers land on the full provider list (Apple TV / Prime Video / Fandango
+// at Home) instead of a single storefront. The Apple affiliate link lives on
+// that page. Previously this had no route into /ourherobalthazar at all.
+const OHB_URL = "/ourherobalthazar";
 
 export default function Home() {
   // Desktop hover state only - mobile shows preview by default via CSS

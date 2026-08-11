@@ -3,6 +3,7 @@
 // Calendar-based ticket page for Our Hero, Balthazar
 import Image from "next/image";
 import { useState, useRef, useMemo, memo, useCallback, useTransition, useEffect } from "react";
+import { OhbTracking, ohbTrack } from "@/components/OhbTracking";
 import { motion } from "framer-motion";
 
 // Brand Colors - Dark theme palette
@@ -35,6 +36,10 @@ const WATCH_PROVIDERS = [
     href: "https://athome.fandango.com/content/browse/details/Our-Hero-Balthazar/5037404",
   },
 ];
+
+// Official Trailer on the WG Pictures YouTube channel — same video the OHB
+// site uses. Keep the two in sync if the trailer is ever re-uploaded.
+const TRAILER_ID = "NLzyq75U6G4";
 
 // Real movie data from ourherobalthazar.com
 const MOVIE = {
@@ -652,6 +657,7 @@ export default function OurHeroBalthazarPage() {
   const [showSpecialOnly, setShowSpecialOnly] = useState(false);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
+  const [trailerPlaying, setTrailerPlaying] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const locationRef = useRef<HTMLDivElement>(null);
 
@@ -805,6 +811,9 @@ export default function OurHeroBalthazarPage() {
         backgroundColor: BRAND.black,
       }}
     >
+      {/* GA4 events for the influencer campaign (UTM capture + link clicks) */}
+      <OhbTracking />
+
       {/* Back Arrow */}
       <div className="fixed top-6 left-6 z-50">
         <a
@@ -838,7 +847,11 @@ export default function OurHeroBalthazarPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Watch on ${provider.label}`}
-              className="inline-flex items-center justify-center w-full sm:w-[17rem] max-w-[21rem] min-h-[5.25rem] sm:min-h-[6rem] px-6 py-5 border-2 border-white/35 transition-all hover:bg-white/10 hover:border-white hover:-translate-y-0.5"
+              data-track={`watch_${provider.label.toLowerCase().replace(/[^a-z0-9]+/g, "_")}`}
+              /* White tile: the official logos run in full brand colour, and
+                 Apple TV's mark is near-black (#0d0d0d) while Prime Video's
+                 wordmark is dark navy (#232F3E) — both vanish on black. */
+              className="inline-flex items-center justify-center w-full sm:w-[17rem] max-w-[21rem] min-h-[5.25rem] sm:min-h-[6rem] px-6 py-5 border-2 border-white bg-white transition-all hover:-translate-y-0.5 hover:shadow-[0_0_0_2px_rgba(255,255,255,0.45)]"
             >
               {/* Official logos vary widely in aspect ratio (Apple ~2:1,
                   Prime ~3.25:1, Fandango ~10:1), so cap both axes and let
@@ -855,6 +868,51 @@ export default function OurHeroBalthazarPage() {
         <p className="pt-5 text-center font-mono text-[10px] uppercase tracking-[0.1em] text-white/50">
           Availability varies by region.
         </p>
+      </div>
+
+      {/* Trailer — sits below the Watch at Home links, mirroring the OHB site.
+          Facade pattern: the poster is swapped for the embed on click, so the
+          YouTube player is only loaded if someone actually wants it. */}
+      <div className="relative pb-12" style={{ backgroundColor: BRAND.black }}>
+        <div className="mx-[4vw] max-w-[1100px] xl:mx-auto">
+          <div className="relative w-full aspect-video overflow-hidden bg-black">
+            {trailerPlaying ? (
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={`https://www.youtube.com/embed/${TRAILER_ID}?autoplay=1&rel=0`}
+                title="Our Hero, Balthazar — Official Trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  ohbTrack("trailer_play", { video_id: TRAILER_ID });
+                  setTrailerPlaying(true);
+                }}
+                aria-label="Play the official trailer"
+                className="group absolute inset-0 h-full w-full cursor-pointer"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/assets/brand/teaser-preview.jpg"
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover opacity-70 transition-opacity group-hover:opacity-90"
+                />
+                <span className="absolute inset-0 bg-black/30" />
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <svg width="76" height="76" viewBox="0 0 76 76" aria-hidden="true">
+                    <path d="M30 24l24 14-24 14z" fill="#ffffff" />
+                  </svg>
+                </span>
+                <span className="absolute bottom-5 left-0 right-0 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-white/80">
+                  Official Trailer
+                </span>
+              </button>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Date Picker */}

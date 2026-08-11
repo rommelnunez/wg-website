@@ -18,6 +18,24 @@ import { useEffect } from "react";
 
 const DEFAULT_CAMPAIGN = "ohb_watch";
 
+/**
+ * Partner codes. The shared link carries an opaque `?r=` code rather than the
+ * creator's handle, so what a partner posts reads as a plain link to the film
+ * and not as tracking pointed at them. The code is expanded back into full
+ * campaign attribution here, so GA4 still reports a readable creator name.
+ *
+ * To add a partner: pick an unused code and add a row. Codes are deliberately
+ * meaningless — don't derive them from the handle, or the point is lost.
+ */
+const PARTNER_CODES: Record<string, Partial<Meta> & { creator: string }> = {
+  c1: {
+    creator: "welcome.jpeg",
+    channel: "instagram",
+    medium: "influencer",
+    content: "bio_link",
+  },
+};
+
 type Meta = {
   channel: string;
   medium: string;
@@ -35,6 +53,20 @@ declare global {
 
 function readMeta(): Meta {
   const q = new URLSearchParams(window.location.search);
+
+  // A partner code wins over UTMs — it's the short-link path.
+  const code = q.get("r");
+  const partner = code ? PARTNER_CODES[code.toLowerCase()] : undefined;
+  if (partner) {
+    return {
+      channel: partner.channel || "partner",
+      medium: partner.medium || "influencer",
+      content: partner.content || "",
+      campaign: partner.campaign || DEFAULT_CAMPAIGN,
+      creator: partner.creator,
+    };
+  }
+
   let referrerHost = "direct";
   if (document.referrer) {
     try {
@@ -48,8 +80,8 @@ function readMeta(): Meta {
     medium: q.get("utm_medium") || "",
     content: q.get("utm_content") || "",
     campaign: q.get("utm_campaign") || DEFAULT_CAMPAIGN,
-    // Influencer handle, so individual creators can be compared directly
-    // without parsing utm_content.
+    // Handle, so individual creators can be compared directly without
+    // parsing utm_content.
     creator: q.get("utm_term") || q.get("utm_content") || "",
   };
 }
@@ -57,6 +89,20 @@ function readMeta(): Meta {
 export function OhbTracking() {
   useEffect(() => {
     const meta = readMeta();
+
+    // A ?r= link carries no UTM params, so GA4 would file the session under
+    // direct/none. Feed the expanded values in as the session campaign so the
+    // standard acquisition reports still credit the right partner.
+    const usedCode = new URLSearchParams(window.location.search).get("r");
+    if (usedCode && typeof window.gtag === "function") {
+      window.gtag("set", "campaign", {
+        source: meta.channel,
+        medium: meta.medium,
+        name: meta.campaign,
+        content: meta.content,
+        term: meta.creator,
+      });
+    }
 
     const track = (name: string, extra?: Record<string, unknown>) => {
       const payload = { ...meta, ...(extra || {}) };

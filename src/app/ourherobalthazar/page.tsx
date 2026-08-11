@@ -838,13 +838,16 @@ export default function OurHeroBalthazarPage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Watch on ${provider.label}`}
-              className="inline-flex items-center justify-center w-full sm:w-[17rem] max-w-[21rem] min-h-[5.25rem] sm:min-h-[6rem] px-8 py-5 border-2 border-white/35 transition-all hover:bg-white/10 hover:border-white hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center w-full sm:w-[17rem] max-w-[21rem] min-h-[5.25rem] sm:min-h-[6rem] px-6 py-5 border-2 border-white/35 transition-all hover:bg-white/10 hover:border-white hover:-translate-y-0.5"
             >
+              {/* Official logos vary widely in aspect ratio (Apple ~2:1,
+                  Prime ~3.25:1, Fandango ~10:1), so cap both axes and let
+                  each fit its own box instead of forcing one height. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={provider.logo}
                 alt={provider.label}
-                className="block h-8 sm:h-9 w-auto max-w-full object-contain"
+                className="block h-auto w-auto max-h-9 sm:max-h-10 max-w-full object-contain"
               />
             </a>
           ))}

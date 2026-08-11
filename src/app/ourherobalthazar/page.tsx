@@ -19,12 +19,10 @@ const BRAND = {
 // code so Apple redirects each visitor to their own storefront (verified 301,
 // affiliate query params preserved) — this covers UK/IE and CA without any
 // geo-detection. The at/ct params are WG's affiliate attribution; keep them.
+// Order matters: Apple TV is deliberately LAST. The row stacks vertically on
+// mobile, so the final tile sits lowest on screen and closest to the thumb.
+// Keep Apple last if this list ever changes.
 const WATCH_PROVIDERS = [
-  {
-    label: "Apple TV",
-    logo: "/assets/providers/apple-tv.svg",
-    href: "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?at=1000l3cjs&ct=wgpic&itsct=tv_box_link&itscg=30200&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79",
-  },
   {
     label: "Prime Video",
     logo: "/assets/providers/prime-video.svg",
@@ -34,6 +32,11 @@ const WATCH_PROVIDERS = [
     label: "Fandango at Home",
     logo: "/assets/providers/fandango-at-home.svg",
     href: "https://athome.fandango.com/content/browse/details/Our-Hero-Balthazar/5037404",
+  },
+  {
+    label: "Apple TV",
+    logo: "/assets/providers/apple-tv.svg",
+    href: "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?at=1000l3cjs&ct=wgpic&itsct=tv_box_link&itscg=30200&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79",
   },
 ];
 
@@ -846,6 +849,16 @@ export default function OurHeroBalthazarPage() {
             Watch at Home
           </h2>
         </div>
+
+        {/* OHB title logo, between the heading and the provider buttons */}
+        <div className="flex justify-center px-[4vw] pb-7">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/brand/title-vector.svg"
+            alt="Our Hero, Balthazar"
+            className="block h-auto w-full max-w-[26rem] sm:max-w-[32rem]"
+          />
+        </div>
         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 px-[4vw]">
           {WATCH_PROVIDERS.map((provider) => (
             <a
@@ -955,7 +968,7 @@ export default function OurHeroBalthazarPage() {
                 fontWeight: 900,
               }}
             >
-              Also Playing in Theaters
+              Special Screenings
             </h2>
           </div>
           {availableDates.length === 0 ? (

@@ -8,7 +8,12 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
 
-const OHB_URL = "https://tv.apple.com/us/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79";
+// No country code: Apple redirects each visitor to their own storefront
+// (verified 301, affiliate query params preserved). Covers UK/IE and CA
+// without geo-detection. The at/ct params are WG's affiliate attribution —
+// they were missing from this link and must not be dropped again.
+const OHB_URL =
+  "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?at=1000l3cjs&ct=wgpic&itsct=tv_box_link&itscg=30200&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79";
 
 export default function Home() {
   // Desktop hover state only - mobile shows preview by default via CSS
@@ -62,9 +67,9 @@ export default function Home() {
             </h1>
             {/* Underline - always visible on mobile, hover-reveal on desktop */}
             <div className={`h-[1px] bg-white transition-all duration-700 mt-2 w-full md:w-0 ${hovered ? "md:!w-full" : ""} md:group-hover:w-full`} />
-            {/* "GET TICKETS" - hidden on mobile, hover-reveal on desktop */}
+            {/* "WATCH AT HOME" - hidden on mobile, hover-reveal on desktop */}
             <span className={`mt-8 font-mono text-xs tracking-widest transition-opacity duration-500 hidden md:block ${hovered ? "opacity-40" : "opacity-0"} group-hover:opacity-40`}>
-              GET TICKETS
+              WATCH AT HOME
             </span>
           </Link>
         </motion.div>

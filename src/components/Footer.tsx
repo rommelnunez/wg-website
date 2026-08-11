@@ -6,6 +6,8 @@ interface FooterProps {
     inverted: boolean;
 }
 
+const SHOP_URL = "https://shop.wgpictures.com";
+
 export const Footer = ({ inverted }: FooterProps) => {
     const socials = {
         instagram: "https://instagram.com/wg",
@@ -19,6 +21,14 @@ export const Footer = ({ inverted }: FooterProps) => {
                 <div className={`flex gap-6 font-mono text-[10px] uppercase tracking-widest transition-colors duration-1000 ${inverted ? "text-black" : "text-white"}`}>
                     <a href={`mailto:${socials.email}`} className={`transition-colors hover:opacity-70 ${inverted ? "hover:text-black/70" : "hover:text-white/70"}`}>
                         {socials.email}
+                    </a>
+                    <a
+                        href={SHOP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`transition-colors hover:opacity-70 ${inverted ? "hover:text-black/70" : "hover:text-white/70"}`}
+                    >
+                        Shop
                     </a>
                 </div>
             </div>

@@ -14,6 +14,25 @@ const BRAND = {
   darkGray: "#111111",
 };
 
+// Digital release 8/11/2026. The Apple TV link intentionally omits the country
+// code so Apple redirects each visitor to their own storefront (verified 301,
+// affiliate query params preserved) — this covers UK/IE and CA without any
+// geo-detection. The at/ct params are WG's affiliate attribution; keep them.
+const WATCH_PROVIDERS = [
+  {
+    label: "Apple TV",
+    href: "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?at=1000l3cjs&ct=wgpic&itsct=tv_box_link&itscg=30200&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79",
+  },
+  {
+    label: "Prime Video",
+    href: "https://www.primevideo.com/detail/0IMJBWIYHPI4ZKHN0TKVU8CNJE",
+  },
+  {
+    label: "Fandango at Home",
+    href: "https://athome.fandango.com/content/browse/details/Our-Hero-Balthazar/5037404",
+  },
+];
+
 // Real movie data from ourherobalthazar.com
 const MOVIE = {
   title: "OUR HERO, BALTHAZAR",
@@ -795,10 +814,9 @@ export default function OurHeroBalthazarPage() {
         </a>
       </div>
 
-      {/* Date Picker */}
-      <div className="relative pt-6" style={{ backgroundColor: BRAND.black }}>
-        {/* Buy Tickets Header */}
-        <div className="text-center pb-4">
+      {/* Where to Watch — primary CTA as of the 8/11 digital release */}
+      <div className="relative pt-10 pb-12" style={{ backgroundColor: BRAND.black }}>
+        <div className="text-center pb-6">
           <h2
             className="text-white text-2xl md:text-3xl uppercase tracking-[0.15em]"
             style={{
@@ -806,7 +824,42 @@ export default function OurHeroBalthazarPage() {
               fontWeight: 900,
             }}
           >
-            Buy Tickets
+            Watch at Home
+          </h2>
+        </div>
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 px-[4vw]">
+          {WATCH_PROVIDERS.map((provider) => (
+            <a
+              key={provider.label}
+              href={provider.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center min-w-[13.5rem] min-h-[3rem] px-5 py-2.5 w-full sm:w-auto max-w-[21rem] border-2 border-white bg-white text-black text-xs font-extrabold uppercase tracking-[0.05em] transition-colors hover:bg-transparent hover:text-white"
+            >
+              {provider.label}
+            </a>
+          ))}
+        </div>
+        <p className="pt-5 text-center font-mono text-[10px] uppercase tracking-[0.1em] text-white/50">
+          Availability varies by region.
+        </p>
+      </div>
+
+      {/* Date Picker */}
+      <div
+        className="relative pt-10 mx-[4vw] border-t border-white/15"
+        style={{ backgroundColor: BRAND.black }}
+      >
+        {/* Theatrical showtimes — secondary to digital */}
+        <div className="text-center pb-4">
+          <h2
+            className="text-white/60 text-2xl md:text-3xl uppercase tracking-[0.15em]"
+            style={{
+              fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
+              fontWeight: 900,
+            }}
+          >
+            Also Playing in Theaters
           </h2>
         </div>
         {availableDates.length === 0 ? (

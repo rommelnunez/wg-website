@@ -8,7 +8,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
 
-const OHB_URL = "https://tv.apple.com/us/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79";
+// Points at the film's own page rather than straight out to Apple TV, so
+// viewers land on the full provider list (Apple TV / Prime Video / Fandango
+// at Home) instead of a single storefront. The Apple affiliate link lives on
+// that page. Previously this had no route into /ourherobalthazar at all.
+const OHB_URL = "/ourherobalthazar";
 
 export default function Home() {
   // Desktop hover state only - mobile shows preview by default via CSS
@@ -62,9 +66,9 @@ export default function Home() {
             </h1>
             {/* Underline - always visible on mobile, hover-reveal on desktop */}
             <div className={`h-[1px] bg-white transition-all duration-700 mt-2 w-full md:w-0 ${hovered ? "md:!w-full" : ""} md:group-hover:w-full`} />
-            {/* "GET TICKETS" - hidden on mobile, hover-reveal on desktop */}
+            {/* "WATCH AT HOME" - hidden on mobile, hover-reveal on desktop */}
             <span className={`mt-8 font-mono text-xs tracking-widest transition-opacity duration-500 hidden md:block ${hovered ? "opacity-40" : "opacity-0"} group-hover:opacity-40`}>
-              GET TICKETS
+              WATCH AT HOME
             </span>
           </Link>
         </motion.div>

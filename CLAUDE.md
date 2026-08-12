@@ -86,6 +86,8 @@ https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?
 
 ## Analytics
 
+> **Full reference: [`docs/analytics.md`](docs/analytics.md).** Read that before changing anything analytics-related — the properties, the link-code scheme, the events, and the known gaps are all documented there. The summary below is just enough to avoid breaking it.
+
 **Three separate GA4 properties — don't mix them up:**
 
 | Property | Site |

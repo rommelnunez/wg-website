@@ -15,18 +15,28 @@ const BRAND = {
   darkGray: "#111111",
 };
 
-// Digital release 8/11/2026. The Apple TV link intentionally omits the country
-// code so Apple redirects each visitor to their own storefront (verified 301,
-// affiliate query params preserved) — this covers UK/IE and CA without any
-// geo-detection. The at/ct params are WG's affiliate attribution; keep them.
+// Digital release 8/11/2026.
+//
+// These are the conversion-trackable links — do not swap them for generic
+// storefront URLs. Two things to preserve:
+//
+// 1. The Apple TV link omits the country code on purpose, so Apple redirects
+//    each visitor to their own storefront (verified 301, query string
+//    preserved). That covers UK/IE and CA with no geo-detection code.
+// 2. `at=` and `ct=` are WG's affiliate attribution. `ct=wgpic19` is the
+//    campaign token for this placement — a different value here means the
+//    conversion lands under the wrong campaign.
+//
 // Order matters: Apple TV is deliberately LAST. The row stacks vertically on
 // mobile, so the final tile sits lowest on screen and closest to the thumb.
 // Keep Apple last if this list ever changes.
 const WATCH_PROVIDERS = [
   {
+    // amazon.com/dp, not primevideo.com — this is the trackable Prime Video
+    // product page (page title: "Watch Our Hero, Balthazar | Prime Video").
     label: "Prime Video",
     logo: "/assets/providers/prime-video.svg",
-    href: "https://www.primevideo.com/detail/0IMJBWIYHPI4ZKHN0TKVU8CNJE",
+    href: "https://www.amazon.com/Our-Hero-Balthazar-Oscar-Boyson/dp/B0H8LGX48H",
   },
   {
     label: "Fandango at Home",
@@ -36,7 +46,7 @@ const WATCH_PROVIDERS = [
   {
     label: "Apple TV",
     logo: "/assets/providers/apple-tv.svg",
-    href: "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?at=1000l3cjs&ct=wgpic&itsct=tv_box_link&itscg=30200&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79",
+    href: "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?itscg=30200&itsct=tv_box_link&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79&at=1000l3cjs&ct=wgpic19",
   },
 ];
 
@@ -831,35 +841,31 @@ export default function OurHeroBalthazarPage() {
 
       {/* ============================================================
            WATCH AT HOME — primary CTA. Digital release 8/11/2026.
+
+           Markup and styling are a deliberate duplicate of the same section on
+           ohb.com, so the two sites read identically. The classes are defined
+           in app/globals.css, ported verbatim from that site's stylesheet.
+           KEEP THE TWO IN SYNC.
+
+           The title is live text styled to look like the logo — not an image.
            ============================================================ */}
       <section
         id="watch-at-home"
-        aria-label="Watch at home"
-        className="relative pt-10 pb-12"
-        style={{ backgroundColor: BRAND.black }}
+        className="watch-section"
+        aria-labelledby="watch-heading"
       >
-        <div className="text-center pb-6">
-          <h2
-            className="text-white text-2xl md:text-3xl uppercase tracking-[0.15em]"
-            style={{
-              fontFamily: "'Neue Haas Grotesk Display', 'Inter', sans-serif",
-              fontWeight: 900,
-            }}
-          >
-            Watch at Home
-          </h2>
+        <div className="ticket-calendar-subtitle">
+          <h2 id="watch-heading">Watch at Home</h2>
         </div>
 
-        {/* OHB title logo, between the heading and the provider buttons */}
-        <div className="flex justify-center px-[4vw] pb-7">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/brand/title-vector.svg"
-            alt="Our Hero, Balthazar"
-            className="block h-auto w-full max-w-[15rem]"
-          />
+        {/* Title wordmark sits between the heading and the buttons */}
+        <div className="ticket-calendar-title">
+          <span className="title-banner-text">our hero, balthazar</span>
         </div>
-        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 px-[4vw]">
+
+        {/* Apple TV is deliberately LAST — the row stacks vertically on mobile,
+            so the final tile sits lowest and closest to the thumb. */}
+        <div className="watch-providers">
           {WATCH_PROVIDERS.map((provider) => (
             <a
               key={provider.label}
@@ -868,26 +874,18 @@ export default function OurHeroBalthazarPage() {
               rel="noopener noreferrer"
               aria-label={`Watch on ${provider.label}`}
               data-track={`watch_${provider.label.toLowerCase().replace(/[^a-z0-9]+/g, "_")}`}
-              /* White tile: the official logos run in full brand colour, and
-                 Apple TV's mark is near-black (#0d0d0d) while Prime Video's
-                 wordmark is dark navy (#232F3E) — both vanish on black. */
-              className="inline-flex items-center justify-center w-full sm:w-[17rem] max-w-[21rem] min-h-[5.25rem] sm:min-h-[6rem] px-6 py-5 border-2 border-white bg-white transition-all hover:-translate-y-0.5 hover:shadow-[0_0_0_2px_rgba(255,255,255,0.45)]"
+              className="watch-provider-btn"
             >
-              {/* Official logos vary widely in aspect ratio (Apple ~2:1,
-                  Prime ~3.25:1, Fandango ~10:1), so cap both axes and let
-                  each fit its own box instead of forcing one height. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={provider.logo}
                 alt={provider.label}
-                className="block h-auto w-auto max-h-9 sm:max-h-10 max-w-full object-contain"
+                className="watch-provider-logo"
               />
             </a>
           ))}
         </div>
-        <p className="pt-5 text-center font-mono text-[10px] uppercase tracking-[0.1em] text-white/50">
-          Availability varies by region.
-        </p>
+        <p className="watch-note">Availability varies by region.</p>
       </section>
 
       {/* Trailer — sits below the Watch at Home links, mirroring the OHB site.

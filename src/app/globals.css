@@ -19,3 +19,159 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
+/* ============================================================================
+   BRAND TYPEFACES
+
+   The font files were already in public/fonts but this site had no @font-face
+   at all, so every reference to them fell back to Helvetica. Family names match
+   ohb.com exactly so the shared "watch" section below renders identically.
+   ============================================================================ */
+
+@font-face {
+    font-family: 'Neue Haas Grotesk Display Black';
+    src: url('/fonts/NeueHaasDisplayBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk Text Pro 75 Bold';
+    src: url('/fonts/NeueHaasTextPro75Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================================================
+   WATCH SECTION
+
+   Ported verbatim from ohb.com (public/assets/css/styles.css) so the section is
+   identical on both sites. KEEP THE TWO IN SYNC — if you change it here, make
+   the same change there.
+
+   The title is live text styled to look like the logo, not an image file. That
+   is how ohb.com does it, and it keeps the wordmark selectable and scalable.
+   ============================================================================ */
+
+.watch-section {
+    background-color: #000;
+    color: #fff;
+    padding: 2.75rem 0 2.5rem;
+}
+
+.watch-section .ticket-calendar-subtitle {
+    text-align: center;
+}
+
+.ticket-calendar-subtitle {
+    padding: 0.5rem 4vw;
+    background: #000;
+}
+
+.ticket-calendar-subtitle h2 {
+    font-family: 'Neue Haas Grotesk Text Pro 75 Bold', 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin: 0;
+}
+
+.watch-section .ticket-calendar-title {
+    padding: 1.25rem 4vw 0.25rem;
+}
+
+.ticket-calendar-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 3rem 4vw;
+    background: #000;
+}
+
+/* Blur is a deliberate print effect. It scales with the viewport — as a fixed
+   px value it read ~3x heavier on mobile, where the type is much smaller. */
+.title-banner-text {
+    font-family: 'Neue Haas Grotesk Display Black', 'Inter', sans-serif;
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: #ff3600;
+    text-transform: lowercase;
+    filter: blur(clamp(0.15px, 0.035vw, 0.5px));
+}
+
+.watch-providers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.75rem 4vw 0;
+}
+
+/* Tiles are white because the provider logos are full-colour brand artwork —
+   Apple TV's mark is #0d0d0d and Prime Video's wordmark #232F3E, both of which
+   disappear on black. */
+.watch-provider-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+    width: min(17rem, 100%);
+    min-height: 6rem;
+    padding: 1.25rem 1.5rem;
+    border: 2px solid #ffffff;
+    background: #ffffff;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.watch-provider-btn:hover,
+.watch-provider-btn:focus-visible {
+    border-color: #ff3600;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 2px rgba(255, 54, 0, 0.35);
+}
+
+/* Logos vary widely in aspect ratio (Apple ~2:1, Prime ~3.25:1, Fandango
+   ~10:1), so cap both axes and let each fit its own box. */
+.watch-provider-logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 2.5rem;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.watch-note {
+    margin: 1.25rem 0 0;
+    padding: 0 4vw;
+    text-align: center;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 600px) {
+    .watch-providers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .watch-provider-btn {
+        width: min(21rem, 100%);
+        min-height: 5.25rem;
+    }
+
+    .watch-provider-logo {
+        max-height: 2.25rem;
+    }
+}

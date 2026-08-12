@@ -856,7 +856,7 @@ export default function OurHeroBalthazarPage() {
           <img
             src="/assets/brand/title-vector.svg"
             alt="Our Hero, Balthazar"
-            className="block h-auto w-full max-w-[26rem] sm:max-w-[32rem]"
+            className="block h-auto w-full max-w-[15rem]"
           />
         </div>
         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 px-[4vw]">

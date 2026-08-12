@@ -15,18 +15,28 @@ const BRAND = {
   darkGray: "#111111",
 };
 
-// Digital release 8/11/2026. The Apple TV link intentionally omits the country
-// code so Apple redirects each visitor to their own storefront (verified 301,
-// affiliate query params preserved) — this covers UK/IE and CA without any
-// geo-detection. The at/ct params are WG's affiliate attribution; keep them.
+// Digital release 8/11/2026.
+//
+// These are the conversion-trackable links — do not swap them for generic
+// storefront URLs. Two things to preserve:
+//
+// 1. The Apple TV link omits the country code on purpose, so Apple redirects
+//    each visitor to their own storefront (verified 301, query string
+//    preserved). That covers UK/IE and CA with no geo-detection code.
+// 2. `at=` and `ct=` are WG's affiliate attribution. `ct=wgpic19` is the
+//    campaign token for this placement — a different value here means the
+//    conversion lands under the wrong campaign.
+//
 // Order matters: Apple TV is deliberately LAST. The row stacks vertically on
 // mobile, so the final tile sits lowest on screen and closest to the thumb.
 // Keep Apple last if this list ever changes.
 const WATCH_PROVIDERS = [
   {
+    // amazon.com/dp, not primevideo.com — this is the trackable Prime Video
+    // product page (page title: "Watch Our Hero, Balthazar | Prime Video").
     label: "Prime Video",
     logo: "/assets/providers/prime-video.svg",
-    href: "https://www.primevideo.com/detail/0IMJBWIYHPI4ZKHN0TKVU8CNJE",
+    href: "https://www.amazon.com/Our-Hero-Balthazar-Oscar-Boyson/dp/B0H8LGX48H",
   },
   {
     label: "Fandango at Home",
@@ -36,7 +46,7 @@ const WATCH_PROVIDERS = [
   {
     label: "Apple TV",
     logo: "/assets/providers/apple-tv.svg",
-    href: "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?at=1000l3cjs&ct=wgpic&itsct=tv_box_link&itscg=30200&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79",
+    href: "https://tv.apple.com/movie/our-hero-balthazar/umc.cmc.1g1532lsxaqk8su6isibi7n79?itscg=30200&itsct=tv_box_link&mttnsubad=umc.cmc.1g1532lsxaqk8su6isibi7n79&at=1000l3cjs&ct=wgpic19",
   },
 ];
 

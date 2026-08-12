@@ -19,21 +19,38 @@ import { useEffect } from "react";
 const DEFAULT_CAMPAIGN = "ohb_watch";
 
 /**
- * Partner codes. The shared link carries an opaque `?r=` code rather than the
- * creator's handle, so what a partner posts reads as a plain link to the film
- * and not as tracking pointed at them. The code is expanded back into full
- * campaign attribution here, so GA4 still reports a readable creator name.
+ * Link codes. A shared link carries a short opaque `?r=` code, which is
+ * expanded back into full campaign attribution here.
  *
- * To add a partner: pick an unused code and add a row. Codes are deliberately
- * meaningless — don't derive them from the handle, or the point is lost.
+ * Two reasons this exists rather than plain UTM strings on the URL:
+ *
+ * 1. Partners are investors sharing the film — the code keeps their handle out
+ *    of the URL, so what they post reads as a plain link to the film rather
+ *    than tracking pointed at them.
+ * 2. It keeps links short, which matters for SMS, where a UTM string eats into
+ *    the segment limit.
+ *
+ * To add one: pick an unused code and add a row.
  */
-const PARTNER_CODES: Record<string, Partial<Meta> & { creator: string }> = {
+const LINK_CODES: Record<string, Partial<Meta>> = {
+  // --- Partners. Codes are deliberately meaningless; don't derive them from
+  // the handle, or the point is lost. ---
   c1: {
     creator: "welcome.jpeg",
     channel: "instagram",
     medium: "influencer",
     content: "bio_link",
   },
+
+  // --- Owned channels (Laylo blasts) ---
+  //
+  // These need separate codes because GA4 cannot distinguish an SMS click from
+  // an email click on its own. Both typically arrive with no referrer — native
+  // mail apps and the Messages app send none — so both land in Direct and are
+  // indistinguishable. The medium values below are the ones GA4's default
+  // channel grouping recognises, so these land in "Email" and "SMS".
+  e1: { channel: "laylo", medium: "email", content: "blast" },
+  s1: { channel: "laylo", medium: "sms", content: "blast" },
 };
 
 type Meta = {
@@ -54,16 +71,17 @@ declare global {
 function readMeta(): Meta {
   const q = new URLSearchParams(window.location.search);
 
-  // A partner code wins over UTMs — it's the short-link path.
+  // A link code wins over UTMs — it's the short-link path.
   const code = q.get("r");
-  const partner = code ? PARTNER_CODES[code.toLowerCase()] : undefined;
-  if (partner) {
+  const link = code ? LINK_CODES[code.toLowerCase()] : undefined;
+  if (link) {
     return {
-      channel: partner.channel || "partner",
-      medium: partner.medium || "influencer",
-      content: partner.content || "",
-      campaign: partner.campaign || DEFAULT_CAMPAIGN,
-      creator: partner.creator,
+      channel: link.channel || "referral",
+      medium: link.medium || "",
+      content: link.content || "",
+      campaign: link.campaign || DEFAULT_CAMPAIGN,
+      // Owned-channel codes have no creator; only partner links do.
+      creator: link.creator || "",
     };
   }
 

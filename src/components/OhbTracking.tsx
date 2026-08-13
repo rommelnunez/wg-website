@@ -51,6 +51,12 @@ const LINK_CODES: Record<string, Partial<Meta>> = {
   // channel grouping recognises, so these land in "Email" and "SMS".
   e1: { channel: "laylo", medium: "email", content: "blast" },
   s1: { channel: "laylo", medium: "sms", content: "blast" },
+
+  // ManyChat — automated Instagram DM replies. medium is "social" rather than
+  // the more descriptive "dm" because GA4's default channel grouping only
+  // recognises a fixed set of medium values; "social" lands these in Organic
+  // Social, while "dm" would land in Unassigned.
+  d1: { channel: "manychat", medium: "social", content: "dm" },
 };
 
 type Meta = {

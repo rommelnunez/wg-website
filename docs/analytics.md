@@ -63,8 +63,9 @@ So the URL stays short and anonymous, while GA4 still gets a readable source.
 | `c1` | Partner | instagram | influencer | bio_link | welcome.jpeg |
 | `e1` | Owned | laylo | email | blast | — |
 | `s1` | Owned | laylo | sms | blast | — |
+| `d1` | Owned | manychat | social | dm | — |
 
-`medium` values matter: `email` and `sms` are recognised by GA4's **default channel grouping**, so those visits land in the "Email" and "SMS" channels rather than "Unassigned."
+`medium` values matter: GA4's **default channel grouping** only recognises a fixed set of them. `email`, `sms` and `social` are on that list, so those visits land in the "Email", "SMS" and "Organic Social" channels rather than "Unassigned." This is why the ManyChat code uses `social` rather than the more descriptive `dm` — `dm` is not a recognised value. The `content` field carries the real detail instead.
 
 **Codes are deliberately meaningless.** Don't derive them from the partner's handle — that would put the name back in the URL and defeat the point.
 

@@ -19,9 +19,13 @@ export const Footer = ({ inverted, showShop = true }: FooterProps) => {
         linkedin: "https://linkedin.com/company/wg",
     };
 
+    // The footer is a full-width band at z-50 sitting over the page. With
+    // pointer-events-auto on the <footer> itself, its transparent padding
+    // swallowed clicks on anything beneath it — which broke the homepage Shop
+    // CTA. The band is now click-through; only the links themselves are not.
     return (
-        <footer className={`w-full py-12 px-6 flex justify-between items-end mt-auto z-50 relative pointer-events-auto transition-colors duration-1000`}>
-            <div className="flex flex-col gap-2">
+        <footer className={`w-full py-12 px-6 flex justify-between items-end mt-auto z-50 relative pointer-events-none transition-colors duration-1000`}>
+            <div className="flex flex-col gap-2 pointer-events-auto">
                 <div className={`flex gap-6 font-mono text-[10px] uppercase tracking-widest transition-colors duration-1000 ${inverted ? "text-black" : "text-white"}`}>
                     <a href={`mailto:${socials.email}`} className={`transition-colors hover:opacity-70 ${inverted ? "hover:text-black/70" : "hover:text-white/70"}`}>
                         {socials.email}

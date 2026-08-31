@@ -51,7 +51,10 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="mt-[65vh] flex flex-col items-center"
+          // 65vh put the Shop CTA level with the footer email link — fine on
+          // desktop where they sit far apart horizontally, crowded on a phone
+          // where the centred CTA lands right beside the left-aligned address.
+          className="mt-[56vh] md:mt-[65vh] flex flex-col items-center"
         >
           {/* Desktop: hover reveals preview, click navigates
               Mobile: single tap navigates directly (preview always visible) */}
@@ -94,8 +97,12 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Footer */}
-      <div className="absolute bottom-0 left-0 right-0 z-30">
+      {/* Footer.
+          pointer-events-none on the wrapper as well as the <footer>: this is an
+          absolutely-positioned full-width band at z-30 covering the bottom of the
+          page, and while it was click-catching it swallowed taps on the Shop CTA
+          above it. The footer's own link column re-enables pointer events. */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 pointer-events-none">
         <Footer inverted={false} showShop={false} />
       </div>
     </div>

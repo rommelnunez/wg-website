@@ -14,6 +14,10 @@ import teaserPreview from "../../public/assets/brand/teaser-preview.jpg";
 // that page. Previously this had no route into /ourherobalthazar at all.
 const OHB_URL = "/ourherobalthazar";
 
+// The merch store is a separate Shopify storefront on its own subdomain, so
+// this is a plain <a> rather than a next/link route.
+const SHOP_URL = "https://shop.wgpictures.com";
+
 export default function Home() {
   // Desktop hover state only - mobile shows preview by default via CSS
   const [hovered, setHovered] = useState(false);
@@ -47,7 +51,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="mt-[65vh]"
+          className="mt-[65vh] flex flex-col items-center"
         >
           {/* Desktop: hover reveals preview, click navigates
               Mobile: single tap navigates directly (preview always visible) */}
@@ -71,12 +75,28 @@ export default function Home() {
               WATCH AT HOME
             </span>
           </Link>
+
+          {/* Merch store CTA.
+              Deliberately a sibling of the <Link> above, not a child: nesting an
+              anchor inside an anchor is invalid HTML and React drops it.
+              On desktop it sits below the hover-reveal "WATCH AT HOME" line, which
+              is opacity-0 but still block-level, so this does not shift on hover.
+              That line is `hidden` on mobile, hence the larger mt-8 there and the
+              tighter md:mt-2 on desktop — both land the same distance below the title. */}
+          <a
+            href={SHOP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 md:mt-2 pointer-events-auto font-display text-lg md:text-xl font-bold tracking-[0.12em] text-white transition-opacity duration-300 hover:opacity-60"
+          >
+            SHOP
+          </a>
         </motion.div>
       </div>
 
       {/* Footer */}
       <div className="absolute bottom-0 left-0 right-0 z-30">
-        <Footer inverted={false} />
+        <Footer inverted={false} showShop={false} />
       </div>
     </div>
   );

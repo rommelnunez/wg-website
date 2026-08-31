@@ -4,11 +4,15 @@ import Link from "next/link";
 
 interface FooterProps {
     inverted: boolean;
+    /** The homepage promotes Shop to a large CTA under the film title, so it
+     *  hides the footer link to avoid showing the same destination twice.
+     *  Every other page still gets it. */
+    showShop?: boolean;
 }
 
 const SHOP_URL = "https://shop.wgpictures.com";
 
-export const Footer = ({ inverted }: FooterProps) => {
+export const Footer = ({ inverted, showShop = true }: FooterProps) => {
     const socials = {
         instagram: "https://instagram.com/wg",
         email: "contact@wgpictures.com",
@@ -22,14 +26,16 @@ export const Footer = ({ inverted }: FooterProps) => {
                     <a href={`mailto:${socials.email}`} className={`transition-colors hover:opacity-70 ${inverted ? "hover:text-black/70" : "hover:text-white/70"}`}>
                         {socials.email}
                     </a>
-                    <a
-                        href={SHOP_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`transition-colors hover:opacity-70 ${inverted ? "hover:text-black/70" : "hover:text-white/70"}`}
-                    >
-                        Shop
-                    </a>
+                    {showShop && (
+                        <a
+                            href={SHOP_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`transition-colors hover:opacity-70 ${inverted ? "hover:text-black/70" : "hover:text-white/70"}`}
+                        >
+                            Shop
+                        </a>
+                    )}
                 </div>
             </div>
         </footer>

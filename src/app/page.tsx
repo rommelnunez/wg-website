@@ -68,9 +68,9 @@ export default function Home() {
             <span className={`font-mono text-[10px] tracking-[0.5em] uppercase mb-4 transition-opacity duration-500 opacity-100 md:opacity-40 ${hovered ? "md:!opacity-100" : ""} md:group-hover:opacity-100`}>
               New Release
             </span>
-            {/* 30% of the old text-4xl / md:text-6xl (2.25rem / 3.75rem) —
-                Tyler asked for the title to come down by 70%. */}
-            <h1 className={`font-display text-[0.675rem] md:text-[1.125rem] tracking-tighter text-white transition-transform duration-700 ${hovered ? "md:scale-105" : ""} md:group-hover:scale-105`}>
+            {/* 70% of the old text-4xl / md:text-6xl (2.25rem / 3.75rem) —
+                Tyler asked for the title to come down to 70% of its size. */}
+            <h1 className={`font-display text-[1.575rem] md:text-[2.625rem] tracking-tighter text-white transition-transform duration-700 ${hovered ? "md:scale-105" : ""} md:group-hover:scale-105`}>
               OUR HERO, BALTHAZAR
             </h1>
             {/* Underline - always visible on mobile, hover-reveal on desktop */}
@@ -88,9 +88,10 @@ export default function Home() {
               is opacity-0 but still block-level, so this does not shift on hover.
               That line is `hidden` on mobile, hence the larger mt-10 there and the
               tighter md:mt-2 on desktop.
-              The mobile margins grew by 24px when the title shrank: that shrink
-              freed ~27px of line height above, so SHOP still sits no lower than
-              before and stays clear of the footer email link on short phones. */}
+              The mobile margins grew by 24px to open up the gap under the title.
+              That pushes SHOP ~22px lower on phones, so if this ever moves again
+              re-check it stays clear of the footer email link on short phones
+              (0 of 200 sampled points blocked at 375x667 and 360x640 as of now). */}
           <a
             href={SHOP_URL}
             target="_blank"

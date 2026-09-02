@@ -88,6 +88,8 @@ export default function Home() {
               is opacity-0 but still block-level, so this does not shift on hover.
               That line is `hidden` on mobile, hence the larger mt-10 there and the
               tighter md:mt-2 on desktop.
+              Type sizes are 130% of the old text-2xl / text-xl / md:text-4xl
+              (1.5rem / 1.25rem / 2.25rem) — Tyler asked for SHOP 30% bigger.
               The mobile margins grew by 24px to open up the gap under the title.
               That pushes SHOP ~22px lower on phones, so if this ever moves again
               re-check it stays clear of the footer email link on short phones
@@ -96,7 +98,7 @@ export default function Home() {
             href={SHOP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="void-flash mt-10 [@media(max-height:700px)]:mt-7 md:mt-2 pointer-events-auto font-void text-2xl [@media(max-height:700px)]:text-xl md:text-4xl leading-none tracking-[0.08em] transition-opacity duration-300 hover:opacity-80"
+            className="void-flash mt-10 [@media(max-height:700px)]:mt-7 md:mt-2 pointer-events-auto font-void text-[1.95rem] [@media(max-height:700px)]:text-[1.625rem] md:text-[2.925rem] leading-none tracking-[0.08em] transition-opacity duration-300 hover:opacity-80"
           >
             SHOP
           </a>

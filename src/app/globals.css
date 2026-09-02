@@ -24,21 +24,25 @@ body {
 /* ============================================================================
    SHOP CTA — ENTER THE VOID TREATMENT
 
-   Hard-cut strobe through fluorescent neon with a matching bloom, after the
-   Gaspar Noe title sequence. steps(1, end) is load-bearing: it snaps between
-   colours instead of interpolating, which is what reads as film-title flicker
-   rather than a gradient wash. Eight frames over 0.72s, ~11 cuts/sec.
+   Hard-cut strobe through fluorescent neon, after the Gaspar Noe title
+   sequence. steps(1, end) is load-bearing: it snaps between colours instead of
+   interpolating, which is what reads as film-title flicker rather than a
+   gradient wash. Eight frames over 0.72s, ~11 cuts/sec.
+
+   The glow is deliberately tight — a 2px tube edge plus a faint 6px halo. An
+   earlier pass layered 4px/14px/30px, which bloomed far enough to soften the
+   letterforms and lose Anton's condensed edges.
    ============================================================================ */
 
 @keyframes void-flash {
-  0%     { color: #ff00c8; text-shadow: 0 0 4px #ff00c8, 0 0 14px #ff00c8, 0 0 30px #ff00c877; }
-  12.5%  { color: #00fff2; text-shadow: 0 0 4px #00fff2, 0 0 14px #00fff2, 0 0 30px #00fff277; }
-  25%    { color: #b6ff00; text-shadow: 0 0 4px #b6ff00, 0 0 14px #b6ff00, 0 0 30px #b6ff0077; }
-  37.5%  { color: #ffe600; text-shadow: 0 0 4px #ffe600, 0 0 14px #ffe600, 0 0 30px #ffe60077; }
-  50%    { color: #ff6a00; text-shadow: 0 0 4px #ff6a00, 0 0 14px #ff6a00, 0 0 30px #ff6a0077; }
-  62.5%  { color: #ff0033; text-shadow: 0 0 4px #ff0033, 0 0 14px #ff0033, 0 0 30px #ff003377; }
-  75%    { color: #8a2bff; text-shadow: 0 0 4px #8a2bff, 0 0 14px #8a2bff, 0 0 30px #8a2bff77; }
-  87.5%  { color: #00b3ff; text-shadow: 0 0 4px #00b3ff, 0 0 14px #00b3ff, 0 0 30px #00b3ff77; }
+  0%     { color: #ff00c8; text-shadow: 0 0 2px #ff00c8, 0 0 6px #ff00c840; }
+  12.5%  { color: #00fff2; text-shadow: 0 0 2px #00fff2, 0 0 6px #00fff240; }
+  25%    { color: #b6ff00; text-shadow: 0 0 2px #b6ff00, 0 0 6px #b6ff0040; }
+  37.5%  { color: #ffe600; text-shadow: 0 0 2px #ffe600, 0 0 6px #ffe60040; }
+  50%    { color: #ff6a00; text-shadow: 0 0 2px #ff6a00, 0 0 6px #ff6a0040; }
+  62.5%  { color: #ff0033; text-shadow: 0 0 2px #ff0033, 0 0 6px #ff003340; }
+  75%    { color: #8a2bff; text-shadow: 0 0 2px #8a2bff, 0 0 6px #8a2bff40; }
+  87.5%  { color: #00b3ff; text-shadow: 0 0 2px #00b3ff, 0 0 6px #00b3ff40; }
 }
 
 .void-flash {
@@ -51,7 +55,7 @@ body {
   .void-flash {
     animation: none;
     color: #ff00c8;
-    text-shadow: 0 0 4px #ff00c8, 0 0 14px #ff00c8, 0 0 30px #ff00c877;
+    text-shadow: 0 0 2px #ff00c8, 0 0 6px #ff00c840;
   }
 }
 

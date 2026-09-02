@@ -90,7 +90,7 @@ export default function Home() {
             href={SHOP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 md:mt-2 pointer-events-auto font-display text-lg md:text-xl font-bold tracking-[0.12em] text-white transition-opacity duration-300 hover:opacity-60"
+            className="void-flash mt-4 [@media(max-height:700px)]:mt-1 md:mt-2 pointer-events-auto font-void text-2xl [@media(max-height:700px)]:text-xl md:text-4xl leading-none tracking-[0.08em] transition-opacity duration-300 hover:opacity-80"
           >
             SHOP
           </a>

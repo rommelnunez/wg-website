@@ -50,6 +50,15 @@ const WATCH_PROVIDERS = [
   },
 ];
 
+// Tubi is the featured (free, ad-supported) option, so it gets its own
+// full-width tile above the WATCH_PROVIDERS row rather than a slot in it.
+// Mirrors the same tile on ourherobalthazar.com.
+const FEATURED_PROVIDER = {
+  label: "Tubi",
+  logo: "/assets/providers/tubi.svg",
+  href: "https://tubitv.com/movies/100066345/our-hero-balthazar",
+};
+
 // Official Trailer on the WG Pictures YouTube channel — same video the OHB
 // site uses. Keep the two in sync if the trailer is ever re-uploaded.
 const TRAILER_ID = "NLzyq75U6G4";
@@ -863,9 +872,31 @@ export default function OurHeroBalthazarPage() {
           <span className="title-banner-text">our hero, balthazar</span>
         </div>
 
+        {/* Featured Tubi tile — full width, on its own row above the three */}
+        <div className="watch-providers">
+          <a
+            href={FEATURED_PROVIDER.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Stream now on ${FEATURED_PROVIDER.label}`}
+            data-track="watch_tubi"
+            className="watch-provider-btn watch-provider-btn--featured"
+          >
+            <span className="watch-provider-lead" aria-hidden="true">
+              Stream now on
+            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={FEATURED_PROVIDER.logo}
+              alt={FEATURED_PROVIDER.label}
+              className="watch-provider-logo watch-provider-logo--tubi"
+            />
+          </a>
+        </div>
+
         {/* Apple TV is deliberately LAST — the row stacks vertically on mobile,
             so the final tile sits lowest and closest to the thumb. */}
-        <div className="watch-providers">
+        <div className="watch-providers watch-providers--secondary">
           {WATCH_PROVIDERS.map((provider) => (
             <a
               key={provider.label}

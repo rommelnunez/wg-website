@@ -65,7 +65,7 @@ The three screening blocks were once loose siblings; they're wrapped in `#specia
 
 ### Provider tiles
 
-`WATCH_PROVIDERS` at the top of the file. Two constraints that look arbitrary but aren't:
+`WATCH_PROVIDERS` at the top of the file, plus `FEATURED_PROVIDER` (Tubi), which renders as its own full-width tile above that row. Two constraints that look arbitrary but aren't:
 
 - **Apple TV must stay LAST.** The row stacks vertically on mobile, so the final tile sits lowest and closest to the thumb (Peter's call).
 - **Tiles are white, not transparent.** The logos are official brand artwork in full colour — Apple TV's mark is `#0d0d0d` and Prime Video's wordmark `#232F3E`, both invisible on black.

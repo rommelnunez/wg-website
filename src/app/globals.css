@@ -189,6 +189,35 @@ body {
     object-fit: contain;
 }
 
+/* Featured Tubi row sits above the row of three; the second row only needs
+   the same gap the tiles use between themselves. */
+.watch-providers--secondary {
+    padding-top: 1rem;
+}
+
+/* Featured Tubi tile: a full-width bar matching the width of the three tiles
+   below it (3 x 17rem + 2 x 1rem gap = 53rem). */
+.watch-provider-btn--featured {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 53rem;
+    gap: 1.5rem;
+}
+
+.watch-provider-lead {
+    font-family: 'Neue Haas Grotesk Text Pro 75 Bold', 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #000;
+    white-space: nowrap;
+}
+
+.watch-provider-logo--tubi {
+    max-height: 3rem;
+}
+
 .watch-note {
     margin: 1.25rem 0 0;
     padding: 0 4vw;
@@ -212,6 +241,19 @@ body {
     }
 
     .watch-provider-logo {
+        max-height: 2.25rem;
+    }
+
+    .watch-provider-btn--featured {
+        width: min(21rem, 100%);
+        gap: 0.875rem;
+    }
+
+    .watch-provider-lead {
+        font-size: 1.375rem;
+    }
+
+    .watch-provider-logo--tubi {
         max-height: 2.25rem;
     }
 }

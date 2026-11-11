@@ -84,7 +84,7 @@ Fired by `OhbTracking.tsx` on `/ourherobalthazar`:
 | Event | When |
 | --- | --- |
 | `ohb_page_view` | page load |
-| `click_watch_apple_tv` / `_prime_video` / `_fandango_at_home` | provider tile clicked |
+| `click_watch_tubi` / `_apple_tv` / `_prime_video` / `_fandango_at_home` | provider tile clicked |
 | `trailer_play` | trailer poster clicked |
 | `scroll_depth` | 25 / 50 / 75 / 100% reached |
 
